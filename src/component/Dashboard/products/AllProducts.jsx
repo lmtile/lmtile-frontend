@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "../../../config/axios";
+import message from "../../../config/message";
 import ProductsCard from "./ProductsCard";
+import { ProductColor } from "../../../helper/Helper";
 
 export default class AllProducts extends Component {
   constructor(props) {
@@ -12,11 +14,16 @@ export default class AllProducts extends Component {
       allSubCatergory: [],
 
       products: [],
+
+      select_category: "",
+      select_sub_category: "",
+      sub_cat: [],
     };
   }
 
   componentDidMount = () => {
     this.getAllProduct();
+    this.getAllcategory();
   };
 
   getAllProduct = () => {
@@ -36,8 +43,35 @@ export default class AllProducts extends Component {
         console.error(err);
       });
   };
+
+  getAllcategory = () => {
+    this.setState({ isLoading: true });
+
+    axios
+      .get("/api/category/get-all-category")
+      .then((res) => {
+        this.setState({ isLoading: false });
+        if (res.data.success) {
+          let { category } = res.data;
+          let allCatergory = category.map((cat) => {
+            return {
+              label: cat.category,
+              value: cat._id,
+              sub_cat: cat.sub_cat,
+            };
+          });
+          this.setState({ allCatergory });
+        }
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false });
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
+
   render() {
-    let { products } = this.state;
+    let { products, allCatergory, sub_cat } = this.state;
     return (
       <div className="lg:flex  bg-base-100">
         <div className="px-10 gap-x-5 mt-20">
@@ -45,35 +79,50 @@ export default class AllProducts extends Component {
             <input type="checkbox" />
             <div className="collapse-title font-bold">Categories</div>
             <div className="collapse-content">
-              {/* {category.map((cat) => (
-                <div key={cat.id}>
-                  <button className=" font-bold text-sm">{cat.category}</button>
+              {allCatergory.map((cat, key) => (
+                <div key={key}>
+                  <button
+                    onClick={() => {
+                      this.setState({
+                        select_category: cat.value,
+                        sub_cat: cat.sub_cat,
+                      });
+                    }}
+                    className="font-bold text-sm"
+                  >
+                    {cat.label}
+                  </button>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
           <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
             <input type="checkbox" />
             <div className="collapse-title font-bold">Type</div>
             <div className="collapse-content">
-              {/* {type.map((cat) => (
-                <div key={cat.id}>
-                  <button className=" font-bold text-sm top-0">
-                    {cat.category}
+              {sub_cat.map((cat, key) => (
+                <div key={key}>
+                  <button
+                    onClick={() => {
+                      this.setState({ select_sub_category: cat.value });
+                    }}
+                    className="font-bold text-sm top-0"
+                  >
+                    {cat.label}
                   </button>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
           <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
             <input type="checkbox" />
             <div className="collapse-title font-bold">Color</div>
             <div className="collapse-content">
-              {/* {color.map((cat) => (
-                <div key={cat.id}>
-                  <button className=" font-bold text-sm">{cat.color}</button>
+              {ProductColor.map((cat, key) => (
+                <div key={key}>
+                  <button className="font-bold text-sm">{cat.label}</button>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
