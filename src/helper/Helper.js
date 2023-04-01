@@ -50,3 +50,5 @@ export const getFileExtension = (file) => {
   let regex = new RegExp("[^.]+$");
   return file.name.match(regex)[0].toLowerCase();
 };
+
+export const BUCKET_DOMAIN = "https://lmtile.s3.us-west-1.amazonaws.com/";
