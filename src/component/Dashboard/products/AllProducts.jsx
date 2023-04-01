@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "../../config/axios";
+import axios from "../../../config/axios";
 import ProductsCard from "./ProductsCard";
 
 export default class AllProducts extends Component {
