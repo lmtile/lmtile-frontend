@@ -9,6 +9,8 @@ import _ from "lodash";
 import LoadingOverlay from "react-loading-overlay";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
 
+const IMAGE_LENGTH = 10;
+
 export default class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -99,20 +101,29 @@ export default class AddProduct extends Component {
     e.persist();
 
     let { formData } = this.state;
-    let file = e.target.files[0];
 
-    let validExtension = ["png", "jpg", "jpeg"];
-    if (file !== undefined) {
-      let extension = getFileExtension(file);
-      if (
-        extension !== undefined &&
-        _.findIndex(validExtension, (exe) => {
-          return exe === extension;
-        }) !== -1
-      ) {
-        formData.images.push(file);
-      } else {
-        message.error("The file format is not supported");
+    let len = Math.min(
+      IMAGE_LENGTH - formData.images.length,
+      e.target.files.length
+    );
+
+    console.log(formData.images.length, e.target.files.length, len);
+
+    for (let i = 0; i < len; i++) {
+      let file = e.target.files[i];
+      let validExtension = ["png", "jpg", "jpeg"];
+      if (file !== undefined) {
+        let extension = getFileExtension(file);
+        if (
+          extension !== undefined &&
+          _.findIndex(validExtension, (exe) => {
+            return exe === extension;
+          }) !== -1
+        ) {
+          formData.images.push(file);
+        } else {
+          message.error("The file format is not supported");
+        }
       }
     }
 
@@ -271,8 +282,8 @@ export default class AddProduct extends Component {
 
             <p className="font-bold ml-2">Add Product images *</p>
             <p className="mt-1">
-              First image is your product cover image that
-              will be highlighted everywhere
+              First image is your product cover image that will be highlighted
+              everywhere
             </p>
             <div className="flex flex-wrap">
               {formData.images &&
@@ -302,18 +313,21 @@ export default class AddProduct extends Component {
                     </div>
                   );
                 })}
-              {formData.images.length < 6 && (
+              {formData.images.length < IMAGE_LENGTH && (
                 <div className="flex items-center justify-center px-3">
                   <label
                     htmlFor="image-upload"
                     className="relative  p-10 cursor-pointer bg-white rounded-md font-medium text-indigo-600 
                     border border-dotted border-indigo-600"
                   >
-                    <span><img src={upload_img_icon} alt="" /></span>
+                    <span>
+                      <img src={upload_img_icon} alt="Lm tile" />
+                    </span>
                     <input
                       id="image-upload"
                       name="image-upload"
                       type="file"
+                      accept="image/png, image/jpg, image/jpeg"
                       multiple
                       className="sr-only"
                       onChange={this.handleImages}
