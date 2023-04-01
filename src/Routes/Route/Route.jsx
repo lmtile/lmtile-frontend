@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import AllProducts from "../../component/Dashboard/AllProducts";
+import AllProducts from "../../component/Dashboard/products/AllProducts";
 import Appointment from "../../component/Dashboard/Appointment/Appointment";
-import AddProduct from "../../component/Dashboard/Carpet/AddProduct";
+import AddProduct from "../../component/Dashboard/products/AddProduct";
 import DashboardHome from "../../component/Dashboard/DashboardHome/DashboardHome";
 import AddOfferProduct from "../../component/Dashboard/Offers/AddOfferProduct";
 import AddPosterOffer from "../../component/Dashboard/Offers/AddPosterOffer";
@@ -268,7 +268,6 @@ const router = createBrowserRouter([
         path: "/dashboard/add-package",
         element: <AddPackage />,
       },
-      
     ],
   },
 ]);
