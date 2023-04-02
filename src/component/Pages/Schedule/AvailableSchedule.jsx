@@ -3,7 +3,7 @@ import BookingModal from "./BookingModal/BookingModal";
 import ScheduleOption from "./ScheduleOption";
 import moment from "moment";
 
-const AvailableSchedule = ({ selectedDate, slots }) => {
+const AvailableSchedule = ({ selectedDate, slots, setLoading }) => {
   const [appointment, setAppointment] = useState(false);
 
   return (
@@ -19,6 +19,7 @@ const AvailableSchedule = ({ selectedDate, slots }) => {
           selectedDate={selectedDate}
           slots={slots}
           setAppointment={setAppointment}
+          setLoading={setLoading}
         />
       )}
     </section>

@@ -60,7 +60,11 @@ const Schedule = () => {
               setSelectedDate(e);
             }}
           />
-          <AvailableSchedule selectedDate={slotDate} slots={slots} />
+          <AvailableSchedule
+            selectedDate={slotDate}
+            slots={slots}
+            setLoading={setLoading}
+          />
         </div>
 
         {/* offer section */}
