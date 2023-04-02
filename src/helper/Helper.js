@@ -52,3 +52,8 @@ export const getFileExtension = (file) => {
 };
 
 export const BUCKET_DOMAIN = "https://lmtile.s3.us-west-1.amazonaws.com/";
+
+export const DATE_TIME_HELPER = {
+  DATE_FORMAT: "MM-DD-YYYY",
+  DATE_TIME_FORMAT: "MM-DD-YYYY hh:mm",
+};

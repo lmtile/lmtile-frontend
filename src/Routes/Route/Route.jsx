@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/schedule",
-        element: <Schedule></Schedule>,
+        element: <Schedule />,
       },
       {
         path: "/offerSchedule",

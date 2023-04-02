@@ -1,167 +1,289 @@
-import { message } from 'antd';
-import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
-import axios from '../../../../config/axios';
+import React, { Component } from "react";
+import axios from "../../../../config/axios";
+import message from "../../../../config/message";
+import validation from "../../../../helper/validator";
+import moment from "moment";
 
+export default class BookingModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
 
-const BookingModal = ({ appointment, setAppointment, selectedDate }) => {
-    // treatment is just another name of appointmentOptions with name, slots, _id
-    const { name, slots, products } = appointment;
-    const appoint_date = format(selectedDate, 'MM-dd-yyyy');
+      allCatergory: [],
 
-    const initialValues = { type: "", office_name: "", date: "", time: "", product_name: "", name: "", email: "", phone: "", city: "", address: "" };
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
+      formData: {
+        type: "",
+        date: this.props.selectedDate,
+        office_name: "",
+        name: "",
+        time: "",
+        product_name: "",
+        email: "",
+        phone: "",
+        city: "",
+        address: "",
+      },
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value, date: appoint_date });
+      error: {},
+    };
+  }
+
+  componentDidMount = () => {
+    this.getAllcategory();
+  };
+
+  getAllcategory = () => {
+    this.setState({ isLoading: true });
+
+    axios
+      .get("/api/category/get-all-category")
+      .then((res) => {
+        this.setState({ isLoading: false });
+        if (res.data.success) {
+          let { category } = res.data;
+          let allCatergory = category.map((cat) => {
+            return {
+              label: cat.category,
+              value: cat._id,
+              sub_cat: cat.sub_cat,
+            };
+          });
+          this.setState({ allCatergory });
+        } else {
+          message.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false });
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
+
+  handleChange = (e) => {
+    let { name, value } = e.target;
+
+    let { formData, error } = this.state;
+
+    formData[name] = value;
+
+    this.setState({ formData });
+
+    const valid_obj = {
+      value,
+      rules: e.target.getAttribute("validaterule"),
+      message: e.target.getAttribute("validatemsg"),
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
-        axios
-            .post("/api/appointment/book-appointment", formValues, {
-                headers: {
-                    token: localStorage.getItem("token"),
-                    "Content-Type": "multipart/form-data",
-                },
-            })
-            .then((res) => {
-                setIsSubmit();
+    validation(valid_obj).then((err) => {
+      error[name] = err;
+      this.setState({ error });
+    });
+  };
 
-                if (res.data.success) {
-                    message.success(res.data.message);
-                    setIsSubmit({
-                        formData: {
-                            type: "", office_name: "", date: "", time: "", product_name: "", name: "", email: "", phone: "", city: "", address: ""
-                        },
-                    });
-                } else {
-                    message.error(res.data.message);
-                }
-            })
-            .catch((err) => {
-                setIsSubmit();
-                console.error(err);
-                message.error("Something went wrong!!!");
-            });
-
-    };
-
-    useEffect(() => {
-        console.log(formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
-        }
-    }, [formErrors]);
-    const validate = (values) => {
-        const errors = {};
-        if (!values.type) {
-            errors.property_type = "property_type is required!";
-        }
-        if (!values.time) {
-            errors.slot = "slot is required!";
-        }
-        if (!values.product_name) {
-            errors.product = "product is required!";
-        }
-        if (!values.coupon_code) {
-            errors.coupon_code = "coupon_code is required!";
-        }
-        if (!values.name) {
-            errors.name = "name is required!";
-        }
-        if (!values.email) {
-            errors.email = "email is required!";
-        }
-        if (!values.phone) {
-            errors.phone = "phone is required!";
-        }
-        if (!values.city) {
-            errors.city = "city is required!";
-        }
-        if (!values.address) {
-            errors.street_address = "city is required!";
-        }
-
-        return errors;
-
+  isValidForm = (errors) => {
+    let isValid = true;
+    for (const [, value] of Object.entries(errors)) {
+      if (value.length > 0) {
+        isValid = false;
+      }
     }
+    return isValid;
+  };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let { formData, error } = this.state;
 
+    if (this.isValidForm(error)) {
+      this.props.setLoading(true);
+
+      axios
+        .post("/api/appointment/book-appointment", formData)
+        .then((res) => {
+          this.props.setLoading(false);
+          if (res.data.success) {
+            message.success(res.data.message);
+          } else {
+            message.error(res.data.message);
+          }
+        })
+        .catch((err) => {
+          this.props.setLoading(false);
+          console.error(err);
+          message.error("Something went wrong!!");
+        });
+    }
+  };
+
+  render() {
+    let { formData, error, allCatergory } = this.state;
     return (
-        <>
-            <input type="checkbox" id="booking-modal" className="modal-toggle" />
-            <div className="modal">
-                <div className="modal-box relative">
-                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{name}</h3>
-                    <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 mt-10'>
-                        <p className='font-bold ml-2'>Property type</p>
-                        <select name='type' className="select w-full input-bordered" value={formValues.property_type} onChange={handleChange} >
-                            <option>Select an option</option>
-                            <option>Home</option>
-                            <option>Office</option>
-                        </select>
-                        <p className='text-red-800'>{formErrors.type}</p>
-                        <p className='font-bold ml-2'>Office Name</p>
-                        <input name='office_name' placeholder='if you select the office property please give the office name' type="text" className="input w-full input-bordered " />
-                        <p className='font-bold ml-2'>Date</p>
-                        <p name="date" className='input pt-2' disabled >{appoint_date}</p>
-                        {/* <input name='date' type="text" disabled className="input w-full input-bordered " value={date} onChange={handleChange} /> */}
-                        <p className='font-bold ml-2'>Time</p>
-                        <select name="time" className="select select-bordered w-full" value={formValues.time} onChange={handleChange}>
-                            <option>Select an option</option>
-                            {
-                                slots.map((slot, i) => <option
-                                    value={slot}
-                                    key={i}
-                                >{slot}</option>)
-                            }
-                        </select>
-                        <p className='font-bold ml-2'>Product</p>
-                        <select name="product_name" className="select select-bordered w-full " value={formValues.product_name} onChange={handleChange}>
-                            <option>Select an option</option>
-                            {
-                                products.map((product, i) => <option
-                                    value={product}
-                                    key={i}
-                                >{product}</option>)
-                            }
-                        </select>
-                        <p className='text-red-800'>{formErrors.product_name}</p>
-                        <p className='font-bold ml-2'>Name</p>
-                        <input name="name" type="text" placeholder="Your Name" className="input w-full input-bordered" value={formValues.name} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.name}</p>
+      <>
+        <input type="checkbox" id="booking-modal" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box relative">
+            <label
+              htmlFor="booking-modal"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            {/* <h3 className="text-lg font-bold"></h3> */}
+            <form
+              onSubmit={this.handleSubmit}
+              className="grid grid-cols-1 gap-3 mt-10"
+            >
+              <p className="font-bold ml-2">Property type</p>
+              <select
+                name="type"
+                className="select w-full input-bordered"
+                value={formData.type}
+                onChange={this.handleChange}
+                validaterule={["required"]}
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="home">Home</option>
+                <option value="office">Office</option>
+              </select>
+              <p className="text-red-800">{error.type}</p>
 
-                        <p className='font-bold ml-2'>Email</p>
-                        <input name="email" type="email" placeholder="Email Address" className="input w-full input-bordered" value={formValues.email} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.email}</p>
+              {formData.type === "office" && (
+                <>
+                  <p className="font-bold ml-2">Office Name</p>
+                  <input
+                    name="office_name"
+                    placeholder="Office Name"
+                    type="text"
+                    className="input w-full input-bordered"
+                    required
+                    onChange={this.handleChange}
+                    validaterule={["required"]}
+                  />
+                  <p className="text-red-800">{error.office_name}</p>
+                </>
+              )}
 
-                        <p className='font-bold ml-2'>Phone</p>
-                        <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" value={formValues.phone} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.phone}</p>
+              <p className="font-bold ml-2">Date</p>
+              <p name="date" className="input pt-2" disabled>
+                {formData.date}
+              </p>
 
-                        <p className='font-bold ml-2'>City</p>
-                        <input name="city" type="text" placeholder="City" className="input w-full input-bordered" value={formValues.city} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.city}</p>
+              <p className="font-bold ml-2">Time</p>
+              <select
+                name="time"
+                className="select select-bordered w-full"
+                value={formData.time}
+                required
+                onChange={this.handleChange}
+                validaterule={["required"]}
+              >
+                <option value="">Select an option</option>
+                {this.props.slots.map((slot, i) => {
+                  return (
+                    <option value={slot.to} key={i}>
+                      {moment(slot.to, "hh:mm").format("hh:mm a")} -{" "}
+                      {moment(slot.from, "hh:mm").format("hh:mm a")}
+                    </option>
+                  );
+                })}
+              </select>
+              <p className="text-red-800">{error.time}</p>
 
-                        <p className='font-bold ml-2'>Street Address</p>
-                        <input name="address" type="text" placeholder="Street Address" className="input w-full input-bordered" value={formValues.address} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.address}</p>
+              <p className="font-bold ml-2">Product</p>
+              <select
+                name="product_name"
+                className="select select-bordered w-full "
+                value={formData.product_name}
+                required
+                validaterule={["required"]}
+                onChange={this.handleChange}
+              >
+                <option value="">Select an option</option>
+                {allCatergory.map((product, i) => (
+                  <option value={product.label} key={i}>
+                    {product.label}
+                  </option>
+                ))}
+              </select>
+              <p className="text-red-800">{error.product_name}</p>
+              <p className="font-bold ml-2">Name</p>
+              <input
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                className="input w-full input-bordered"
+                value={formData.name}
+                required
+                onChange={this.handleChange}
+                validaterule={["required", "isName"]}
+              />
+              <p className="text-red-800">{error.name}</p>
 
-                        <br />
-                        <input className='btn btn-primary w-full' type="submit" value="Submit" />
-                    </form>
-                </div>
-            </div>
-        </>
+              <p className="font-bold ml-2">Email</p>
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="Email Address"
+                className="input w-full input-bordered"
+                value={formData.email}
+                onChange={this.handleChange}
+                validaterule={["required", "isEmail"]}
+              />
+              <p className="text-red-800">{error.email}</p>
+
+              <p className="font-bold ml-2">Phone</p>
+              <input
+                name="phone"
+                type="text"
+                placeholder="Phone Number"
+                className="input w-full input-bordered"
+                value={formData.phone}
+                onChange={this.handleChange}
+                required
+                validaterule={["required"]}
+              />
+              <p className="text-red-800">{error.phone}</p>
+
+              <p className="font-bold ml-2">City</p>
+              <input
+                name="city"
+                type="text"
+                placeholder="City"
+                className="input w-full input-bordered"
+                value={formData.city}
+                onChange={this.handleChange}
+                required
+                validaterule={["required"]}
+              />
+              <p className="text-red-800">{error.city}</p>
+
+              <p className="font-bold ml-2">Street Address</p>
+              <input
+                name="address"
+                type="text"
+                placeholder="Street Address"
+                className="input w-full input-bordered"
+                value={formData.address}
+                onChange={this.handleChange}
+                required
+                validaterule={["required"]}
+              />
+              <p className="text-red-800">{error.address}</p>
+
+              <br />
+              <input
+                className="btn btn-primary w-full"
+                type="submit"
+                value="Submit"
+              />
+            </form>
+          </div>
+        </div>
+      </>
     );
-};
-
-export default BookingModal;
+  }
+}
