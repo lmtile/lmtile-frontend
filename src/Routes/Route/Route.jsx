@@ -47,11 +47,11 @@ import LmtileWorks from "../../component/Pages/LmtileWorks/LmtileWorks";
 import NextDay from "../../component/Pages/LmtileWorks/NextDay";
 import Offers from "../../component/Pages/Offers/Offers";
 import OfferSchedule from "../../component/Pages/Offers/Schedule/OfferSchedule";
-import SingleProduct from "../../component/Pages/Product/SingleProduct";
 import Schedule from "../../component/Pages/Schedule/Schedule";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import UserAllProducts from "../../component/Pages/Product/UserAllProducts";
+import ProductDetails from "../../component/Pages/Product/Product-Details";
 
 const router = createBrowserRouter([
   {
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product-details/:id",
-        element: <SingleProduct></SingleProduct>,
+        element: <ProductDetails />,
       },
       {
         path: "/carpetCategory",
