@@ -52,6 +52,7 @@ import SingleProduct from "../../component/Pages/Product/SingleProduct";
 import Schedule from "../../component/Pages/Schedule/Schedule";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import UserAllProducts from "../../component/Pages/Product/UserAllProducts";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
+      },
+      {
+        path: "/products/:category",
+        element: <UserAllProducts />,
       },
       {
         path: "/schedule",
@@ -68,11 +73,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/offerSchedule",
-        element: <OfferSchedule></OfferSchedule>,
+        element: <OfferSchedule />,
       },
       {
         path: "/lmtileWorks",
-        element: <LmtileWorks></LmtileWorks>,
+        element: <LmtileWorks />,
       },
       {
         path: "/convenience",
@@ -84,7 +89,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/carpet",
-        element: <Carpet></Carpet>,
+        element: <Carpet />,
       },
       {
         path: "/singleProduct",
