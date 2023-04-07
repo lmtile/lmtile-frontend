@@ -8,6 +8,7 @@ import validation from "../../../helper/validator";
 import _ from "lodash";
 import LoadingOverlay from "react-loading-overlay";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
+import config from "../../../config/config";
 
 const IMAGE_LENGTH = 10;
 
@@ -153,12 +154,7 @@ export default class AddProduct extends Component {
     this.setState({ isLoading: true });
 
     axios
-      .post("/api/product/add-product", data, {
-        headers: {
-          token: localStorage.getItem("token"),
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post("/api/product/add-product", data, config)
       .then((res) => {
         this.setState({ isLoading: false });
 
