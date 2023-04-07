@@ -42,7 +42,7 @@ const OffersModal = () => {
                         <div className='mt-10 text-center bg-base-300 p-10'>
                             <h1 className='text-4xl font-bold'>READY TO GET STARTED?</h1>
                             <p className='text-xl'>Schedule a FREE IN-HOME ESTIMATE</p>
-                            <Link to={'/schedule'}><button className="btn btn-outline text-bold mt-5 rounded-none">BOOK A FREE APPOINTMENT</button></Link>
+                            <Link to={'/offerSchedule'}><button className="btn btn-outline text-bold mt-5 rounded-none">BOOK A FREE APPOINTMENT</button></Link>
                         </div>
                         <div className="modal-action">
                             <label htmlFor="my-modal-5" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>

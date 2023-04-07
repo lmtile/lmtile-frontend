@@ -50,6 +50,17 @@ const ForBusiness = () => {
                 </div>
             </div>
             <SeeFloor></SeeFloor>
+
+            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:px-32 p-12'>
+                <div>
+                    <h1 className='text-4xl font-bold mb-10 mt-12 text-center text-red-800'>Commercial Flooring Resource Center</h1>
+                    <h1 className='text-3xl font-bold mb-10 text-red-800'>5 Questions to Ask Yourself Before Choosing New Floors for Your Business</h1>
+                    <p className='text-gray-500 text-lg'>Here at Empire Today, we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process, there are important questions you should ask yourself before choosing new flooring for your business. Five to be exact. <Link to={'/questions'}><u className='text-red-800 font-bold'>Read More</u></Link></p>
+                </div>
+                <div>
+                    <img src={img1} alt="" />
+                </div>
+            </div>
             
             <div className='text-center bg-red-800 px-10 py-5 lg:mx-40 lg:mb-20 my-10'>
                 <h1 className='text-4xl font-bold text-white'>WHAT'S DIFFERENT ABOUT LM-TILE?</h1>
@@ -60,7 +71,7 @@ const ForBusiness = () => {
                             <h1 className=" text-2xl font-bold text-red-800">Shop-at-Home Convenience</h1>
                             <h1 className=" text-3xl font-bold">SEE FLOORING SAMPLES In Your Home</h1>
                             <p className="py-6 text-gray-600">Empire brings the store to you, so don’t have to spend time driving all over town shopping. A knowledgeable flooring professional will bring hundreds of samples right to your home and help you pick the best floor for your needs and budget.</p>
-                            <Link><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
+                            <Link to={'/convenience'}><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
@@ -82,7 +93,7 @@ const ForBusiness = () => {
                             <h1 className=" text-2xl font-bold text-red-800">Professional Installation</h1>
                             <h1 className=" text-3xl font-bold">GET NEW FLOORS as soon as Next Day</h1>
                             <p className="py-6 text-gray-600">You don’t have to wait weeks for new floors. Because we stock hundreds of floors, you can get installation as soon as next day. We utilize the best crews and are here to make sure you are happy with every detail of your custom installation.</p>
-                            <Link><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
+                            <Link to={'/nextDay'}><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
@@ -93,22 +104,12 @@ const ForBusiness = () => {
                             <h1 className=" text-2xl font-bold text-red-800">All-Inclusive Price Estimate</h1>
                             <h1 className=" text-3xl font-bold">UPFRONT PRICING, No Hidden Fees</h1>
                             <p className="py-6 text-gray-600">Empire takes the guesswork out of knowing how much new floors will cost. During your in-home consultation, you will get an all-inclusive price estimate, so you know what your project will cost.</p>
-                            <Link><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
+                            <Link to={'/forBusiness'}><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:px-32 p-12'>
-                <div>
-                    <h1 className='text-4xl font-bold mb-10 mt-12 text-center text-red-800'>Commercial Flooring Resource Center</h1>
-                    <h1 className='text-3xl font-bold mb-10 text-red-800'>5 Questions to Ask Yourself Before Choosing New Floors for Your Business</h1>
-                    <p className='text-gray-500 text-lg'>Here at Empire Today, we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process, there are important questions you should ask yourself before choosing new flooring for your business. Five to be exact. <Link to={'/questions'}><u className='text-red-800 font-bold'>Read More</u></Link></p>
-                </div>
-                <div>
-                    <img src={img1} alt="" />
-                </div>
-            </div>
 
             <div className='my-20 text-center'>
                 <h1 className='text-4xl font-bold'>READY TO GET STARTED?</h1>

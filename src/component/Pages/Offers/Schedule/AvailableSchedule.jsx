@@ -11,6 +11,7 @@ const AvailableSchedule = ({ selectedDate, slots, setLoading }) => {
       <p className="text-center text-primary font-bold">
         Available Appointments on {moment(selectedDate).format("LL")}
       </p>
+      <h4 className="text-xl font-bold text-center my-1">Appointment for offer products</h4>
       <div className="grid gap-6 grid-cols-1 mt-6 ">
         <ScheduleOption slots={slots} setAppointment={setAppointment} />
       </div>
