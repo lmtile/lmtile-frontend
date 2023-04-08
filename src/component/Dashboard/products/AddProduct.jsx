@@ -108,8 +108,6 @@ export default class AddProduct extends Component {
       e.target.files.length
     );
 
-    console.log(formData.images.length, e.target.files.length, len);
-
     for (let i = 0; i < len; i++) {
       let file = e.target.files[i];
       let validExtension = ["png", "jpg", "jpeg"];
