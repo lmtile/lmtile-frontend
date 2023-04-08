@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from "react";
 import { format } from "date-fns";
 import axios from "../../../config/axios";
+import config from "../../../config/config";
 import message from "../../../config/message";
 import DataTable from "react-data-table-component";
 import LoadingOverlay from "react-loading-overlay";
@@ -114,7 +115,8 @@ export default class Appointment extends Component {
 
     axios
       .get(
-        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}`
+        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}`,
+        config
       )
       .then((res) => {
         this.setState({ isLoading: false });
@@ -122,6 +124,8 @@ export default class Appointment extends Component {
         if (res.data.success) {
           let { appointments, total } = res.data;
           this.setState({ appointments, total });
+        } else {
+          message.error(res.data.message);
         }
       })
       .catch((err) => {
