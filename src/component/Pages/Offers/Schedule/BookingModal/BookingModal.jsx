@@ -19,7 +19,7 @@ export default class BookingModal extends Component {
         name: "",
         time: "",
         product_name: "",
-        coupon_code:"",
+        cupon_code:"",
         email: "",
         phone: "",
         city: "",
@@ -212,11 +212,11 @@ export default class BookingModal extends Component {
               <p className="text-red-800">{error.product_name}</p>
               <p className="font-bold ml-2">Coupon Code</p>
               <input
-                name="coupon_code"
+                name="cupon_code"
                 type="text"
                 placeholder="Code"
                 className="input w-full input-bordered"
-                value={formData.coupon_code}
+                value={formData.cupon_code}
                 required
                 onChange={this.handleChange}
                 validaterule={["required", "isName"]}

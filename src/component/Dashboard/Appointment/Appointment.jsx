@@ -45,7 +45,7 @@ const COLUMNS = [
     name: "Email",
     selector: (row) => row.email,
     //   sortable: true,
-    width: "150px",
+    width: "200px",
   },
 
   {
@@ -58,6 +58,24 @@ const COLUMNS = [
   {
     name: "Product",
     selector: (row) => row.product_name,
+    // sortable: true,
+    width: "100px",
+  },
+  {
+    name: "Coupon Code",
+    selector: (row) => row.cupon_code,
+    // sortable: true,
+    width: "150px",
+  },
+  {
+    name: "City",
+    selector: (row) => row.city,
+    // sortable: true,
+    width: "100px",
+  },
+  {
+    name: "Street",
+    selector: (row) => row.address,
     // sortable: true,
     width: "100px",
   },
@@ -260,6 +278,7 @@ function Appointmentert6e() {
             <th className="px-4 py-2">Coupon Code</th>
             <th className="px-4 py-2">City</th>
             <th className="px-4 py-2">Street</th>
+            <th className="px-4 py-2">Action</th>
           </tr>
         </thead>
         <tbody>

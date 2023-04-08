@@ -7,6 +7,8 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import _ from "lodash";
 import { DATE_TIME_HELPER, getFileExtension } from "../../../helper/Helper";
+import { upload_img_icon } from "../../../assets/img";
+
 
 export default class AddOfferProduct extends Component {
   constructor(props) {
@@ -90,6 +92,12 @@ export default class AddOfferProduct extends Component {
       }
     }
 
+    this.setState({ formData });
+  };
+
+  deleteImage = (pos) => {
+    let { formData } = this.state;
+    formData.banner.splice(pos, 0);
     this.setState({ formData });
   };
 
@@ -239,39 +247,60 @@ export default class AddOfferProduct extends Component {
             </div>
 
             <div>
-              <label className="block font-medium text-sm text-gray-700">
+              <label className="block font-medium text-sm text-gray-700 ">
                 Upload Image
               </label>
-              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-md">
                 <div className="space-y-1 text-center">
                   {formData.banner && (
-                    <div>
+                    <div className="w-full  bg-gray-100 rounded overflow-hidden mr-2 relative mb-5">
                       <img
-                        className="w-full h-64 object-cover rounded-md"
                         src={URL.createObjectURL(formData.banner)}
                         alt="Lmtile"
                       />
+                      <button
+                        className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                        onClick={() => this.deleteImage(formData.banner.index)}
+                      >
+                        <svg
+                          className="h-3 w-3"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
                   )}
-                  <div className="flex items-center justify-center">
-                    <label
-                      htmlFor="image-upload"
-                      className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                    >
-                      <span>Upload a file</span>
-                      <input
-                        id="image_upload"
-                        name="image_upload"
-                        type="file"
-                        accept="image/png, image/jpg, image/jpeg"
-                        className="sr-only"
-                        onChange={this.handleImages}
-                      />
-                    </label>
+                  {formData.banner.length < 1 && (
+                    <div className="flex items-center justify-center px-3">
+                      <label
+                        htmlFor="image-upload"
+                        className="relative  p-10 cursor-pointer bg-white rounded-md font-medium text-indigo-600 
+                    border border-dotted border-indigo-600"
+                      >
+                        <span>
+                          <img src={upload_img_icon} alt="Lm tile" />
+                        </span>
+                        <input
+                          id="image-upload"
+                          name="image-upload"
+                          type="file"
+                          accept="image/png, image/jpg, image/jpeg"
+                          multiple
+                          className="sr-only"
+                          onChange={this.handleImages}
+                        />
+                      </label>
+                    </div>
+                  )}
                   </div>
                 </div>
               </div>
-            </div>
 
             <br />
             <button className="btn btn-primary w-full" type="submit">

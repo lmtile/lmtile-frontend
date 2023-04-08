@@ -19,7 +19,7 @@ const CustomerService = () => {
                             <h1 className=" text-3xl font-bold text-red-800">CALL US</h1>
                             <p className="py-6 text-gray-600">Call us at 281-861-6970, we’re available 24/7, or you can request a call, enter your phone number and we’ll call you back.</p>
                             <h1 className=" text-3xl font-bold text-red-800">LIVE CHAT OR EMAIL US</h1>
-                            <p className="py-6 text-gray-600">LIVE CHAT now with one of our customer service representatives or contact us via email, we’ll respond within 1-2 business days.</p>
+                            <p className="py-6 text-gray-600">LIVE CHAT now with one of our customer service representatives or contact us via email <u className='text-blue-700'>info@lmtiles.com</u>, we’ll respond within 1-2 business days.</p>
                         </div>
                     </div>
                 </div>

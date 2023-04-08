@@ -52,6 +52,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import UserAllProducts from "../../component/Pages/Product/UserAllProducts";
 import ProductDetails from "../../component/Pages/Product/Product-Details";
+import ViewAppointment from "../../component/Dashboard/Appointment/ViewAppointment";
 
 const router = createBrowserRouter([
   {
@@ -247,6 +248,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/appointments",
         element: <Appointment />,
+      },
+      {
+        path: "/dashboard/view-appointments",
+        element: <ViewAppointment/>,
       },
       {
         path: "/dashboard/all-products",

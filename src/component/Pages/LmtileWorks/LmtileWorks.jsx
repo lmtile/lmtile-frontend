@@ -35,7 +35,7 @@ const LmtileWorks = () => {
                 </div>
             </div>
             <div className='text-center'>
-                <Link to={'/schedule'}><p className='btn btn-primary my-10'>BOOK A FREE APPOINTMENT</p></Link>
+                <Link to={'/schedule'}><p className='btn btn-outline rounded-none my-10'>BOOK A FREE APPOINTMENT</p></Link>
             </div>
 
             <div className='text-center bg-red-800 px-10 py-5 lg:mx-40 lg:mb-20'>
@@ -46,8 +46,8 @@ const LmtileWorks = () => {
                         <div>
                             <h1 className=" text-2xl font-bold text-blue-600">Shop-at-Home Convenience</h1>
                             <h1 className=" text-3xl font-bold">SEE FLOORING SAMPLES In Your Home</h1>
-                            <p className="py-6 text-gray-600">Empire brings the store to you, so don’t have to spend time driving all over town shopping. A knowledgeable flooring professional will bring hundreds of samples right to your home and help you pick the best floor for your needs and budget.</p>
-                            <Link><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
+                            <p className="py-6 text-gray-600">LM-Tile brings the store to you, so don’t have to spend time driving all over town shopping. A knowledgeable flooring professional will bring hundreds of samples right to your home and help you pick the best floor for your needs and budget.</p>
+                            <Link to={'/convenience'}><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,6 @@ const LmtileWorks = () => {
                             <h1 className=" text-2xl font-bold text-blue-600">Quality, Name-Brand Products</h1>
                             <h1 className=" text-3xl font-bold">QUALITY You Can Count On</h1>
                             <p className="py-6 text-gray-600">Everything Lm-Tile offers is handpicked to be durable and long-lasting – from brands you know and trust, the same ones you’ll find in stores. Plus, have peace of mind because everything we offer is backed by some of the best warranties in the industry.</p>
-                            <Link><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
@@ -69,7 +68,7 @@ const LmtileWorks = () => {
                             <h1 className=" text-2xl font-bold text-blue-600">Professional Installation</h1>
                             <h1 className=" text-3xl font-bold">GET NEW FLOORS as soon as Next Day</h1>
                             <p className="py-6 text-gray-600">You don’t have to wait weeks for new floors. Because we stock hundreds of floors, you can get installation as soon as next day. We utilize the best crews and are here to make sure you are happy with every detail of your custom installation.</p>
-                            <Link><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
+                            <Link to={'/nextDay'}><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
@@ -79,8 +78,8 @@ const LmtileWorks = () => {
                         <div>
                             <h1 className=" text-2xl font-bold text-blue-600">All-Inclusive Price Estimate</h1>
                             <h1 className=" text-3xl font-bold">UPFRONT PRICING, No Hidden Fees</h1>
-                            <p className="py-6 text-gray-600">Empire takes the guesswork out of knowing how much new floors will cost. During your in-home consultation, you will get an all-inclusive price estimate, so you know what your project will cost.</p>
-                            <Link><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
+                            <p className="py-6 text-gray-600">LM-Tile takes the guesswork out of knowing how much new floors will cost. During your in-home consultation, you will get an all-inclusive price estimate, so you know what your project will cost.</p>
+                            <Link to={'/forBusiness'}><p className='font-bold text-lg text-blue-600'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
                 </div>
