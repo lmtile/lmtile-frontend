@@ -133,7 +133,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/offers",
-        element: <Offers></Offers>,
+        element: <Offers />,
       },
       {
         path: "/customerService",
@@ -251,7 +251,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/view-appointments",
-        element: <ViewAppointment/>,
+        element: <ViewAppointment />,
       },
       {
         path: "/dashboard/all-products",
