@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import _ from "lodash";
 import { DATE_TIME_HELPER, getFileExtension } from "../../../helper/Helper";
 import { upload_img_icon } from "../../../assets/img";
-
+import config from "../../../config/config";
 
 export default class AddOfferProduct extends Component {
   constructor(props) {
@@ -118,7 +118,7 @@ export default class AddOfferProduct extends Component {
     this.setState({ isLoading: true });
 
     axios
-      .post("/api/offer/add-offer-product", data)
+      .post("/api/offer/add-offer-product", data, config)
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
@@ -170,7 +170,7 @@ export default class AddOfferProduct extends Component {
 
             <div className="flex">
               <div>
-                <p className="font-bold ml-2">Product Name</p>
+                <p className="font-bold ml-2">Product Name *</p>
                 <select
                   name="product_category"
                   required
@@ -179,7 +179,7 @@ export default class AddOfferProduct extends Component {
                   value={formData.product_category}
                   onChange={this.handleChange}
                 >
-                  <option value="">Select Product *</option>
+                  <option value="">Select Product</option>
 
                   {allCatergory.map((category, key) => {
                     return (
@@ -298,9 +298,9 @@ export default class AddOfferProduct extends Component {
                       </label>
                     </div>
                   )}
-                  </div>
                 </div>
               </div>
+            </div>
 
             <br />
             <button className="btn btn-primary w-full" type="submit">
