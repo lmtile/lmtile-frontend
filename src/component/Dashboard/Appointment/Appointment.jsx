@@ -102,6 +102,8 @@ export default class Appointment extends Component {
       search: "",
 
       appointments: [],
+
+      selected_rows: [],
     };
   }
 
@@ -147,8 +149,35 @@ export default class Appointment extends Component {
     });
   };
 
+  deleteAppointment = () => {
+    if (window.confirm("Are you sure, you want to delete Appointment?")) {
+      this.setState({ isLoading: true });
+
+      axios
+        .post(
+          "/api/appointment/delete-appointments",
+          { ids: this.state.selected_rows },
+          config
+        )
+        .then((res) => {
+          this.setState({ isLoading: false });
+          if (res.data.success) {
+            message.success(res.data.message);
+            this.getAllAppointments();
+          } else {
+            message.error(res.data.message);
+          }
+        })
+        .catch((err) => {
+          this.setState({ isLoading: false });
+          console.error(err);
+          message.error("Something went wrong!!!");
+        });
+    }
+  };
+
   render() {
-    let { appointments, total, per_page, page } = this.state;
+    let { appointments, total, per_page, page, selected_rows } = this.state;
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <div className="w-full">
@@ -163,6 +192,17 @@ export default class Appointment extends Component {
               //   this.setState({})
               // }}
             />
+
+            <button
+              type="button"
+              className={`px-8 py-3 text-white bg-red-${
+                selected_rows.length === 0 ? "300" : "600"
+              } rounded focus:outline-none`}
+              disabled={selected_rows.length === 0}
+              onClick={this.deleteAppointment}
+            >
+              DELETE
+            </button>
           </div>
 
           <DataTable
@@ -175,8 +215,11 @@ export default class Appointment extends Component {
             subHeaderWrap
             theme="solarized"
             selectableRows
-            onSelectedRowsChange={(e) => {
-              console.log(e);
+            onSelectedRowsChange={({ selectedRows }) => {
+              selected_rows = selectedRows.map((row) => {
+                return row._id;
+              });
+              this.setState({ selected_rows });
             }}
             // onRowClicked={(e) => {
             //   // console.log(e);
