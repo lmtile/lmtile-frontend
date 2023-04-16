@@ -4,6 +4,51 @@ import message from "../../../config/message";
 import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
+import DataTable from "react-data-table-component";
+import { FaTrashAlt } from "react-icons/fa";
+
+const COLUMNS = [
+  {
+    name: "Product image",
+    selector: (row) =><img src={`${BUCKET_DOMAIN}${row.images[0]}`} alt="" />,
+    sortable: true,
+    width: "100px",
+  },
+
+  {
+    name: "Product name",
+    selector: (row) => row.name,
+    sortable: true,
+    width: "200px",
+  },
+
+  {
+    name: "Category",
+    // selector: (row) =>row.category,
+    sortable: true,
+    width: "200px",
+  },
+  {
+    name: "Type",
+    // selector: (row) =>row.type,
+    sortable: true,
+    width: "200px",
+  },
+
+  {
+    name: "Color",
+    selector: (row) => row.color,
+    width: "100px",
+  },
+  {
+    name: "Action",
+    cell: (row) => (
+      <button onClick={()=>this.deleteProduct(row._id)}><FaTrashAlt className="text-xl"/></button>
+    ),
+    width: "100px",
+  },
+  
+];
 
 export default class AllProducts extends Component {
   constructor(props) {
@@ -14,7 +59,13 @@ export default class AllProducts extends Component {
       allCatergory: [],
       allSubCatergory: [],
 
+      total: 0,
+      per_page: 10,
+      page: 1,
+      search: "",
+
       products: [],
+      selected_rows: [],
 
       select_category: "",
       select_sub_category: "",
@@ -22,6 +73,9 @@ export default class AllProducts extends Component {
     };
   }
 
+
+
+  
   componentDidMount = () => {
     this.getAllProduct();
     this.getAllcategory();
@@ -102,11 +156,11 @@ export default class AllProducts extends Component {
   };
 
   render() {
-    let { products, allCatergory, sub_cat } = this.state;
+    let { products, allCatergory, sub_cat, total, per_page, page, selected_rows } = this.state;
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
-        <div className="lg:flex  bg-base-100">
-          <div className="px-10 gap-x-5 mt-20">
+        <div className=" bg-base-100">
+          {/* <div className="px-10 gap-x-5 mt-20">
             <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
               <input type="checkbox" />
               <div className="collapse-title font-bold">Categories</div>
@@ -157,8 +211,8 @@ export default class AllProducts extends Component {
                 ))}
               </div>
             </div>
-          </div>
-          <div className=" px-20 mb-10 mt-20 w-full">
+          </div> */}
+          {/* <div className=" px-20 mb-10 mt-20 w-full">
             {products.map((product, key) => {
               return (
                 <div
@@ -185,10 +239,41 @@ export default class AllProducts extends Component {
                       </Link>
                     </div>
                   </div>
+                  
                 </div>
               );
             })}
-          </div>
+          </div> */}
+          <DataTable
+            columns={COLUMNS}
+            data={products}
+            pagination
+            striped
+            responsive
+            subHeaderAlign="right"
+            subHeaderWrap
+            theme="solarized"
+            selectableRows
+            onSelectedRowsChange={({ selectedRows }) => {
+              selected_rows = selectedRows.map((row) => {
+                return row._id;
+              });
+              this.setState({ selected_rows });
+            }}
+            // onRowClicked={(e) => {
+            //   // console.log(e);
+            // }}
+            onRowDoubleClicked={(e) => {
+              // TODO: SHOW APPOINMENT DETAILS IN DIALOG BOX
+            }}
+            paginationDefaultPage={page}
+            paginationServer
+            paginationPerPage={per_page}
+            paginationTotalRows={total}
+            paginationRowsPerPageOptions={[10, 20, 40, 100]}
+            onChangePage={this.onChangePage}
+            onChangeRowsPerPage={this.onChangeRowsPerPage}
+          />
         </div>
       </LoadingOverlay>
     );

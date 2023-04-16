@@ -5,6 +5,7 @@ import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
 import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
 import { Link, useParams } from "react-router-dom";
+import Pagination from "./Pagination";
 
 export default function UserAllProducts() {
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,14 @@ export default function UserAllProducts() {
   const [color, setColor] = useState("");
 
   const [isCalling, setIscalling] = useState(1);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(18);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = products.slice(firstPostIndex, lastPostIndex);
+
 
   useEffect(() => {
     if (isCalling === 1) {
@@ -78,7 +87,6 @@ export default function UserAllProducts() {
   return (
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
-
       <div className="lg:flex  bg-base-100">
         <div className="px-10 gap-x-5 mt-20">
           <input
@@ -160,10 +168,10 @@ export default function UserAllProducts() {
         </div>
 
         <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20 mb-10 mt-20">
-          {products.map((product, key) => {
+          {currentPosts.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
-                <div className="hover:shadow-xl shadow-2xl shadow-black  p-5 bg-base-100">
+                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-100">
                   <div>
                     <img
                       src={`${BUCKET_DOMAIN}${product.images[0]} `}
@@ -177,6 +185,14 @@ export default function UserAllProducts() {
             );
           })}
         </div>
+      </div>
+      <div className="my-10">
+        <Pagination
+          totalPosts={products.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       </div>
     </LoadingOverlay>
   );
