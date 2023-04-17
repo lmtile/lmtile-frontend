@@ -29,6 +29,7 @@ export default class AddProduct extends Component {
         type: "",
         images: [],
       },
+      color: "",
 
       error: {},
     };
@@ -167,6 +168,7 @@ export default class AddProduct extends Component {
               type: "",
               images: [],
             },
+            color: "",
           });
         } else {
           message.error(res.data.message);
@@ -209,28 +211,13 @@ export default class AddProduct extends Component {
 
             <p className="font-bold ml-2">Color </p>
 
-            {/* <select
-              name="color"
-              className="select select-bordered w-full"
-              required
-              onChange={this.handleOnChange}
-            >
-              <option value="">Select Color</option>
-              {ProductColor.map((color, key) => {
-                return (
-                  <option key={key} value={color.value}>
-                    {color.label}
-                  </option>
-                );
-              })}
-            </select> */}
-
             <ReactSelectWithColorBox
               option={ProductColor}
               handleOnChange={(e) => {
                 formData.color = e.value;
-                this.setState({ formData });
+                this.setState({ formData, color: e });
               }}
+              value={this.state.color}
             />
 
             <p className="font-bold ml-2">Category *</p>

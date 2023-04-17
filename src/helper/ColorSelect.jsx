@@ -25,6 +25,7 @@ const ReactSelectWithColorBox = (props) => {
       options={props.option}
       components={{ Option }}
       onChange={props.handleOnChange}
+      value={props.value}
     />
   );
 };

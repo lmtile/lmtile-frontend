@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import React, { Component, useState, useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import { upload_img_icon } from "../../../assets/img";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
@@ -12,11 +12,84 @@ import config from "../../../config/config";
 
 const IMAGE_LENGTH = 10;
 
-export default class EditProduct extends Component {
+export default function EditProduct() {
+  const [loading, setLoading] = useState(false);
+  const [product_id, setProductId] = useState("");
+  const [productDetails, setProductDetails] = useState({});
+  const [allCatergory, setAllCatergory] = useState([]);
+
+  const id = useParams()?.id;
+
+  useEffect(() => {
+    setProductId(id);
+    getProductDetails();
+    getAllCategory();
+  }, [product_id]);
+
+  const getProductDetails = () => {
+    setLoading(true);
+    if (!product_id) return;
+    axios
+      .get(`/api/product/product/${product_id}`)
+      .then((res) => {
+        setLoading(false);
+        if (res.data.success) {
+          let data = res.data.productDetails;
+          setProductDetails(data);
+        } else {
+          message.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+
+        message.error("Something went wrong!!!");
+      });
+  };
+
+  const getAllCategory = () => {
+    if (!product_id) return;
+
+    axios
+      .get("/api/category/get-all-category")
+      .then((res) => {
+        if (res.data.success) {
+          let { category } = res.data;
+          let allCatergory = category.map((cat) => {
+            return {
+              label: cat.category,
+              value: cat._id,
+              sub_cat: cat.sub_cat,
+            };
+          });
+          setAllCatergory(allCatergory);
+        } else {
+          message.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
+
+  return (
+    <LoadingOverlay
+      active={loading}
+      spinner
+      text="Loading ..."
+    ></LoadingOverlay>
+  );
+}
+
+class EditProductItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
+
+      product_id: "",
 
       allCatergory: [],
       allSubCatergory: [],
@@ -31,20 +104,44 @@ export default class EditProduct extends Component {
       },
 
       error: {},
+      productDetails: {},
     };
   }
 
   componentDidMount = () => {
     this.getAllcategory();
+
+    this.setState({ product_id: this.props.id });
+
+    this.getProductDetails();
   };
 
-  getAllcategory = () => {
+  getProductDetails = () => {
     this.setState({ isLoading: true });
 
     axios
-      .get("/api/category/get-all-category")
+      .get(`/api/product/product/${this.props.id}`)
       .then((res) => {
         this.setState({ isLoading: false });
+
+        if (res.data.success) {
+          let { productDetails } = res.data;
+          this.setState({ productDetails });
+        } else {
+          message.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false });
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
+
+  getAllcategory = () => {
+    axios
+      .get("/api/category/get-all-category")
+      .then((res) => {
         if (res.data.success) {
           let { category } = res.data;
           let allCatergory = category.map((cat) => {
@@ -60,7 +157,6 @@ export default class EditProduct extends Component {
         }
       })
       .catch((err) => {
-        this.setState({ isLoading: false });
         console.error(err);
         message.error("Something went wrong!!!");
       });
@@ -345,4 +441,3 @@ export default class EditProduct extends Component {
     );
   }
 }
-
