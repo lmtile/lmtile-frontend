@@ -5,7 +5,8 @@ import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaPlus, FaTrashAlt } from "react-icons/fa";
+import config from "../../../config/config";
 
 const COLUMNS = [
   {
@@ -24,6 +25,7 @@ const COLUMNS = [
   {
     name: "Color",
     selector: (row) => row.color,
+    sortable: true,
     width: "100px",
   },
 
@@ -104,9 +106,11 @@ export default class AllProducts extends Component {
 
   getAllcategory = () => {
     this.setState({ isLoading: true });
+    let { per_page, page, search } = this.state;
 
     axios
-      .get("/api/category/get-all-category")
+      .get(`/api/category/get-all-category?per_page=${per_page}&page=${page}&search=${search}`,
+        config)
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
@@ -244,6 +248,28 @@ export default class AllProducts extends Component {
               );
             })}
           </div> */}
+          <div className="flex flex-row justify-between my-10 mx-10">
+            <input
+              className="mr-4 input input-bordered w-full max-w-xs"
+              placeholder="Search..."
+            // value={this.state.search}
+            // onChange={(e)=>{
+            //   let {value}=e.target
+
+            //   this.setState({})
+            // }}
+            />
+
+            <button
+              type="button"
+              className={`px-8 py-3 btn btn-outline bg-red-${selected_rows.length === 0 ? "300" : "600"
+                } rounded`}
+              disabled={selected_rows.length === 0}
+              onClick={() => this.deleteProduct(products._id)}
+            >
+              DELETE
+            </button>
+          </div>
           <DataTable
             columns={COLUMNS}
             data={products}

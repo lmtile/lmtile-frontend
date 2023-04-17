@@ -309,7 +309,7 @@ export default class Appointment extends Component {
               type="button"
               className={`px-8 py-3 text-white ${
                 selected_rows.length === 0 ? "bg-red-300" : "bg-red-600"
-              } rounded focus:outline-none`}
+              } rounded`}
               disabled={selected_rows.length === 0}
               onClick={this.deleteAppointment}
             >
