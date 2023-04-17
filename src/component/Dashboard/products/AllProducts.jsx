@@ -7,50 +7,7 @@ import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
-
-const COLUMNS = [
-  {
-    name: "Product image",
-    selector: (row) =><img src={`${BUCKET_DOMAIN}${row.images[0]}`} alt="" />,
-    sortable: true,
-    width: "100px",
-  },
-
-  {
-    name: "Product name",
-    selector: (row) => row.name,
-    sortable: true,
-    width: "200px",
-  },
-  {
-    name: "Color",
-    selector: (row) => row.color,
-    sortable: true,
-    width: "100px",
-  },
-
-  {
-    name: "Category",
-    // selector: (row) =>row.category,
-    sortable: true,
-    width: "200px",
-  },
-  {
-    name: "Type",
-    // selector: (row) =>row.type,
-    sortable: true,
-    width: "200px",
-  },
-
-  {
-    name: "Action",
-    cell: (row) => (
-      <button onClick={()=>this.deleteProduct(row._id)}><FaTrashAlt className="text-xl"/></button>
-    ),
-    width: "100px",
-  },
-  
-];
+import _ from "lodash";
 
 export default class AllProducts extends Component {
   constructor(props) {
@@ -72,29 +29,46 @@ export default class AllProducts extends Component {
       select_category: "",
       select_sub_category: "",
       sub_cat: [],
+
+      filterData: {
+        search: "",
+      },
+      isApplyFilter: false,
     };
   }
 
-
-
-  
-  componentDidMount = () => {
-    this.getAllProduct();
+  componentDidMount = async () => {
     this.getAllcategory();
+    this.getAllProduct();
   };
 
   getAllProduct = () => {
     this.setState({ isLoading: true });
 
+    let { per_page, page, search } = this.state;
+
     axios
-      .get("/api/product/get-all-products")
+      .get(
+        `/api/product/get-all-products?per_page=${per_page}&page=${page}&search=${search}`
+      )
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
-          let { products } = res.data;
-          this.setState({ products });
+          let { total } = res.data;
+
+          let products = res.data?.products.map((product) => {
+            product.color_details = this.getColorDetails(product.color);
+            product.sub_cat_details = this.getSubCategoryDetails(
+              product.category.sub_cat,
+              product.type
+            );
+            return product;
+          });
+
+          this.setState({ products, total });
         } else {
           message.error(res.data.message);
+          this.setState({ products: [] });
         }
       })
       .catch((err) => {
@@ -106,11 +80,9 @@ export default class AllProducts extends Component {
 
   getAllcategory = () => {
     this.setState({ isLoading: true });
-    let { per_page, page, search } = this.state;
 
     axios
-      .get(`/api/category/get-all-category?per_page=${per_page}&page=${page}&search=${search}`,
-        config)
+      .get("/api/category/get-all-category")
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
@@ -132,15 +104,23 @@ export default class AllProducts extends Component {
       });
   };
 
+  getColorDetails = (color) => {
+    return _.find(ProductColor, ({ value }) => {
+      return value === color;
+    });
+  };
+
+  getSubCategoryDetails = (subcat, id) => {
+    return _.find(subcat, ({ value }) => {
+      return value === id;
+    });
+  };
+
   deleteProduct = (id) => {
     if (window.confirm("Are you sure, you want to delete this product")) {
       this.setState({ isLoading: true });
       axios
-        .delete(`/api/product/product/${id}`, {
-          headers: {
-            token: localStorage.getItem("token"),
-          },
-        })
+        .delete(`/api/product/product/${id}`, config)
         .then((res) => {
           if (res.data.success) {
             message.success(res.data.message);
@@ -159,8 +139,132 @@ export default class AllProducts extends Component {
     }
   };
 
+  onChangePage = (page) => {
+    this.setState({ page }, () => {
+      this.getAllProduct();
+    });
+  };
+
+  onChangeRowsPerPage = (per_page) => {
+    this.setState({ per_page, page: 1 }, () => {
+      this.getAllProduct();
+    });
+  };
+
+  applyFilter = () => {
+    let { isApplyFilter, filterData } = this.state;
+
+    if (isApplyFilter) {
+      // clear filter
+
+      this.setState(
+        {
+          filterData: {
+            search: "",
+          },
+          isApplyFilter: false,
+          page: 1,
+          search: "",
+        },
+        () => {
+          this.getAllProduct();
+        }
+      );
+    } else {
+      let { search } = filterData;
+
+      this.setState(
+        {
+          page: 1,
+          search,
+          isApplyFilter: true,
+        },
+        () => {
+          this.getAllProduct();
+        }
+      );
+    }
+  };
+
   render() {
-    let { products, allCatergory, sub_cat, total, per_page, page, selected_rows } = this.state;
+    let { products, total, per_page, page, filterData, isApplyFilter } =
+      this.state;
+
+    const COLUMNS = [
+      {
+        name: "Product image",
+        selector: (row) => (
+          <img src={`${BUCKET_DOMAIN}${row.images[0]}`} alt={row.name} />
+        ),
+        width: "100px",
+      },
+
+      {
+        name: "Product Name",
+        selector: (row) => row.name,
+        sortable: true,
+        width: "200px",
+      },
+      {
+        name: "Color",
+        selector: (row) => (
+          <>
+            {row.color && row.color_details && (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    width: "10px",
+                    height: "10px",
+                    marginRight: "10px",
+                    backgroundColor: row.color_details.color,
+                  }}
+                ></div>
+                {row.color_details.label}
+              </div>
+            )}
+          </>
+        ),
+        width: "100px",
+      },
+
+      {
+        name: "Category",
+        selector: (row) => row.category.category,
+        width: "150px",
+      },
+      {
+        name: "Type",
+        selector: (row) => (
+          <>{row.type && row.sub_cat_details && row.sub_cat_details.label}</>
+        ),
+        width: "150px",
+      },
+
+      {
+        name: "Action",
+        selector: (row) => (
+          <div className="">
+            <button
+              onClick={() => {
+                this.deleteProduct(row._id);
+              }}
+            >
+              <FaTrashAlt className="text-xl" />
+            </button>
+
+            <Link
+              to={`/dashboard/edit-product/${row._id}`}
+
+              // className="btn btn-outline "
+            >
+              Edit
+            </Link>
+          </div>
+        ),
+        width: "150px",
+      },
+    ];
+
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <div className=" bg-base-100">
@@ -252,22 +356,20 @@ export default class AllProducts extends Component {
             <input
               className="mr-4 input input-bordered w-full max-w-xs"
               placeholder="Search..."
-            // value={this.state.search}
-            // onChange={(e)=>{
-            //   let {value}=e.target
+              value={filterData.search}
+              onChange={(e) => {
+                let { value } = e.target;
+                filterData.search = value;
 
-            //   this.setState({})
-            // }}
+                this.setState({
+                  filterData,
+                  isApplyFilter: false,
+                });
+              }}
             />
 
-            <button
-              type="button"
-              className={`px-8 py-3 btn btn-outline bg-red-${selected_rows.length === 0 ? "300" : "600"
-                } rounded`}
-              disabled={selected_rows.length === 0}
-              onClick={() => this.deleteProduct(products._id)}
-            >
-              DELETE
+            <button onClick={this.applyFilter}>
+              {isApplyFilter ? "Clear" : "Apply"}
             </button>
           </div>
           <DataTable
@@ -279,19 +381,6 @@ export default class AllProducts extends Component {
             subHeaderAlign="right"
             subHeaderWrap
             theme="solarized"
-            selectableRows
-            onSelectedRowsChange={({ selectedRows }) => {
-              selected_rows = selectedRows.map((row) => {
-                return row._id;
-              });
-              this.setState({ selected_rows });
-            }}
-            // onRowClicked={(e) => {
-            //   // console.log(e);
-            // }}
-            onRowDoubleClicked={(e) => {
-              // TODO: SHOW APPOINMENT DETAILS IN DIALOG BOX
-            }}
             paginationDefaultPage={page}
             paginationServer
             paginationPerPage={per_page}
