@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import axios from "../../../config/axios";
 import config from "../../../config/config";
 import message from "../../../config/message";
@@ -7,6 +6,8 @@ import DataTable from "react-data-table-component";
 import LoadingOverlay from "react-loading-overlay";
 import moment from "moment";
 import { DATE_TIME_HELPER } from "../../../helper/Helper";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const COLUMNS = [
   {
@@ -100,10 +101,19 @@ export default class Appointment extends Component {
       per_page: 10,
       page: 1,
       search: "",
+      start_date: "",
+      end_date: "",
 
       appointments: [],
 
       selected_rows: [],
+
+      filteringData: {
+        start_date: "",
+        end_date: "",
+        search: "",
+      },
+      isApplyFilter: false,
     };
   }
 
@@ -123,10 +133,10 @@ export default class Appointment extends Component {
       .then((res) => {
         this.setState({ isLoading: false });
 
-        if (res.data.success) {
-          let { appointments, total } = res.data;
-          this.setState({ appointments, total });
-        } else {
+        let { appointments, total } = res.data;
+        this.setState({ appointments, total });
+
+        if (!res.data.success) {
           message.error(res.data.message);
         }
       })
@@ -176,8 +186,54 @@ export default class Appointment extends Component {
     }
   };
 
+  applyFilter = () => {
+    let { isApplyFilter, filteringData } = this.state;
+
+    if (isApplyFilter) {
+      // CLEAR FILTER
+      this.setState(
+        {
+          filteringData: {
+            start_date: "",
+            end_date: "",
+            search: "",
+          },
+          isApplyFilter: false,
+          search: "",
+          start_date: "",
+          end_date: "",
+        },
+        () => {
+          this.getAllAppointments();
+        }
+      );
+    } else {
+      let { start_date, end_date, search } = filteringData;
+
+      this.setState(
+        {
+          start_date,
+          end_date,
+          search,
+          isApplyFilter: true,
+        },
+        () => {
+          this.getAllAppointments();
+        }
+      );
+    }
+  };
+
   render() {
-    let { appointments, total, per_page, page, selected_rows } = this.state;
+    let {
+      appointments,
+      total,
+      per_page,
+      page,
+      selected_rows,
+      filteringData,
+      isApplyFilter,
+    } = this.state;
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <div className="w-full">
@@ -185,18 +241,74 @@ export default class Appointment extends Component {
             <input
               className="mr-4 input input-bordered w-full max-w-xs"
               placeholder="Search..."
-              // value={this.state.search}
-              // onChange={(e)=>{
-              //   let {value}=e.target
-
-              //   this.setState({})
-              // }}
+              value={filteringData.search}
+              onChange={(e) => {
+                let { value } = e.target;
+                filteringData.search = value;
+                this.setState({ filteringData, isApplyFilter: false });
+              }}
             />
+
+            <div>
+              <p>Start date</p>
+
+              <ReactDatePicker
+                placeholderText="Select Start date"
+                className="input w-30 input-bordered"
+                selected={
+                  filteringData.start_date !== "" &&
+                  new Date(filteringData.start_date)
+                }
+                maxDate={
+                  filteringData.end_date !== "" &&
+                  new Date(filteringData.end_date)
+                }
+                onChange={(date) => {
+                  filteringData.start_date = moment(date).format(
+                    DATE_TIME_HELPER.DATE_FORMAT
+                  );
+                  this.setState({
+                    filteringData,
+                    isApplyFilter: false,
+                  });
+                }}
+              />
+            </div>
+
+            <div>
+              <p>End date</p>
+
+              <ReactDatePicker
+                placeholderText="Select End date"
+                className="input w-30 input-bordered"
+                selected={
+                  filteringData.end_date !== "" &&
+                  new Date(filteringData.end_date)
+                }
+                minDate={
+                  filteringData.start_date !== "" &&
+                  new Date(filteringData.start_date)
+                }
+                onChange={(date) => {
+                  filteringData.end_date = moment(date).format(
+                    DATE_TIME_HELPER.DATE_FORMAT
+                  );
+                  this.setState({
+                    filteringData,
+                    isApplyFilter: false,
+                  });
+                }}
+              />
+            </div>
+
+            <button onClick={this.applyFilter}>
+              {isApplyFilter ? "Clear" : "Apply"}
+            </button>
 
             <button
               type="button"
-              className={`px-8 py-3 text-white bg-red-${
-                selected_rows.length === 0 ? "300" : "600"
+              className={`px-8 py-3 text-white ${
+                selected_rows.length === 0 ? "bg-red-300" : "bg-red-600"
               } rounded focus:outline-none`}
               disabled={selected_rows.length === 0}
               onClick={this.deleteAppointment}
