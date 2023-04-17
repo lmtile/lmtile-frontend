@@ -5,7 +5,7 @@ import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaPlus, FaTrashAlt } from "react-icons/fa";
+import { FaPen, FaPenAlt, FaPlus, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
 
@@ -245,6 +245,7 @@ export default class AllProducts extends Component {
         selector: (row) => (
           <div className="">
             <button
+              className="mr-5"
               onClick={() => {
                 this.deleteProduct(row._id);
               }}
@@ -255,9 +256,9 @@ export default class AllProducts extends Component {
             <Link
               to={`/dashboard/edit-product/${row._id}`}
 
-              // className="btn btn-outline "
+            // className="btn btn-outline "
             >
-              Edit
+              <button><FaPen className="text-xl" /></button>
             </Link>
           </div>
         ),

@@ -105,6 +105,7 @@ export default class BookingModal extends Component {
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
+            this.setState('')
           } else {
             message.error(res.data.message);
           }
@@ -114,6 +115,7 @@ export default class BookingModal extends Component {
           console.error(err);
           message.error("Something went wrong!!");
         });
+
     }
   };
 

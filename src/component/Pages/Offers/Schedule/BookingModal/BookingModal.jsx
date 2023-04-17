@@ -3,6 +3,7 @@ import axios from "../../../../../config/axios";
 import message from "../../../../../config/message";
 import validation from "../../../../../helper/validator";
 import moment from "moment";
+import { useForm } from "react-hook-form";
 
 export default class BookingModal extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class BookingModal extends Component {
         name: "",
         time: "",
         product_name: "",
-        cupon_code:"",
+        cupon_code: "",
         email: "",
         phone: "",
         city: "",
@@ -93,6 +94,7 @@ export default class BookingModal extends Component {
     return isValid;
   };
 
+  
   handleSubmit = (e) => {
     e.preventDefault();
     let { formData, error } = this.state;
@@ -106,6 +108,7 @@ export default class BookingModal extends Component {
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
+            
           } else {
             message.error(res.data.message);
           }
@@ -115,6 +118,7 @@ export default class BookingModal extends Component {
           console.error(err);
           message.error("Something went wrong!!");
         });
+
     }
   };
 
@@ -209,19 +213,20 @@ export default class BookingModal extends Component {
                   </option>
                 ))}
               </select>
-              <p className="text-red-800">{error.product_name}</p>
-              <p className="font-bold ml-2">Coupon Code</p>
+              <p className="text-red-800">{error.cupon_code}</p>
+              <p className="font-bold ml-2">Coupon code</p>
               <input
                 name="cupon_code"
                 type="text"
-                placeholder="Code"
+                placeholder="coupon code"
                 className="input w-full input-bordered"
                 value={formData.cupon_code}
                 required
                 onChange={this.handleChange}
-                validaterule={["required", "isName"]}
+                validaterule={["required", "isCupon_code"]}
               />
               <p className="text-red-800">{error.name}</p>
+              <p className="text-red-800">{error.product_name}</p>
               <p className="font-bold ml-2">Name</p>
               <input
                 name="name"
