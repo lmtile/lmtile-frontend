@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Navigate, Outlet } from 'react-router-dom';
+import Logout from '../component/Login/Logout';
 
 import Footer from '../component/Shared/Footer/Footer';
 import Navbar from '../component/Shared/Navbar/Navbar';
@@ -55,7 +56,7 @@ const DashboardLayout = () => {
                 <li><Link to="/dashboard">ALL PACKAGE</Link></li>
               </div>
             </div>
-
+            <Logout/>
           </ul>
 
         </div>

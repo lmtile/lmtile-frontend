@@ -8,6 +8,7 @@ import moment from "moment";
 import { DATE_TIME_HELPER } from "../../../helper/Helper";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaTrash, FaTrashAlt } from "react-icons/fa";
 
 const COLUMNS = [
   {
@@ -239,7 +240,7 @@ export default class Appointment extends Component {
         <div className="w-full">
           <div className="flex flex-row justify-between my-10 mx-10">
             <input
-              className="mr-4 input input-bordered w-full max-w-xs"
+              className="mr-4 input input-bordered w-full max-w-xs mt-5"
               placeholder="Search..."
               value={filteringData.search}
               onChange={(e) => {
@@ -301,19 +302,18 @@ export default class Appointment extends Component {
               />
             </div>
 
-            <button onClick={this.applyFilter}>
+            <button className="btn btn-outline mt-5" onClick={this.applyFilter}>
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
 
             <button
               type="button"
-              className={`px-8 py-3 text-white ${
-                selected_rows.length === 0 ? "bg-red-300" : "bg-red-600"
+              className={`btn btn-outline mt-5  ${
+                selected_rows.length === 0
               } rounded`}
               disabled={selected_rows.length === 0}
               onClick={this.deleteAppointment}
-            >
-              DELETE
+            ><FaTrashAlt className="mr-3"/>DELETE
             </button>
           </div>
 
