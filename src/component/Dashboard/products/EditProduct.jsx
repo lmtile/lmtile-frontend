@@ -12,7 +12,7 @@ import config from "../../../config/config";
 
 const IMAGE_LENGTH = 10;
 
-export default class AddProduct extends Component {
+export default class EditProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -337,7 +337,7 @@ export default class AddProduct extends Component {
               type="submit"
               value="Submit"
             >
-              Add Product
+              Update product
             </button>
           </form>
         </div>
@@ -345,3 +345,4 @@ export default class AddProduct extends Component {
     );
   }
 }
+
