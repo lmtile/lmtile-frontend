@@ -195,9 +195,9 @@ export default class Appointment extends Component {
 
             <button
               type="button"
-              className={`px-8 py-3 text-white bg-red-${
+              className={`px-8 py-3 btn btn-outline bg-red-${
                 selected_rows.length === 0 ? "300" : "600"
-              } rounded focus:outline-none`}
+              } rounded`}
               disabled={selected_rows.length === 0}
               onClick={this.deleteAppointment}
             >
