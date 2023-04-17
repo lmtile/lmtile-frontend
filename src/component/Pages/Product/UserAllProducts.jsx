@@ -22,12 +22,6 @@ export default function UserAllProducts() {
 
   const [isCalling, setIscalling] = useState(1);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(18);
-
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
 
   useEffect(() => {
@@ -168,7 +162,7 @@ export default function UserAllProducts() {
         </div>
 
         <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20 mb-10 mt-20">
-          {currentPosts.map((product, key) => {
+          {products.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
                 <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-100">
@@ -189,9 +183,8 @@ export default function UserAllProducts() {
       <div className="my-10">
         <Pagination
           totalPosts={products.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
+          postsPerPage={setPage}
+          setCurrentPage={set_per_page}
         />
       </div>
     </LoadingOverlay>

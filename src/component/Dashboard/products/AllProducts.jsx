@@ -8,6 +8,7 @@ import DataTable from "react-data-table-component";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 
+
 const COLUMNS = [
   {
     name: "Product image",
@@ -85,9 +86,11 @@ export default class AllProducts extends Component {
 
   getAllProduct = () => {
     this.setState({ isLoading: true });
+    let { per_page, page, search } = this.state;
 
     axios
-      .get("/api/product/get-all-products")
+      .get(`/api/product/get-all-products?per_page=${per_page}&page=${page}&search=${search}`,
+        config)
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
@@ -106,11 +109,9 @@ export default class AllProducts extends Component {
 
   getAllcategory = () => {
     this.setState({ isLoading: true });
-    let { per_page, page, search } = this.state;
 
     axios
-      .get(`/api/category/get-all-category?per_page=${per_page}&page=${page}&search=${search}`,
-        config)
+      .get("/api/category/get-all-category")
       .then((res) => {
         this.setState({ isLoading: false });
         if (res.data.success) {
@@ -265,7 +266,7 @@ export default class AllProducts extends Component {
               className={`px-8 py-3 btn btn-outline bg-red-${selected_rows.length === 0 ? "300" : "600"
                 } rounded`}
               disabled={selected_rows.length === 0}
-              onClick={() => this.deleteProduct(products._id)}
+              onClick={() => this.deleteProduct()}
             >
               DELETE
             </button>
@@ -273,7 +274,7 @@ export default class AllProducts extends Component {
           <DataTable
             columns={COLUMNS}
             data={products}
-            pagination
+            // pagination
             striped
             responsive
             subHeaderAlign="right"
