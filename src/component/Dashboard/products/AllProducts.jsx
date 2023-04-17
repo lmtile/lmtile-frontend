@@ -21,6 +21,11 @@ const COLUMNS = [
     sortable: true,
     width: "200px",
   },
+  {
+    name: "Color",
+    selector: (row) => row.color,
+    width: "100px",
+  },
 
   {
     name: "Category",
@@ -35,11 +40,6 @@ const COLUMNS = [
     width: "200px",
   },
 
-  {
-    name: "Color",
-    selector: (row) => row.color,
-    width: "100px",
-  },
   {
     name: "Action",
     cell: (row) => (
