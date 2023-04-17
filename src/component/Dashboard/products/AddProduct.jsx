@@ -163,6 +163,7 @@ export default class AddProduct extends Component {
               name: "",
               color: "",
               category: "",
+              selected_category: "",
               type: "",
               images: [],
             },
@@ -206,7 +207,7 @@ export default class AddProduct extends Component {
             />
             <p className="text-red-600">{error.name}</p>
 
-            <p className="font-bold ml-2">Color *</p>
+            <p className="font-bold ml-2">Color </p>
 
             {/* <select
               name="color"
