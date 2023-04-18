@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const ProductColor = [
   {
     label: "Beiges",
@@ -56,4 +58,10 @@ export const BUCKET_DOMAIN = "https://lmtile.s3.us-west-1.amazonaws.com/";
 export const DATE_TIME_HELPER = {
   DATE_FORMAT: "MM-DD-YYYY",
   DATE_TIME_FORMAT: "MM-DD-YYYY hh:mm",
+};
+
+export const getColorDetails = (color) => {
+  return _.find(ProductColor, ({ value }) => {
+    return value === color;
+  });
 };
