@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
-import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
+import { BUCKET_DOMAIN, getColorDetails } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
@@ -57,7 +57,7 @@ export default class AllProducts extends Component {
           let { total } = res.data;
 
           let products = res.data?.products.map((product) => {
-            product.color_details = this.getColorDetails(product.color);
+            product.color_details = getColorDetails(product.color);
             product.sub_cat_details = this.getSubCategoryDetails(
               product.category.sub_cat,
               product.type
@@ -102,12 +102,6 @@ export default class AllProducts extends Component {
         console.error(err);
         message.error("Something went wrong!!!");
       });
-  };
-
-  getColorDetails = (color) => {
-    return _.find(ProductColor, ({ value }) => {
-      return value === color;
-    });
   };
 
   getSubCategoryDetails = (subcat, id) => {
@@ -194,7 +188,11 @@ export default class AllProducts extends Component {
       {
         name: "Product image",
         selector: (row) => (
-          <img className="w-[80px] py-3" src={`${BUCKET_DOMAIN}${row.images[0]}`} alt={row.name} />
+          <img
+            className="w-[80px] py-3"
+            src={`${BUCKET_DOMAIN}${row.images[0]}`}
+            alt={row.name}
+          />
         ),
         width: "200px",
       },
@@ -256,9 +254,11 @@ export default class AllProducts extends Component {
             <Link
               to={`/dashboard/edit-product/${row._id}`}
 
-            // className="btn btn-outline "
+              // className="btn btn-outline "
             >
-              <button><FaPen className="text-xl" /></button>
+              <button>
+                <FaPen className="text-xl" />
+              </button>
             </Link>
           </div>
         ),

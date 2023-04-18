@@ -3,7 +3,11 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
-import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
+import {
+  BUCKET_DOMAIN,
+  ProductColor,
+  getColorDetails,
+} from "../../../helper/Helper";
 import { Link, useLocation, useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "./UserAllProducts.css";
@@ -52,7 +56,13 @@ export default function UserAllProducts() {
         setLoading(false);
         if (res.data.success) {
           let { products, total } = res.data;
-          setProducts(products);
+
+          let result = products.map((product) => {
+            product.color_details = getColorDetails(product.color);
+            return product;
+          });
+
+          setProducts(result);
           setTotal(total);
         } else {
           message.error(res.data.message);
@@ -182,7 +192,19 @@ export default function UserAllProducts() {
                       alt={product.name}
                     />
                     <p className="text-xl font-bold">{product.name}</p>
-                    <p>{product.color}</p>
+                    <p>
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <div
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            marginRight: "10px",
+                            backgroundColor: product?.color_details?.color,
+                          }}
+                        ></div>
+                        {product?.color_details?.label}
+                      </div>
+                    </p>
                   </div>
                 </div>
               </Link>
