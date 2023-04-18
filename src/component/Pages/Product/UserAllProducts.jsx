@@ -4,9 +4,9 @@ import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
 import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import "./UserAllProducts.css"
+import "./UserAllProducts.css";
 
 export default function UserAllProducts() {
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,8 @@ export default function UserAllProducts() {
   const [sub_cat, set_sub_cat] = useState([]);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const [per_page, set_per_page] = useState(10);
+  const [total, setTotal] = useState(0);
+  const [per_page, set_per_page] = useState(12);
   const [select_category, set_select_category] = useState(
     useParams()?.category
   );
@@ -23,7 +24,14 @@ export default function UserAllProducts() {
 
   const [isCalling, setIscalling] = useState(1);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
+  const searchColor = searchParams.get("color");
+
+  if (searchColor && color !== searchColor) {
+    setColor(searchColor);
+  }
 
   useEffect(() => {
     if (isCalling === 1) {
@@ -31,7 +39,7 @@ export default function UserAllProducts() {
       setIscalling(1 + isCalling);
     }
     getAllProduct();
-  }, [select_category, color]);
+  }, [select_category, color, page]);
 
   const getAllProduct = () => {
     setLoading(true);
@@ -43,11 +51,13 @@ export default function UserAllProducts() {
       .then((res) => {
         setLoading(false);
         if (res.data.success) {
-          let { products } = res.data;
+          let { products, total } = res.data;
           setProducts(products);
+          setTotal(total);
         } else {
           message.error(res.data.message);
           setProducts([]);
+          setTotal(0);
         }
       })
       .catch((err) => {
@@ -97,8 +107,6 @@ export default function UserAllProducts() {
               {allCatergory.map((cat, key) => (
                 <div key={key}>
                   <Link
-                    // to={`/products/${cat.label.toLowerCase()}`}
-
                     to={{
                       pathname: `/products/${cat.label.toLowerCase()}`,
                       search: `${color ? "color=" + color : ""} `,
@@ -106,6 +114,7 @@ export default function UserAllProducts() {
                     onClick={() => {
                       set_sub_cat(cat.sub_cat);
                       set_select_category(cat.label.toLowerCase());
+                      setPage(1);
                     }}
                     className="font-bold text-sm"
                   >
@@ -151,6 +160,7 @@ export default function UserAllProducts() {
                     className="font-bold text-sm"
                     onClick={() => {
                       setColor(cat.value);
+                      setPage(1);
                     }}
                   >
                     {cat.label}
@@ -184,11 +194,13 @@ export default function UserAllProducts() {
         <div className="">
           <ReactPaginate
             breakLabel="..."
-            nextLabel="next >"
-            // onPageChange={handlePageClick}
+            nextLabel=">"
+            onPageChange={({ selected }) => {
+              setPage(selected + 1);
+            }}
             pageRangeDisplayed={5}
-            pageCount={50}
-            previousLabel="< previous"
+            pageCount={Math.ceil(total / per_page)}
+            previousLabel="<"
             renderOnZeroPageCount={null}
           />
         </div>
