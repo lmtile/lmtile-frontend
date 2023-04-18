@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "../component/Shared/Navbar/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/Shared/Footer/Footer";
+import Header from "../component/Shared/Header";
 
 const Main = () => {
   const { pathname } = useLocation();

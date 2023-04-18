@@ -3,6 +3,7 @@ import axios from "../../../../config/axios";
 import message from "../../../../config/message";
 import validation from "../../../../helper/validator";
 import moment from "moment";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 export default class BookingModal extends Component {
   constructor(props) {
@@ -105,7 +106,7 @@ export default class BookingModal extends Component {
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
-            this.setState('')
+            clear(formData)
           } else {
             message.error(res.data.message);
           }
