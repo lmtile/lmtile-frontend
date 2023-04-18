@@ -4,7 +4,12 @@ import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
 import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
-import { Link, useParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import Pagination from "./Pagination";
 
 export default function UserAllProducts() {
@@ -22,7 +27,14 @@ export default function UserAllProducts() {
 
   const [isCalling, setIscalling] = useState(1);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
+  const searchColor = searchParams.get("color");
+
+  if (searchColor && color !== searchColor) {
+    setColor(searchColor);
+  }
 
   useEffect(() => {
     if (isCalling === 1) {
@@ -97,8 +109,6 @@ export default function UserAllProducts() {
               {allCatergory.map((cat, key) => (
                 <div key={key}>
                   <Link
-                    // to={`/products/${cat.label.toLowerCase()}`}
-
                     to={{
                       pathname: `/products/${cat.label.toLowerCase()}`,
                       search: `${color ? "color=" + color : ""} `,

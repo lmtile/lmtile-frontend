@@ -598,7 +598,9 @@ const Navbar = () => {
                               <Link>Gray Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Beige Carpet</Link>
+                              <Link to="/products/carpet?color=beige">
+                                Beige Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
                               <Link>Brown Carpet</Link>
