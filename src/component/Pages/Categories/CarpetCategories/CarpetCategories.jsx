@@ -93,52 +93,6 @@ const CarpetCategories = () => {
                 </div>
             </div>
                   
-            <div className='my-20'>
-                <h3 className='text-2xl mb-10 text-center'><span className='font-bold'>BROWSE</span> By Color</h3>
-                <div className='grid gap-10 gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:ml-10'>
-                    <div className="flex mx-auto">
-                        <div className='mr-5 '>
-                            <img src={Beige} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Beige</u></p></Link>
-                        </div>
-                        <div >
-                            <img src={Black} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Black</u></p></Link>
-                        </div>
-                    </div>
-                    <div className="flex mx-auto">
-                        <div className='mr-5'>
-                            <img src={Blue} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Blue</u></p></Link>
-                        </div>
-                        <div>
-                            <img src={Brown} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Brown</u></p></Link>
-                        </div>
-                    </div>
-                    <div className="flex mx-auto">
-                        <div className='mr-5'>
-                            <img src={Gray} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Gray</u></p></Link>
-                        </div>
-                        <div>
-                            <img src={Green} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Green</u></p></Link>
-                        </div>
-                    </div>
-                    <div className="flex mx-auto">
-                        <div className='mr-5'>
-                            <img src={Multi} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Multi</u></p></Link>
-                        </div>
-                        <div>
-                            <img src={RedOrange} alt="" />
-                            <Link><p className='text-blue-600 font-bold text-xl'><u>Red/Orange</u></p></Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <SeeFloor></SeeFloor>
             <ShopHundreds></ShopHundreds>
         </div>
