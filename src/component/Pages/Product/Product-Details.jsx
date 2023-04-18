@@ -58,7 +58,7 @@ export default function ProductDetails() {
                 onClick={() => {
                   setPreview(image);
                 }}
-                className="shadow-2xl w-24 mb-3"
+                className="shadow-2xl w-10 mb-3"
               />
             ))}
           </div>
@@ -79,17 +79,6 @@ export default function ProductDetails() {
               View in my Room
             </button>
           </Link>
-          <div className="bg-base-300 shadow-2xl p-5 mb-5">
-            <h3 className="text-2xl font-bold">About</h3>
-            <p>
-              Warm up rooms and reduce energy bills with the natural insulation
-              and comfort of carpet. With many styles to choose from and the
-              best stain-fighting technology in the industry, Shaw carpet brings
-              color, texture and value to your floors. Create distinctively
-              stylish looks when you play with texture, loop, pattern and twist
-              options.
-            </p>
-          </div>
         </div>
       </div>
     </LoadingOverlay>

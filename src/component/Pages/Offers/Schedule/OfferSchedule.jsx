@@ -16,6 +16,7 @@ import LoadingOverlay from "react-loading-overlay";
 import axios from "../../../../config/axios";
 import message from "../../../../config/message";
 import { useEffect } from "react";
+import OfferAndAppointment from "../../OfferAndAppointment/OfferAndAppointment";
 
 const OfferSchedule = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -68,20 +69,7 @@ const OfferSchedule = () => {
         </div>
 
         {/* offer section */}
-        <div
-          className="hero lg:py-20"
-          style={{
-            background: `url(https://s7d4.scene7.com/is/image/MohawkResidential/alc_oldquarter_banner_5000x2083_300dpi?scl=2&hei=800&wid=2000&op_sharpen=1&op_brightness=-30)`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "100%,25%",
-          }}
-        >
-          <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="text-center lg:text-left">
-              <img src={offerImg} alt="" />
-            </div>
-          </div>
-        </div>
+        <OfferAndAppointment/>
 
         {/* discover section */}
         <Discover />

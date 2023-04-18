@@ -5,7 +5,8 @@ import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
 import { BUCKET_DOMAIN, ProductColor } from "../../../helper/Helper";
 import { Link, useParams } from "react-router-dom";
-import Pagination from "./Pagination";
+import ReactPaginate from "react-paginate";
+import "./UserAllProducts.css"
 
 export default function UserAllProducts() {
   const [loading, setLoading] = useState(false);
@@ -77,12 +78,11 @@ export default function UserAllProducts() {
         message.error("Something went wrong!!!");
       });
   };
-
   return (
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
       <div className="lg:flex  bg-base-100">
-        <div className="px-10 gap-x-5 mt-20">
+        <div className="pl-5 gap-x-5 mt-20">
           <input
             type="text"
             placeholder="Search"
@@ -161,7 +161,7 @@ export default function UserAllProducts() {
           </div>
         </div>
 
-        <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20 mb-10 mt-20">
+        <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">
           {products.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
@@ -180,12 +180,18 @@ export default function UserAllProducts() {
           })}
         </div>
       </div>
-      <div className="my-10">
-        <Pagination
-          totalPosts={products.length}
-          postsPerPage={setPage}
-          setCurrentPage={set_per_page}
-        />
+      <div id="react-paginate">
+        <div className="">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="next >"
+            // onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={50}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+          />
+        </div>
       </div>
     </LoadingOverlay>
   );

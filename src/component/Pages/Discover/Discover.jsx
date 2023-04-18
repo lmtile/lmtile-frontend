@@ -17,7 +17,7 @@ const Discover = () => {
             <div className='p-5 border border-slate-300 bg-red-800'>
                 <FaCheckCircle className='mx-auto text-5xl'></FaCheckCircle>
                 <h2 className='text-2xl font-bold mt-5'>Shop-at-Home Convenience</h2>
-                <h2 className='text-lg'>See hundreds of samples in your home. Empire® brings the store to you.</h2>
+                <h2 className='text-lg'>See hundreds of samples in your home. LM-Tile® brings the store to you.</h2>
                 <div className='text-center'>
                     <Link to={'/convenience'}><p className='text-lg font-bold mt-5'><u>LEARN MORE</u></p></Link>
                 </div>

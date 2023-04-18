@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import image1 from '../../../assets/img/flooring-by-need/Pet-Friendly-Floors-4-756x756.webp'
+import image1 from '../../../assets/img/flooring-by-need/0090164_southwind-timeless-plank-heartwood-6-w11kd-1005 (1).jpeg'
 import image2 from '../../../assets/img/flooring-by-need/wooden-flooring-500x500.webp'
 import image3 from '../../../assets/img/flooring-by-need/inspiration-gallery.jpg'
 

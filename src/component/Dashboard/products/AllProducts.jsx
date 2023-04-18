@@ -194,9 +194,9 @@ export default class AllProducts extends Component {
       {
         name: "Product image",
         selector: (row) => (
-          <img src={`${BUCKET_DOMAIN}${row.images[0]}`} alt={row.name} />
+          <img className="w-[80px] py-3" src={`${BUCKET_DOMAIN}${row.images[0]}`} alt={row.name} />
         ),
-        width: "100px",
+        width: "200px",
       },
 
       {

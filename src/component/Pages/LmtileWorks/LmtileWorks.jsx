@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img1 from '../../../assets/img/discover/01_woman-using-laptop.jpg'
-import img2 from '../../../assets/img/discover/how_consult.jpg'
-import img3 from '../../../assets/img/discover/how_pros.jpg'
-import img4 from '../../../assets/img/discover/how_next_day2.jpg'
-import img5 from '../../../assets/img/discover/how_pricing2.jpg'
-import img6 from '../../../assets/img/discover/how_quality2.jpg'
-import img7 from '../../../assets/img/discover/how_samples2.jpg'
+import img2 from '../../../assets/img/discover/Fotolia_123875036_Subscription_Monthly_M.jpg'
+import img3 from '../../../assets/img/discover/featured-image-best-flooring-install.jpeg-1.jpg'
+import img4 from '../../../assets/img/discover/featured-image-best-flooring-install.jpeg-1.jpg'
+import img5 from '../../../assets/img/discover/Screen-Shot-2021-04-30-at-1.webp'
+import img6 from '../../../assets/img/discover/6062121d110146f1149af773.webp'
+import img7 from '../../../assets/img/discover/showroom-6.jpg'
 import OffersModal from '../Offers/OffersModal';
 
 const LmtileWorks = () => {
