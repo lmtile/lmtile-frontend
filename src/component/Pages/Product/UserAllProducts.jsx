@@ -57,6 +57,7 @@ export default function UserAllProducts() {
         } else {
           message.error(res.data.message);
           setProducts([]);
+          setTotal(0);
         }
       })
       .catch((err) => {

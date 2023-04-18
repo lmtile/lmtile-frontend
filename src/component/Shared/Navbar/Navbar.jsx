@@ -595,7 +595,7 @@ const Navbar = () => {
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=blue">Gray Carpet</Link>
+                              <Link to="/products/carpet?color=gray">Gray Carpet</Link>
                             </li>
                             <li className="pb-2">
                               <Link to="/products/carpet?color=beige">
