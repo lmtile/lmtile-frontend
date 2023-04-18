@@ -14,7 +14,8 @@ export default function UserAllProducts() {
   const [sub_cat, set_sub_cat] = useState([]);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-  const [per_page, set_per_page] = useState(10);
+  const [total, setTotal] = useState(0);
+  const [per_page, set_per_page] = useState(12);
   const [select_category, set_select_category] = useState(
     useParams()?.category
   );
@@ -38,7 +39,7 @@ export default function UserAllProducts() {
       setIscalling(1 + isCalling);
     }
     getAllProduct();
-  }, [select_category, color]);
+  }, [select_category, color, page]);
 
   const getAllProduct = () => {
     setLoading(true);
@@ -50,8 +51,9 @@ export default function UserAllProducts() {
       .then((res) => {
         setLoading(false);
         if (res.data.success) {
-          let { products } = res.data;
+          let { products, total } = res.data;
           setProducts(products);
+          setTotal(total);
         } else {
           message.error(res.data.message);
           setProducts([]);
@@ -111,6 +113,7 @@ export default function UserAllProducts() {
                     onClick={() => {
                       set_sub_cat(cat.sub_cat);
                       set_select_category(cat.label.toLowerCase());
+                      setPage(1);
                     }}
                     className="font-bold text-sm"
                   >
@@ -156,6 +159,7 @@ export default function UserAllProducts() {
                     className="font-bold text-sm"
                     onClick={() => {
                       setColor(cat.value);
+                      setPage(1);
                     }}
                   >
                     {cat.label}
@@ -189,11 +193,13 @@ export default function UserAllProducts() {
         <div className="">
           <ReactPaginate
             breakLabel="..."
-            nextLabel="next >"
-            // onPageChange={handlePageClick}
+            nextLabel=">"
+            onPageChange={({ selected }) => {
+              setPage(selected + 1);
+            }}
             pageRangeDisplayed={5}
-            pageCount={50}
-            previousLabel="< previous"
+            pageCount={Math.ceil(total / per_page)}
+            previousLabel="<"
             renderOnZeroPageCount={null}
           />
         </div>
