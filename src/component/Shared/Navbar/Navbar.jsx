@@ -1085,9 +1085,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* <div>
-                <input type="text" placeholder="Search" className="input input-bordered lg:w-2/4 sm:w-full lg:ml-64" />
-            </div> */}
     </div>
   );
 };
