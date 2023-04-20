@@ -595,30 +595,34 @@ const Navbar = () => {
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=gray">Gray Carpet</Link>
+                              <Link to="/products/carpet?color=beige">Beiges Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=beige">
-                                Beige Carpet
+                              <Link to="/products/carpet?color=blue">
+                                Blue Carpet
                               </Link>
                             </li>
                             <li className="pb-2">
                               <Link to="/products/carpet?color=brown">Brown Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Gold Carpet</Link>
+                              <Link to="/products/carpet?color=gold"
+                              >Gold Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Red Carpet</Link>
+                              <Link to="/products/carpet?color=gray">Grays Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Orange Carpet</Link>
+                              <Link to="/products/carpet?color=orange">Orange Carpet</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Green Carpet</Link>
+                              <Link to="/products/carpet?color=green">Green Carpet</Link>
                             </li>
                             <li>
-                              <Link>Violet Carpet</Link>
+                              <Link to="/products/carpet?color=violet">Violet Carpet</Link>
+                            </li>
+                            <li>
+                              <Link to="/products/carpet?color=red">Red Carpet</Link>
                             </li>
                           </ul>
                         </div>
@@ -670,8 +674,13 @@ const Navbar = () => {
                               <Link>Wood Laminate</Link>
                             </li>
                           </ul>
+                          <Link to="/products/laminate">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL LAMINATE
+                            </button>
+                          </Link>
                         </div>
-                        <div>
+                        {/* <div>
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Color
                           </p>
@@ -698,7 +707,7 @@ const Navbar = () => {
                               <Link>Orange </Link>
                             </li>
                           </ul>
-                        </div>
+                        </div> */}
                         <Link>
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
@@ -737,7 +746,14 @@ const Navbar = () => {
                 <div class="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[800px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-3 gap-6">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div className="ml-10">
+                          <Link to="/products/hardwood">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL HARDWOOD
+                            </button>
+                          </Link>
+                        </div>
                         <div className="ml-10">
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Color
@@ -810,64 +826,11 @@ const Navbar = () => {
                 </div>
               </li>
               <li class="relative group px-3 py-8">
-                <Link to={"spcCategory"}>
+                <Link to="/products/spc">
                   <button class="group-hover:border-b-4 border-black cursor-default">
                     SPC
                   </button>
                 </Link>
-                {/* <div
-                            class="absolute top-0 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[900px] transform ">
-                            <div class="relative top-6 p-6  shadow-xl w-full bg-base-300">
-                                <div
-                                    class="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out">
-                                </div>
-
-                                <div class="relative z-40">
-                                    <div class="grid grid-cols-5 gap-6">
-                                        <div>
-                                            <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">Shop by Brand</p>
-                                            <ul class="mt-3 text-[15px]">
-                                                <li><a href='https://www.mohawkflooring.com/'>Mohawkflooring</a></li>
-                                                <li><a href=' https://shawfloors.com/'>Shawfloors</a></li>
-                                                <li><a href='https://www.engineeredfloors.com/'>Engineeredfloors</a></li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">Shop by Color</p>
-                                            <ul class="mt-3 text-[15px]">
-                                                <li><Link>Beige Hardwood</Link></li>
-                                                <li><Link>Black Hardwood</Link></li>
-                                                <li><Link>Blue Hardwood</Link></li>
-                                                <li><Link>Brown Hardwood</Link></li>
-                                                <li><Link>Gold Hardwood</Link></li>
-                                                <li><Link>Green Hardwood</Link></li>
-                                                <li><Link>Grey Hardwood</Link></li>
-                                                <li><Link>Natural Hardwood</Link></li>
-                                                <li><Link>Natural / Beige Hardwood</Link></li>
-                                                <li><Link>Red Hardwood</Link></li>
-                                                <li><Link>White Hardwood</Link></li>
-                                            </ul>
-                                        </div>
-                                        <Link>
-                                            <div className="card w-40 glass mt-5 rounded-none">
-                                                <figure><img src={megaMenu1} alt="car!" /></figure>
-                                                <div className="card-body">
-                                                    <Link><h6 className="">EMPIRE EXCLUSIVE - HOME FRESH</h6></Link>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                        <Link>
-                                            <div className="card w-40 glass rounded-none mt-5">
-                                                <figure><img src={megaMenu2} alt="car!" /></figure>
-                                                <div className="card-body">
-                                                    <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
               </li>
               <li class="relative group px-3 py-8">
                 <button class="group-hover:border-b-4 border-black cursor-default">
@@ -889,6 +852,11 @@ const Navbar = () => {
                               <Link>Travertine</Link>
                             </li>
                           </ul>
+                          <Link to="/products/tile">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL TILE
+                            </button>
+                          </Link>
                         </div>
                         <Link>
                           <div className="card w-40 glass mt-5 rounded-none">
@@ -950,6 +918,11 @@ const Navbar = () => {
                               <Link>C Series (NEW)</Link>
                             </li>
                           </ul>
+                          <Link to="/products/cabinet">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL CABINET
+                            </button>
+                          </Link>
                         </div>
                         <Link>
                           <div className="card w-40 glass mt-5 rounded-none">
@@ -986,41 +959,6 @@ const Navbar = () => {
                 <button class="group-hover:border-b-4 border-black cursor-default">
                   Visualizer
                 </button>
-                {/* <div
-                                        class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform ">
-                                        <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                                            <div class="relative z-40">
-                                                <div class="grid grid-cols-3 gap-6">
-
-                                                    <div>
-                                                        <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">Shop by Collection</p>
-                                                        <ul class="mt-3 text-[15px]">
-                                                            <li className='pb-2'><Link>Multi-Surface Visualizer</Link></li>
-                                                            <li className='pb-2'><Link>Kitchen Visualizer</Link></li>
-                                                            <li className='pb-2'><Link>Countertop Edge Visualizer</Link></li>
-                                                            <li><Link>Stacked Stone Visualize</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <Link>
-                                                        <div className="card w-40 glass mt-5 rounded-none">
-                                                            <figure><img src={megaMenu1} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h6 className="">EMPIRE EXCLUSIVE - HOME FRESH</h6></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                    <Link>
-                                                        <div className="card w-40 glass rounded-none mt-5">
-                                                            <figure><img src={megaMenu2} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> */}
               </li>
               <li class="relative group px-3 py-8">
                 <button class="group-hover:border-b-4 border-black cursor-default">
@@ -1048,6 +986,11 @@ const Navbar = () => {
                               <Link>Farmhouse Apron Kitchen Sinks</Link>
                             </li>
                           </ul>
+                          <Link to="/products/sink">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL SINK
+                            </button>
+                          </Link>
                         </div>
                         <Link>
                           <div className="card w-40 glass mt-5 rounded-none">
@@ -1087,35 +1030,7 @@ const Navbar = () => {
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <h1 className="text-4xl font-bold">COMING SOON</h1>
-                      {/* <div class="grid grid-cols-3 gap-6">
-
-                                                    <div>
-                                                        <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">Shop by Type</p>
-                                                        <ul class="mt-3 text-[15px]">
-                                                            <li className='pb-2'><Link>Double Bowl Kitchen Sinks</Link></li>
-                                                            <li className='pb-2'><Link>Single Bowl Kitchen Sinks</Link></li>
-                                                            <li className='pb-2'><Link>Quartz Composite Sinks</Link></li>
-                                                            <li><Link>Farmhouse Apron Kitchen Sinks</Link></li>
-                                                        </ul>
-                                                    </div>
-                                                    <Link>
-                                                        <div className="card w-40 glass mt-5 rounded-none">
-                                                            <figure><img src={megaMenu1} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h6 className="">EMPIRE EXCLUSIVE - HOME FRESH</h6></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                    <Link>
-                                                        <div className="card w-40 glass rounded-none mt-5">
-                                                            <figure><img src={megaMenu2} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                </div> */}
+                      
                     </div>
                   </div>
                 </div>
@@ -1129,7 +1044,6 @@ const Navbar = () => {
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <h1 className="text-4xl font-bold">COMING SOON</h1>
                       <div class="grid grid-cols-3 gap-6">
                         {/* <div>
                                                         <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">LM-Tile for Your Business</p>

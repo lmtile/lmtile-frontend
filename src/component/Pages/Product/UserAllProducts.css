@@ -17,14 +17,15 @@
     margin-bottom: 5px;
 }
 
-#react-paginate li a {
+#react-paginate li {
     padding: 2px 5px;
     display: inline-block;
     color: #000;
     outline: none;
 }
 
-#react-paginate li.active {
-    background: #6b1919;
+#react-paginate li.selected {
+    background-color: #6b1919;
+    color: #fff;
     outline: none;
 }
