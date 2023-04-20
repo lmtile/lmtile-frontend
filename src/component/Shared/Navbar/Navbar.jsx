@@ -760,34 +760,34 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=beige">Beige Hardwood</Link>
+                              <Link to="/products/hardwood?color=beige">Beige Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=black">Black Hardwood</Link>
+                              <Link to="/products/hardwood?color=black">Black Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=blue">Blue Hardwood</Link>
+                              <Link to="/products/hardwood?color=blue">Blue Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=brown">Brown Hardwood</Link>
+                              <Link to="/products/hardwood?color=brown">Brown Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=gold">Gold Hardwood</Link>
+                              <Link to="/products/hardwood?color=gold">Gold Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=green">Green Hardwood</Link>
+                              <Link to="/products/hardwood?color=green">Green Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=grey">Grey Hardwood</Link>
+                              <Link to="/products/hardwood?color=grey">Grey Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=natural">Natural Hardwood</Link>
+                              <Link to="/products/hardwood?color=natural">Natural Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=red">Red Hardwood</Link>
+                              <Link to="/products/hardwood?color=red">Red Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=white">White Hardwood</Link>
+                              <Link to="/products/hardwood?color=white">White Hardwood</Link>
                             </li>
                           </ul>
                         </div>
