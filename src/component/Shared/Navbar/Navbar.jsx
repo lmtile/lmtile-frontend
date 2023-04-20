@@ -1042,7 +1042,7 @@ const Navbar = () => {
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
                       <div class="grid grid-cols-3 gap-6">
-                        {/* <div>
+                        <div>
                                                         <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">LM-Tile for Your Business</p>
                                                         <ul class="mt-3 text-[15px]">
                                                             <li className='pb-2'><Link>Commercial (Commercial Carpet and Carpet Tile)</Link></li>
@@ -1066,7 +1066,7 @@ const Navbar = () => {
                                                                 <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
                                                             </div>
                                                         </div>
-                                                    </Link> */}
+                                                    </Link>
                       </div>
                     </div>
                   </div>
