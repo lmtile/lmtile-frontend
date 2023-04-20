@@ -841,14 +841,14 @@ const Navbar = () => {
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Collection
                           </p>
-                          {/* <ul class="mt-3 text-[15px]">
+                          <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
                               <Link>Marble</Link>
                             </li>
                             <li>
                               <Link>Travertine</Link>
                             </li>
-                          </ul> */}
+                          </ul>
                           <Link to="/products/tile">
                             <button className="btn btn-dark mt-40">
                               SEE ALL TILE
