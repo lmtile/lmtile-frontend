@@ -799,7 +799,7 @@ const Navbar = () => {
                             <div className="card-body">
                               <Link>
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  
                                 </h6>
                               </Link>
                             </div>
