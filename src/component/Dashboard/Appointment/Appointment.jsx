@@ -8,7 +8,8 @@ import moment from "moment";
 import { DATE_TIME_HELPER } from "../../../helper/Helper";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaTrash, FaTrashAlt } from "react-icons/fa";
+import * as FileSaver from "file-saver";
+import * as XLSX from "xlsx";
 
 const COLUMNS = [
   {
@@ -82,16 +83,6 @@ const COLUMNS = [
     width: "100px",
   },
 ];
-
-{
-  /* 
-            
-
-  
-            <th className="px-4 py-2">Coupon Code</th>
-            <th className="px-4 py-2">City</th>
-            <th className="px-4 py-2">Street</th> */
-}
 
 export default class Appointment extends Component {
   constructor(props) {
@@ -225,6 +216,63 @@ export default class Appointment extends Component {
     }
   };
 
+  generateExcelFile = async () => {
+    let { appointments } = this.state;
+
+    const data = [
+      [
+        "ID",
+        "Name",
+        "Phone",
+        "Email",
+        "Office Name",
+        "Product",
+        "Coupon",
+        "Date",
+        "Time",
+        "City",
+        "Address",
+      ],
+    ];
+
+    appointments.forEach((appoint) => {
+      data.push([
+        appoint._id,
+        appoint.name,
+        appoint.phone,
+        appoint.email,
+        appoint.office_name,
+        appoint.product_name,
+        appoint.cupon_code,
+        moment(appoint.date).format(DATE_TIME_HELPER.DATE_FORMAT),
+        moment(appoint.time, "hh:mm").format("hh:mm a"),
+        appoint.city,
+        appoint.address,
+      ]);
+    });
+
+    // Create a new workbook
+    const workbook = XLSX.utils.book_new();
+
+    // Add a new worksheet to the workbook
+    const worksheet = XLSX.utils.aoa_to_sheet(data);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Appointment");
+
+    // Generate an Excel file buffer
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+
+    // Save the Excel file using FileSaver.js
+    const currentTimestamp = Date.now();
+    const excelFileName = `${currentTimestamp}.xlsx`;
+    const excelFile = new Blob([excelBuffer], {
+      type: "application/octet-stream",
+    });
+    FileSaver.saveAs(excelFile, excelFileName);
+  };
+
   render() {
     let {
       appointments,
@@ -313,9 +361,12 @@ export default class Appointment extends Component {
               } rounded`}
               disabled={selected_rows.length === 0}
               onClick={this.deleteAppointment}
-            ><FaTrashAlt className="mr-3"/>DELETE
+            >
+              DELETE
             </button>
           </div>
+
+          <button onClick={this.generateExcelFile}>Download</button>
 
           <DataTable
             columns={COLUMNS}
