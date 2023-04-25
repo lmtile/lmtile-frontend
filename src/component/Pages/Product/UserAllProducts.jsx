@@ -22,9 +22,7 @@ export default function UserAllProducts() {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [per_page, set_per_page] = useState(12);
-  const [select_category, set_select_category] = useState(
-    useParams()?.category
-  );
+  const [select_category, set_select_category] = useState("");
   const [select_sub_category, set_select_sub_category] = useState("");
   const [color, setColor] = useState("");
 
@@ -36,12 +34,22 @@ export default function UserAllProducts() {
   const searchColor = queryParam["color"];
   const searchSubCat = queryParam["type"];
 
-  if (searchColor && color !== searchColor) {
-    setColor(searchColor);
+  if (searchColor) {
+    if (color !== searchColor) setColor(searchColor);
+  } else {
+    if (color) setColor("");
   }
 
-  if (searchSubCat && select_sub_category !== searchSubCat) {
-    set_select_sub_category(searchSubCat);
+  if (searchSubCat) {
+    if (select_sub_category !== searchSubCat)
+      set_select_sub_category(searchSubCat);
+  } else {
+    if (select_sub_category) set_select_sub_category("");
+  }
+
+  let category = useParams()?.category;
+  if (category !== select_category) {
+    set_select_category(category);
   }
 
   useEffect(() => {
