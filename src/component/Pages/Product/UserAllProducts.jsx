@@ -136,12 +136,15 @@ export default function UserAllProducts() {
                     <Link
                       to={{
                         pathname: `/products/${cat.label.toLowerCase()}`,
-                        search: qs.stringify(queryParam),
+                        // search: qs.stringify({}),
                       }}
                       onClick={() => {
                         set_sub_cat(cat.sub_cat);
                         set_select_category(cat.label.toLowerCase());
                         setPage(1);
+                        setColor("");
+                        set_select_sub_category("");
+
                       }}
                       className="font-bold text-sm"
                     >

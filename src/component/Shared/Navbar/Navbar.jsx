@@ -579,13 +579,13 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Nylon</Link>
+                              <Link to="/products/carpet?type=Nylon">Nylon</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Polyester</Link>
+                              <Link to="/products/carpet?type=Polyester">Polyester</Link>
                             </li>
                             <li>
-                              <Link>ANSO High Performance</Link>
+                              <Link to="/products/carpet?type=ANSO%20High%20-%20Performance">ANSO High Performance</Link>
                             </li>
                           </ul>
                         </div>
@@ -843,10 +843,10 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Marble</Link>
+                              <Link to="/products/tile?type=Marble">Marble</Link>
                             </li>
                             <li>
-                              <Link>Travertine</Link>
+                              <Link to="/products/tile?type=Travertine">Travertine</Link>
                             </li>
                           </ul>
                           <Link to="/products/tile">
@@ -900,19 +900,19 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Traditional</Link>
+                              <Link to="/products/cabinet?type=Traditional">Traditional</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>European</Link>
+                              <Link to="/products/cabinet?type=European">European</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Custom</Link>
+                              <Link to="/products/cabinet?type=Custom">Custom</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Closets</Link>
+                              <Link to="/products/cabinet?type=Closets">Closets</Link>
                             </li>
                             <li>
-                              <Link>C Series (NEW)</Link>
+                              <Link to="/products/cabinet?type=C%20Series%20%28NEW%29">C Series (NEW)</Link>
                             </li>
                           </ul>
                           <Link to="/products/cabinet">
@@ -971,16 +971,19 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Double Bowl Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Double Bowl Kitchen Sinks</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Single Bowl Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Single Bowl Kitchen Sinks</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Quartz Composite Sinks</Link>
+                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">Quartz Composite Sinks</Link>
                             </li>
                             <li>
-                              <Link>Farmhouse Apron Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks">Farmhouse Apron Kitchen Sinks</Link>
+                            </li>
+                            <li>
+                              <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">Vanity Sinks - Undermount, Overmount</Link>
                             </li>
                           </ul>
                           <Link to="/products/sink">
