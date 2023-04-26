@@ -1,124 +1,248 @@
-
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
-
+import React, { useState } from "react";
+import axios from "../../../config/axios";
+import message from "../../../config/message";
+import LoadingOverlay from "react-loading-overlay";
+import config from "../../../config/config";
 
 const AddPosterOffer = () => {
-    // treatment is just another name of appointmentOptions with name, slots, _id
+  const [inputData, setInputData] = useState({
+    title: "",
+    offers: [],
+  });
 
-    const initialValues = { };
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
+  const [offerLabel, setOfferLabel] = useState({
+    title: "",
+    offer: "",
+  });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
-    };
+  const [isAnotherOffer, setIsAnotherOffer] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputData({ ...inputData, [name]: value });
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        // axios.post('/add-offer-poster', formValues)
-        //     .then((response) => {
-        //         console.log('Poster created:', response.data);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error creating poster:', error);
-        //     });
+    if (offerLabel.offer && offerLabel.title) {
+      let { offers } = inputData;
+      offers.push(offerLabel);
+      setInputData({
+        ...inputData,
+        offers,
+      });
+      setOfferLabel({
+        title: "",
+        offer: "",
+      });
+    }
 
-    };
+    setLoading(true);
 
-    useEffect(() => {
-        console.log(formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-            console.log(formValues);
+    axios
+      .post("/api/offer/add-offer-poster", inputData, config)
+      .then((res) => {
+        setLoading(false);
+
+        if (res.data.success) {
+          message.success(res.data.message);
+
+          setInputData({
+            title: "",
+            offers: [],
+          });
+        } else {
+          message.error(res.data.message);
         }
-    }, [formErrors]);
-    const validate = (values) => {
-        const errors = {};
-        if (!values.poster_title) {
-            errors.poster_title = "poster_title is required!";
-        }
-        if (!values.Offer1) {
-            errors.Offer1 = "Offer1 % is required!";
-        }
-        if (!values.Offer1_about) {
-            errors.Offer1_about = "Offer1_about is required!";
-        }
-        if (!values.Offer2) {
-            errors.Offer2 = "Offer2 % is required!";
-        }
-        if (!values.Offer2_about) {
-            errors.Offer2_about = "Offer2_about is required!";
-        }
-        if (!values.Offer3) {
-            errors.Offer3 = "Offer3 % is required!";
-        }
-        if (!values.Offer3_about) {
-            errors.Offer3_about = "Offer3_about is required!";
-        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
 
-        return errors;
-    };
+  return (
+    <LoadingOverlay active={loading} spinner text="Loading ...">
+      <div className=" w-[800px] p-7 mx-auto">
+        <h2 className="text-4xl">Add Poster </h2>
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-3 mt-10">
+          <p className="font-bold ml-2">Poster Title</p>
+          <input
+            name="title"
+            type="text"
+            placeholder="Poster Title"
+            className="input w-[660px] input-bordered "
+            value={inputData.title}
+            onChange={handleChange}
+            required
+          />
 
-    return (
-        <div className=' w-[800px] p-7 mx-auto'>
-            <h2 className="text-4xl">Add Poster </h2>
-            <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 mt-10'>
-
-                <p className='font-bold ml-2'>Poster Title</p>
-                <input name="poster_title" type="text" placeholder="Poster Title" className="input w-[660px] input-bordered " value={formValues.poster_title} onChange={handleChange} />
-                <p className='text-red-800'>{formErrors.poster_title}</p>
-
-                <div className='flex'>
-                    <div>
-                        <p className='font-bold ml-2'>Offer-1 %</p>
-                        <input name="Offer1" type="text" placeholder="Offer-1 %" className="input w-80 input-bordered" value={formValues.Offer1} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer1}</p>
-                    </div>
-                    <div className='ml-5'>
-                        <p className='font-bold ml-2'>Offer-1 About</p>
-                        <input name="Offer1_about" type="text" placeholder="Offer-1 About" className="input w-80 input-bordered" value={formValues.Offer1_about} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer1_about}</p>
-                    </div>
+          <div className="grid grid-cols-3 gap-x-5">
+            {inputData.offers.map((data, key) => {
+              return (
+                <div
+                  key={key}
+                  className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl"
+                >
+                  <h1 className="text-4xl">{data.offer}% OFF</h1>
+                  <p>{data.title}</p>
                 </div>
+              );
+            })}
+          </div>
 
-                <div className='flex'>
-                    <div>
-                        <p className='font-bold ml-2'>Offer-2 %</p>
-                        <input name="Offer2" type="text" placeholder="Offer-2 %" className="input w-80 input-bordered" value={formValues.Offer2} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer2}</p>
-                    </div>
-                    <div className='ml-5'>
-                        <p className='font-bold ml-2'>Offer-2 About</p>
-                        <input name="Offer2_about" type="text" placeholder="Offer-2 About" className="input w-80 input-bordered" value={formValues.Offer2_about} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer2_about}</p>
-                    </div>
+          {/* FOR FIRST TIME */}
+
+          {inputData.offers.length === 0 && (
+            <>
+              <div className="flex">
+                <div>
+                  <p className="font-bold ml-2">Offer Percentag (%)</p>
+                  <input
+                    name="offer"
+                    type="text"
+                    placeholder="Offer Percentag (%)"
+                    className="input w-80 input-bordered"
+                    value={offerLabel.offer}
+                    onChange={(e) => {
+                      setOfferLabel({
+                        ...offerLabel,
+                        offer: e.target.value,
+                      });
+                    }}
+                    required
+                  />
                 </div>
+                <div className="ml-5">
+                  <p className="font-bold ml-2">Offer Title</p>
+                  <input
+                    name="title"
+                    type="text"
+                    placeholder="Offer Title"
+                    className="input w-80 input-bordered"
+                    value={offerLabel.title}
+                    onChange={(e) => {
+                      setOfferLabel({
+                        ...offerLabel,
+                        title: e.target.value,
+                      });
+                    }}
+                    required
+                  />
+                </div>
+              </div>
 
-                <div className='flex'>
-                    <div>
-                        <p className='font-bold ml-2'>Offer-3 %</p>
-                        <input name="Offer3" type="text" placeholder="Offer-3 %" className="input w-80 input-bordered" value={formValues.Offer3} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer3}</p>
-                    </div>
+              <button
+                type="button"
+                onClick={() => {
+                  if (offerLabel.offer && offerLabel.title) {
+                    let { offers } = inputData;
+                    offers.push(offerLabel);
+                    setInputData({
+                      ...inputData,
+                      offers,
+                    });
+                    setOfferLabel({
+                      title: "",
+                      offer: "",
+                    });
+                    setIsAnotherOffer(true);
+                  }
+                }}
+              >
+                Add Another offer
+              </button>
+            </>
+          )}
 
-                    <div className='ml-5'>
-                        <p className='font-bold ml-2'>Offer-3 About</p>
-                        <input name="Offer3_about" type="text" placeholder="Offer-3 About" className="input w-80 input-bordered" value={formValues.Offer3_about} onChange={handleChange} />
-                        <p className='text-red-800'>{formErrors.Offer3_about}</p>
-                    </div>
-               </div>
+          {isAnotherOffer && (
+            <>
+              <div className="flex">
+                <div>
+                  <p className="font-bold ml-2">Offer Percentag (%)</p>
+                  <input
+                    name="offer"
+                    type="text"
+                    placeholder="Offer Percentag (%)"
+                    className="input w-80 input-bordered"
+                    value={offerLabel.offer}
+                    onChange={(e) => {
+                      setOfferLabel({
+                        ...offerLabel,
+                        offer: e.target.value,
+                      });
+                    }}
+                    required
+                  />
+                </div>
+                <div className="ml-5">
+                  <p className="font-bold ml-2">Offer Title</p>
+                  <input
+                    name="title"
+                    type="text"
+                    placeholder="Offer Title"
+                    className="input w-80 input-bordered"
+                    value={offerLabel.title}
+                    onChange={(e) => {
+                      setOfferLabel({
+                        ...offerLabel,
+                        title: e.target.value,
+                      });
+                    }}
+                    required
+                  />
+                </div>
+              </div>
 
-                <br />
-                <input className='btn btn-primary w-[660px]' type="submit" value="ADD POSTER" />
-            </form>
-        </div>
-    );
+              <button
+                type="button"
+                onClick={() => {
+                  if (offerLabel.offer && offerLabel.title) {
+                    let { offers } = inputData;
+                    offers.push(offerLabel);
+                    setInputData({
+                      ...inputData,
+                      offers,
+                    });
+                    setOfferLabel({
+                      title: "",
+                      offer: "",
+                    });
+                    setIsAnotherOffer(true);
+                  }
+                }}
+              >
+                Add Another offer
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setOfferLabel({
+                    title: "",
+                    offer: "",
+                  });
+                  setIsAnotherOffer(false);
+                }}
+              >
+                Cancel
+              </button>
+            </>
+          )}
+
+          <br />
+          <input
+            className="btn btn-primary w-[660px]"
+            type="submit"
+            value="ADD POSTER"
+          />
+        </form>
+      </div>
+    </LoadingOverlay>
+  );
 };
 
 export default AddPosterOffer;
