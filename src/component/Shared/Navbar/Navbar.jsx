@@ -120,7 +120,7 @@ const Navbar = () => {
                       <li className="px-28"></li>
                       <p className="font-bold">Shop by Type</p>
                       <li>
-                        <Link>Nylon</Link>
+                        <Link to="products/carpet?type=Nylon">Nylon</Link>
                       </li>
                       <li>
                         <Link>Polyester</Link>
@@ -579,6 +579,7 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
+
                               <Link to="/products/carpet?type=Nylon">Nylon</Link>
                             </li>
                             <li className="pb-2">
@@ -586,6 +587,20 @@ const Navbar = () => {
                             </li>
                             <li>
                               <Link to="/products/carpet?type=ANSO%20High%20-%20Performance">ANSO High Performance</Link>
+
+                              <Link to="/products/carpet?type=Nylon">
+                                Nylon
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="products/carpet?type=Polyester">
+                                Polyester
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="products/carpet?type=ANSO%20High%20-%20Performance">
+                                ANSO High Performance
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -595,7 +610,9 @@ const Navbar = () => {
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=beige">Beiges Carpet</Link>
+                              <Link to="/products/carpet?color=beige">
+                                Beiges Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
                               <Link to="/products/carpet?color=blue">
@@ -603,26 +620,39 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=brown">Brown Carpet</Link>
+                              <Link to="/products/carpet?color=brown">
+                                Brown Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=gold"
-                              >Gold Carpet</Link>
+                              <Link to="/products/carpet?color=gold">
+                                Gold Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=gray">Grays Carpet</Link>
+                              <Link to="/products/carpet?color=gray">
+                                Grays Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=orange">Orange Carpet</Link>
+                              <Link to="/products/carpet?color=orange">
+                                Orange Carpet
+                              </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/carpet?color=green">Green Carpet</Link>
+                              <Link to="/products/carpet?color=green">
+                                Green Carpet
+                              </Link>
                             </li>
                             <li>
-                              <Link to="/products/carpet?color=violet">Violet Carpet</Link>
+                              <Link to="/products/carpet?color=violet">
+                                Violet Carpet
+                              </Link>
                             </li>
                             <li>
-                              <Link to="/products/carpet?color=red">Red Carpet</Link>
+                              <Link to="/products/carpet?color=red">
+                                Red Carpet
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -1029,9 +1059,7 @@ const Navbar = () => {
                 </button>
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                    <div class="relative z-40">
-                      
-                    </div>
+                    <div class="relative z-40"></div>
                   </div>
                 </div>
               </li>
@@ -1093,12 +1121,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
