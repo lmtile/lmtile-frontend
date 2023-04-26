@@ -29,18 +29,20 @@ export default class Offers extends Component {
       isLoading: false,
 
       offer_product: [],
+      posters: [],
     };
   }
 
   componentDidMount = () => {
     this.getAllProductOffer();
+    this.getAllOfferPoster();
   };
 
   getAllProductOffer = () => {
     this.setState({ isLoading: true });
 
     axios
-      .get(`/api/offer/get-all-offer-product`)
+      .get("/api/offer/get-all-offer-product")
       .then((res) => {
         this.setState({ isLoading: false });
 
@@ -59,8 +61,29 @@ export default class Offers extends Component {
       });
   };
 
+  getAllOfferPoster = () => {
+    axios
+      .get("/api/offer/get-all-offer-poster")
+      .then((res) => {
+        this.setState({ isLoading: false });
+
+        if (res.data.success) {
+          let { posters } = res.data;
+
+          this.setState({ posters });
+        } else {
+          message.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        this.setState({ isLoading: false });
+        console.error(err);
+        message.error("Something went wrong!!!");
+      });
+  };
+
   render() {
-    let { offer_product } = this.state;
+    let { offer_product, posters } = this.state;
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <OffersModal />
@@ -79,24 +102,23 @@ export default class Offers extends Component {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content lg:p-32">
               <div className="shadow-red-800 shadow-2xl">
-                {offerPoster.map((poster) => (
+                {posters.map((poster) => (
                   <div className="bg-base-100 p-10">
                     <h1 className="text-white text-3xl font-bold p-5 bg-blue-800  text-center rounded-tl-3xl rounded-br-3xl mx-10">
                       {poster.title}
                     </h1>
                     <div className="grid grid-cols-3 gap-x-5">
-                      <div className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl">
-                        <h1 className="text-4xl">{poster.offer1}</h1>
-                        <p>{poster.offer1_about}</p>
-                      </div>
-                      <div className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl">
-                        <h1 className="text-4xl">{poster.offer2}</h1>
-                        <p>{poster.offer2_about}</p>
-                      </div>
-                      <div className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl">
-                        <h1 className="text-4xl">{poster.offer3}</h1>
-                        <p>{poster.offer3_about}</p>
-                      </div>
+                      {poster.offers.map((data, key) => {
+                        return (
+                          <div
+                            key={key}
+                            className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl"
+                          >
+                            <h1 className="text-4xl">{data.offer}% OFF</h1>
+                            <p>{data.title}</p>
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className="text-center">
                       <Link to="/offerSchedule">
