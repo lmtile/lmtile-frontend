@@ -364,9 +364,10 @@ export default class Appointment extends Component {
             >
               DELETE
             </button>
+            <button onClick={this.generateExcelFile} className="btn btn-outline mt-5 ">Export Excel</button>
           </div>
 
-          <button onClick={this.generateExcelFile}>Download</button>
+          
 
           <DataTable
             columns={COLUMNS}

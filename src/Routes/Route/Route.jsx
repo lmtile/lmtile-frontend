@@ -54,6 +54,7 @@ import UserAllProducts from "../../component/Pages/Product/UserAllProducts";
 import ProductDetails from "../../component/Pages/Product/Product-Details";
 import ViewAppointment from "../../component/Dashboard/Appointment/ViewAppointment";
 import EditProduct from "../../component/Dashboard/products/EditProduct";
+import AllOfferProducts from "../../component/Dashboard/Offers/AllOfferProducts";
 
 const router = createBrowserRouter([
   {
@@ -273,6 +274,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add-offer-product",
         element: <AddOfferProduct />,
+      },
+      {
+        path: "/dashboard/all-offer-product",
+        element: <AllOfferProducts />,
       },
       {
         path: "/dashboard/add-package",
