@@ -579,6 +579,15 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
+
+                              <Link to="/products/carpet?type=Nylon">Nylon</Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?type=Polyester">Polyester</Link>
+                            </li>
+                            <li>
+                              <Link to="/products/carpet?type=ANSO%20High%20-%20Performance">ANSO High Performance</Link>
+
                               <Link to="/products/carpet?type=Nylon">
                                 Nylon
                               </Link>
@@ -781,37 +790,34 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Beige Hardwood</Link>
+                              <Link to="/products/hardwood?color=beige">Beige Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Black Hardwood</Link>
+                              <Link to="/products/hardwood?color=black">Black Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Blue Hardwood</Link>
+                              <Link to="/products/hardwood?color=blue">Blue Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Brown Hardwood</Link>
+                              <Link to="/products/hardwood?color=brown">Brown Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Gold Hardwood</Link>
+                              <Link to="/products/hardwood?color=gold">Gold Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Green Hardwood</Link>
+                              <Link to="/products/hardwood?color=green">Green Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Grey Hardwood</Link>
+                              <Link to="/products/hardwood?color=grey">Grey Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Natural Hardwood</Link>
+                              <Link to="/products/hardwood?color=natural">Natural Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Natural / Beige Hardwood</Link>
+                              <Link to="/products/hardwood?color=red">Red Hardwood</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Red Hardwood</Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>White Hardwood</Link>
+                              <Link to="/products/hardwood?color=white">White Hardwood</Link>
                             </li>
                           </ul>
                         </div>
@@ -823,7 +829,7 @@ const Navbar = () => {
                             <div className="card-body">
                               <Link>
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  
                                 </h6>
                               </Link>
                             </div>
@@ -867,10 +873,10 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Marble</Link>
+                              <Link to="/products/tile?type=Marble">Marble</Link>
                             </li>
                             <li>
-                              <Link>Travertine</Link>
+                              <Link to="/products/tile?type=Travertine">Travertine</Link>
                             </li>
                           </ul>
                           <Link to="/products/tile">
@@ -924,19 +930,19 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Traditional</Link>
+                              <Link to="/products/cabinet?type=Traditional">Traditional</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>European</Link>
+                              <Link to="/products/cabinet?type=European">European</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Custom</Link>
+                              <Link to="/products/cabinet?type=Custom">Custom</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Closets</Link>
+                              <Link to="/products/cabinet?type=Closets">Closets</Link>
                             </li>
                             <li>
-                              <Link>C Series (NEW)</Link>
+                              <Link to="/products/cabinet?type=C%20Series%20%28NEW%29">C Series (NEW)</Link>
                             </li>
                           </ul>
                           <Link to="/products/cabinet">
@@ -995,16 +1001,19 @@ const Navbar = () => {
                           </p>
                           <ul class="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link>Double Bowl Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Double Bowl Kitchen Sinks</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Single Bowl Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Single Bowl Kitchen Sinks</Link>
                             </li>
                             <li className="pb-2">
-                              <Link>Quartz Composite Sinks</Link>
+                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">Quartz Composite Sinks</Link>
                             </li>
                             <li>
-                              <Link>Farmhouse Apron Kitchen Sinks</Link>
+                              <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks">Farmhouse Apron Kitchen Sinks</Link>
+                            </li>
+                            <li>
+                              <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">Vanity Sinks - Undermount, Overmount</Link>
                             </li>
                           </ul>
                           <Link to="/products/sink">
@@ -1064,7 +1073,7 @@ const Navbar = () => {
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
                       <div class="grid grid-cols-3 gap-6">
-                        {/* <div>
+                        <div>
                                                         <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">LM-Tile for Your Business</p>
                                                         <ul class="mt-3 text-[15px]">
                                                             <li className='pb-2'><Link>Commercial (Commercial Carpet and Carpet Tile)</Link></li>
@@ -1088,7 +1097,7 @@ const Navbar = () => {
                                                                 <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
                                                             </div>
                                                         </div>
-                                                    </Link> */}
+                                                    </Link>
                       </div>
                     </div>
                   </div>
@@ -1107,9 +1116,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* <div>
-                <input type="text" placeholder="Search" className="input input-bordered lg:w-2/4 sm:w-full lg:ml-64" />
-            </div> */}
     </div>
   );
 };

@@ -1,0 +1,7 @@
+#todo ul{
+    list-style-type: disc;
+}
+#todo ul li{
+    margin-left: 30px;
+    margin-bottom: 5px;
+}

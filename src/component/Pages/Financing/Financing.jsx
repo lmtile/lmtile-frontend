@@ -5,6 +5,7 @@ import OffersModal from "../Offers/OffersModal";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
+import './Financing.css'
 
 const Financing = () => {
   const [loading, setLoading] = useState(false);
@@ -70,7 +71,8 @@ const Financing = () => {
                     dangerouslySetInnerHTML={{
                       __html: pack.details,
                     }}
-                  />
+                    id="todo"
+                  ></div>
                 </div>
               </div>
             );

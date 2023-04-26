@@ -42,6 +42,7 @@ const DashboardLayout = () => {
                 OFFER SECTION
               </div>
               <div className="collapse-content">
+                <li><Link to="/dashboard/all-offer-product">ALL OFFER PRODUCT</Link></li>
                 <li><Link to="/dashboard/add-offer-poster">ADD POSTER</Link></li>
                 <li><Link to="/dashboard/add-offer-product">ADD OFFER PRODUCT</Link></li>
               </div>
