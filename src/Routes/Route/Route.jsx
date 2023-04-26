@@ -130,7 +130,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/financing",
-        element: <Financing></Financing>,
+        element: <Financing />,
       },
       {
         path: "/offers",
