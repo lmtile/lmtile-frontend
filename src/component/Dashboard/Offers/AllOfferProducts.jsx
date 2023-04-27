@@ -60,11 +60,11 @@ export default class AllOfferProducts extends Component {
     if (window.confirm("Are you sure, you want to delete this product")) {
       this.setState({ isLoading: true });
       axios
-        .delete(`/api/product/product/${id}`, config)
+        .delete(`/api/offer/offer-product/${id}`, config)
         .then((res) => {
           if (res.data.success) {
             message.success(res.data.message);
-            this.getAllProduct();
+            this.getAllOfferProduct();
           } else {
             message.error(res.data.message);
 
@@ -130,28 +130,28 @@ export default class AllOfferProducts extends Component {
         width: "100px",
       },
 
-      //   {
-      //     name: "Action",
-      //     selector: (row) => (
-      //       <div className="">
-      //         <button
-      //           className="mr-5"
-      //           onClick={() => {
-      //             this.deleteProduct(row._id);
-      //           }}
-      //         >
-      //           <FaTrashAlt className="text-xl" />
-      //         </button>
+      {
+        name: "Action",
+        selector: (row) => (
+          <div className="">
+            <button
+              className="mr-5"
+              onClick={() => {
+                this.deleteProduct(row._id);
+              }}
+            >
+              <FaTrashAlt className="text-xl" />
+            </button>
 
-      //         <Link to={`/dashboard/edit-product/${row._id}`}>
-      //           <button>
-      //             <FaPen className="text-xl" />
-      //           </button>
-      //         </Link>
-      //       </div>
-      //     ),
-      //     width: "150px",
-      //   },
+            <Link to={`/dashboard/edit-product/${row._id}`}>
+              <button>
+                <FaPen className="text-xl" />
+              </button>
+            </Link>
+          </div>
+        ),
+        width: "150px",
+      },
     ];
 
     return (
