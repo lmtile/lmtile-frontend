@@ -9,19 +9,6 @@ import message from "../../../config/message";
 import { BUCKET_DOMAIN, DATE_TIME_HELPER } from "../../../helper/Helper";
 import moment from "moment";
 
-const offerPoster = [
-  {
-    id: "1",
-    title: "OUR BIGGEST SALE",
-    offer1: "50% OFF",
-    offer1_about: "Carpet &Laminate",
-    offer2: "50% OFF",
-    offer2_about: "Carpet &Laminate",
-    offer3: "50% OFF",
-    offer3_about: "Carpet &Laminate",
-  },
-];
-
 export default class Offers extends Component {
   constructor(props) {
     super(props);
@@ -102,8 +89,8 @@ export default class Offers extends Component {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content lg:p-32">
               <div className="shadow-red-800 shadow-2xl">
-                {posters.map((poster) => (
-                  <div className="bg-base-100 p-10">
+                {posters.map((poster, key) => (
+                  <div key={key} className="bg-base-100 p-10">
                     <h1 className="text-white text-3xl font-bold p-5 bg-blue-800  text-center rounded-tl-3xl rounded-br-3xl mx-10">
                       {poster.title}
                     </h1>
@@ -121,7 +108,7 @@ export default class Offers extends Component {
                       })}
                     </div>
                     <div className="text-center">
-                      <Link to="/offerSchedule">
+                      <Link to="/offer-schedule">
                         <button className="btn btn-outline rounded-bl-2xl rounded-tr-2xl rounded-none w-2/4 text-lg mt-5">
                           BOOK APPOINTMENT
                         </button>
@@ -175,7 +162,7 @@ export default class Offers extends Component {
                         DATE_TIME_HELPER.DATE_FORMAT
                       )}
                     </h2>
-                    <Link to="/offerSchedule">
+                    <Link to="/offer-schedule">
                       <button className="btn btn-outline rounded-none text-lg">
                         APPLY
                       </button>
