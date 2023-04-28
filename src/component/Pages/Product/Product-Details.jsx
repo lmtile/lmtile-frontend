@@ -7,7 +7,7 @@ import { BUCKET_DOMAIN, getColorDetails } from "../../../helper/Helper";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { FaCamera } from "react-icons/fa";
-import ReactImageMagnify from 'react-image-magnify';
+import ReactImageMagnify from "react-image-magnify";
 
 export default function ProductDetails() {
   const [loading, setLoading] = useState(false);
@@ -15,6 +15,7 @@ export default function ProductDetails() {
   const [preview, setPreview] = useState(null);
   const [productDetails, setProductDetails] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
+  const [sameColorProduct, setSameColorProduct] = useState([]);
 
   const id = useParams()?.id;
 
@@ -34,7 +35,7 @@ export default function ProductDetails() {
       .then((res) => {
         setLoading(false);
         if (res.data.success) {
-          let { relatedProduct, productDetails } = res.data;
+          let { relatedProduct, productDetails, sameColorProduct } = res.data;
           productDetails.color_details = getColorDetails(productDetails.color);
           setProductDetails(productDetails);
           setPreview(productDetails.images[0]);
@@ -45,6 +46,7 @@ export default function ProductDetails() {
           });
 
           setRelatedProduct(relatedData);
+          setSameColorProduct(sameColorProduct);
         } else {
           message.error(res.data.message);
         }
@@ -76,21 +78,23 @@ export default function ProductDetails() {
             ))}
           </div>
           <div className="mt-5 w-[500]">
-            <ReactImageMagnify {...{
-              smallImage: {
-                alt: '',
-                isFluidWidth: true,
-                src: `${BUCKET_DOMAIN}${preview}`,
-                width: 400,
-              },
-              largeImage: {
-                src: `${BUCKET_DOMAIN}${preview}`,
-                width:750,
-                height:1200,
-                isFluidWidth:true
-              },
-              isHintEnabled: true
-            }} />
+            <ReactImageMagnify
+              {...{
+                smallImage: {
+                  alt: "",
+                  isFluidWidth: true,
+                  src: `${BUCKET_DOMAIN}${preview}`,
+                  width: 400,
+                },
+                largeImage: {
+                  src: `${BUCKET_DOMAIN}${preview}`,
+                  width: 750,
+                  height: 1200,
+                  isFluidWidth: true,
+                },
+                isHintEnabled: true,
+              }}
+            />
           </div>
         </div>
         <div className="lg:w-[450px] md:w-[250px]  lg:ml-20 mt-10 p-5">
@@ -116,9 +120,22 @@ export default function ProductDetails() {
               View in my Room
             </button>
           </Link>
-          <div className="grid gap-x-3 grid-cols-5">
-            <img src="" alt="" className="w-20 hover:shadow-2xl"/>
-          </div>
+
+          {sameColorProduct.map((same_color, key) => {
+            return (
+              <Link
+                to={`/product-details/${same_color._id}`}
+                key={key}
+                className="grid gap-x-3 grid-cols-5"
+              >
+                <img
+                  src={`${BUCKET_DOMAIN}${same_color.images[0]}`}
+                  alt=""
+                  className="w-20 hover:shadow-2xl"
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
 
