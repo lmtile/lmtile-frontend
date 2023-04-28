@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
-import { BUCKET_DOMAIN, getColorDetails } from "../../../helper/Helper";
+import {
+  BUCKET_DOMAIN,
+  ProductColor,
+  getColorDetails,
+} from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaPen, FaPenAlt, FaPlus, FaTrashAlt } from "react-icons/fa";
+import { FaPen, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
+import ReactSelectWithColorBox from "../../../helper/ColorSelect";
 
 export default class AllProducts extends Component {
   constructor(props) {
@@ -21,17 +26,23 @@ export default class AllProducts extends Component {
       total: 0,
       per_page: 10,
       page: 1,
+
+      // FILTER
       search: "",
+      admin_catergory: "",
+      type: "",
+      color: "",
 
       products: [],
       selected_rows: [],
 
-      select_category: "",
-      select_sub_category: "",
-      sub_cat: [],
-
       filterData: {
         search: "",
+        admin_catergory: "",
+        type: "",
+        color: "",
+        catergory: "",
+        selected_color: "",
       },
       isApplyFilter: false,
     };
@@ -45,11 +56,11 @@ export default class AllProducts extends Component {
   getAllProduct = () => {
     this.setState({ isLoading: true });
 
-    let { per_page, page, search } = this.state;
+    let { per_page, page, search, admin_catergory, type, color } = this.state;
 
     axios
       .get(
-        `/api/product/get-all-products?per_page=${per_page}&page=${page}&search=${search}`
+        `/api/product/get-all-products?per_page=${per_page}&page=${page}&search=${search}&admin_catergory=${admin_catergory}&type=${type}&color=${color}`
       )
       .then((res) => {
         this.setState({ isLoading: false });
@@ -155,22 +166,33 @@ export default class AllProducts extends Component {
         {
           filterData: {
             search: "",
+            admin_catergory: "",
+            type: "",
+            color: "",
+            catergory: "",
+            selected_color: "",
           },
           isApplyFilter: false,
           page: 1,
           search: "",
+          admin_catergory: "",
+          type: "",
+          color: "",
         },
         () => {
           this.getAllProduct();
         }
       );
     } else {
-      let { search } = filterData;
+      let { search, admin_catergory, type, color } = filterData;
 
       this.setState(
         {
           page: 1,
           search,
+          admin_catergory,
+          type,
+          color,
           isApplyFilter: true,
         },
         () => {
@@ -180,9 +202,42 @@ export default class AllProducts extends Component {
     }
   };
 
+  handleOnChange = (e) => {
+    let { name, value } = e.target;
+
+    let { filterData, allCatergory, allSubCatergory } = this.state;
+
+    if (name === "catergory") {
+      let category = allCatergory[value];
+
+      allSubCatergory = category.sub_cat;
+
+      filterData.admin_catergory = category.value;
+      filterData.type = "";
+      this.setState({ allSubCatergory });
+    }
+
+    filterData[name] = value;
+
+    this.setState({
+      filterData,
+      isApplyFilter: false,
+    });
+  };
+
   render() {
-    let { products, total, per_page, page, filterData, isApplyFilter } =
-      this.state;
+    let {
+      products,
+      total,
+      per_page,
+      page,
+      filterData,
+      isApplyFilter,
+      allCatergory,
+      allSubCatergory,
+    } = this.state;
+
+    console.log("filterData", filterData);
 
     const COLUMNS = [
       {
@@ -251,11 +306,7 @@ export default class AllProducts extends Component {
               <FaTrashAlt className="text-xl" />
             </button>
 
-            <Link
-              to={`/dashboard/edit-product/${row._id}`}
-
-              // className="btn btn-outline "
-            >
+            <Link to={`/dashboard/edit-product/${row._id}`}>
               <button>
                 <FaPen className="text-xl" />
               </button>
@@ -269,104 +320,57 @@ export default class AllProducts extends Component {
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <div className=" bg-base-100">
-          {/* <div className="px-10 gap-x-5 mt-20">
-            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
-              <input type="checkbox" />
-              <div className="collapse-title font-bold">Categories</div>
-              <div className="collapse-content">
-                {allCatergory.map((cat, key) => (
-                  <div key={key}>
-                    <button
-                      onClick={() => {
-                        this.setState({
-                          select_category: cat.value,
-                          sub_cat: cat.sub_cat,
-                        });
-                      }}
-                      className="font-bold text-sm"
-                    >
-                      {cat.label}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
-              <input type="checkbox" />
-              <div className="collapse-title font-bold">Type</div>
-              <div className="collapse-content">
-                {sub_cat.map((cat, key) => (
-                  <div key={key}>
-                    <button
-                      onClick={() => {
-                        this.setState({ select_sub_category: cat.value });
-                      }}
-                      className="font-bold text-sm top-0"
-                    >
-                      {cat.label}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
-              <input type="checkbox" />
-              <div className="collapse-title font-bold">Color</div>
-              <div className="collapse-content">
-                {ProductColor.map((cat, key) => (
-                  <div key={key}>
-                    <button className="font-bold text-sm">{cat.label}</button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div> */}
-          {/* <div className=" px-20 mb-10 mt-20 w-full">
-            {products.map((product, key) => {
-              return (
-                <div
-                  key={key}
-                  className="hover:shadow-xl shadow-2xl shadow-black bg-base-100"
-                >
-                  <div className="flex justify-between mb-5 p-2">
-                    <img
-                      src={`${BUCKET_DOMAIN}${product.images[0]} `}
-                      alt=""
-                      className="w-[50px]"
-                    />
-                    <p className="text-xl- font-bold">{product.name}</p>
-                    <p className="text-xl- font-bold">{product.color}</p>
-                    <div>
-                      <button
-                        onClick={() => this.deleteProduct(product._id)}
-                        className="btn btn-outline mr-5"
-                      >
-                        Delete
-                      </button>
-                      <Link>
-                        <button className="btn btn-outline ">Edit</button>
-                      </Link>
-                    </div>
-                  </div>
-                  
-                </div>
-              );
-            })}
-          </div> */}
           <div className="flex flex-row justify-between my-10 mx-10">
             <input
-              className="mr-4 input input-bordered w-full max-w-xs"
+              className="mr-4 input input-bordered max-w-xs"
               placeholder="Search..."
               value={filterData.search}
-              onChange={(e) => {
-                let { value } = e.target;
-                filterData.search = value;
+              onChange={this.handleOnChange}
+              name="search"
+            />
 
-                this.setState({
-                  filterData,
-                  isApplyFilter: false,
-                });
+            <select
+              className="mr-4 input input-bordered max-w-xs"
+              name="catergory"
+              value={filterData.catergory}
+              onChange={this.handleOnChange}
+            >
+              <option value="">Select Category</option>
+              {allCatergory.map((category, key) => {
+                return (
+                  <option key={key} value={key}>
+                    {category.label}
+                  </option>
+                );
+              })}
+            </select>
+
+            {allSubCatergory.length > 0 && (
+              <select
+                className="mr-4 input input-bordered max-w-xs"
+                name="type"
+                value={filterData.type}
+                onChange={this.handleOnChange}
+              >
+                <option value="">Select Type</option>
+                {allSubCatergory.map((category, key) => {
+                  return (
+                    <option key={key} value={category.value}>
+                      {category.label}
+                    </option>
+                  );
+                })}
+              </select>
+            )}
+
+            <ReactSelectWithColorBox
+              option={ProductColor}
+              handleOnChange={(e) => {
+                filterData.color = e.value;
+                filterData.selected_color = e;
+                this.setState({ filterData, isApplyFilter: false });
               }}
+              value={filterData.selected_color}
             />
 
             <button onClick={this.applyFilter}>
