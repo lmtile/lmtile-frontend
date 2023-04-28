@@ -93,7 +93,7 @@ export default function ProductDetails() {
             }} />
           </div>
         </div>
-        <div className="lg:w-[350px] md:w-[250px]  lg:ml-20 mt-10 p-5">
+        <div className="lg:w-[450px] md:w-[250px]  lg:ml-20 mt-10 p-5">
           <h2 className="text-3xl font-bold mb-3">{productDetails.name}</h2>
 
           <h3 className="text-2xl mb-3">
@@ -116,6 +116,9 @@ export default function ProductDetails() {
               View in my Room
             </button>
           </Link>
+          <div className="grid gap-x-3 grid-cols-5">
+            <img src="" alt="" className="w-20 hover:shadow-2xl"/>
+          </div>
         </div>
       </div>
 
