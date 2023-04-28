@@ -38,7 +38,7 @@ const SinkCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Double Bowl Kitchen Sinks</h1>
                             <p className="py-6 text-lg">Double-bowl kitchen sinks are optimal for handwashing dishes. The multifunctionality of a double-bowl configuration is ideal if you do a lot of cooking and washing up as it gives you the support to do both. With two sink basins, it gives you the opportunity to wash dishes in one sink and air dry them in the other.</p>
-                            <Link><button className='btn btn-outline rounded-none'>Shop Double Bowl Kitchen Sinks</button></Link>
+                            <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted"><button className='btn btn-outline rounded-none'>Shop Double Bowl Kitchen Sinks</button></Link>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const SinkCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Single Bowl Kitchen Sinks</h1>
                             <p className="py-6 text-lg">Single Bowl Kitchen Sinks are the perfect solution for smaller kitchens or limited counterspace. These sinks save space by not only providing more sink space, but also more under-counter storage. The deep single bowl helps you wash large dishes while keeping mess and splatter inside the sink.</p>
-                            <Link><button className='btn btn-outline rounded-none'>Shop Single Bowl Kitchen Sinks</button></Link>
+                            <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted"><button className='btn btn-outline rounded-none'>Shop Single Bowl Kitchen Sinks</button></Link>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ const SinkCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Quartz composite sinks</h1>
                             <p className="py-6 text-lg">Quartz composite sinks are made from up to 70-percent crushed quartz mixed with an acrylic resin. The mixture of quartz and resin creates a nonporous, solid sink that is lighter than cast iron and more durable than stainless steel. A quartz composite sink is extremely heat- and stain-resistant.</p>
-                            <Link><button className='btn btn-outline rounded-none'>Shop Quartz Composite Sinks</button></Link>
+                            <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount"><button className='btn btn-outline rounded-none'>Shop Quartz Composite Sinks</button></Link>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const SinkCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Farmhouse Apron Kitchen Sinks</h1>
                             <p className="py-6 text-lg">A farmhouse sink makes it easy to wash larger items like pots, pans, and baking sheets. You can easily soak your cookware in a farmhouse style sink as opposed to a standard-sized sink. It's also a great option if you prefer to soak a lot of dishes at once before you wash them or pop them in the dishwasher.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP Farmhouse Apron Kitchen Sinks</button></Link>
+                            <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks"><button className='btn btn-outline rounded-none'>SHOP Farmhouse Apron Kitchen Sinks</button></Link>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ const SinkCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Vanity sink</h1>
                             <p className="py-6 text-lg">Vanity sink - With a vanity sink, the sink and countertop are one seamless piece that fits over the cabinet base, which can be chosen and purchased separately. Make sure that you know the dimensions of the required cabinet when selecting the sink.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP Vanity Sink</button></Link>
+                            <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount"><button className='btn btn-outline rounded-none'>SHOP Vanity Sink</button></Link>
                         </div>
                     </div>
                 </div>

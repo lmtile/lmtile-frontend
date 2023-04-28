@@ -303,7 +303,7 @@ export default class Appointment extends Component {
 
               <ReactDatePicker
                 placeholderText="Select Start date"
-                className="input w-30 input-bordered"
+                className="input w-28 input-bordered"
                 selected={
                   filteringData.start_date !== "" &&
                   new Date(filteringData.start_date)
@@ -324,12 +324,12 @@ export default class Appointment extends Component {
               />
             </div>
 
-            <div>
+            <div className="ml-3">
               <p>End date</p>
 
               <ReactDatePicker
                 placeholderText="Select End date"
-                className="input w-30 input-bordered"
+                className="input w-28 input-bordered"
                 selected={
                   filteringData.end_date !== "" &&
                   new Date(filteringData.end_date)
@@ -350,13 +350,13 @@ export default class Appointment extends Component {
               />
             </div>
 
-            <button className="btn btn-outline mt-5" onClick={this.applyFilter}>
+            <button className="btn btn-outline mt-5 ml-5" onClick={this.applyFilter}>
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
 
             <button
               type="button"
-              className={`btn btn-outline mt-5  ${
+              className={`btn btn-outline mt-5 mx-5  ${
                 selected_rows.length === 0
               } rounded`}
               disabled={selected_rows.length === 0}
@@ -364,7 +364,7 @@ export default class Appointment extends Component {
             >
               DELETE
             </button>
-            <button onClick={this.generateExcelFile} className="btn btn-outline mt-5 ">Export Excel</button>
+            <button onClick={this.generateExcelFile} className="btn btn-outline mt-5">Export Excel</button>
           </div>
 
           

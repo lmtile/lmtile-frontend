@@ -3,7 +3,7 @@ import { FaStar, FaStarHalf, FaHeart, FaClock } from "react-icons/fa";
 import logo from "../../../assets/img/home page/web-logo.png";
 import { Link } from "react-router-dom";
 import megaMenu1 from "../../../assets/img/home page/HOMEFresh-megamenu.png";
-import megaMenu2 from "../../../assets/img/home page/Monarch_Royalty_Room.png";
+
 
 const Navbar = () => {
   return (
@@ -545,13 +545,14 @@ const Navbar = () => {
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center font-semibold">
               <li className="relative group px-3 py-8">
-                <button className="group-hover:border-b-4  border-black cursor-default">
+                <Link to="http://localhost:3000/products/carpet"><button className="group-hover:border-b-4  border-black cursor-default">
                   Carpet
-                </button>
+                </button></Link>
+                
                 <div className="absolute top-8 -left-20 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[900px] transform ">
                   <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div className="relative z-40">
-                      <div className="grid grid-cols-5 gap-6">
+                      <div className="grid grid-cols-4 gap-6">
                         <div>
                           <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Brand
@@ -587,20 +588,6 @@ const Navbar = () => {
                             </li>
                             <li>
                               <Link to="/products/carpet?type=ANSO%20High%20-%20Performance">ANSO High Performance</Link>
-
-                              <Link to="/products/carpet?type=Nylon">
-                                Nylon
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="products/carpet?type=Polyester">
-                                Polyester
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="products/carpet?type=ANSO%20High%20-%20Performance">
-                                ANSO High Performance
-                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -656,45 +643,34 @@ const Navbar = () => {
                             </li>
                           </ul>
                         </div>
-                        <Link>
+                        <Link to="/carpetCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/carpetCategory">
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  LM-TILE EXCLUSIVE - CARPET
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
+                <Link to="/products/laminate"><button class="group-hover:border-b-4 border-black cursor-default">
                   Laminate
-                </button>
-                <div class="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[900px] transform ">
+                </button></Link>
+                <div class="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-4 gap-6">
+                      <div class="grid grid-cols-2 gap-6">
                         <div>
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Type
@@ -710,73 +686,35 @@ const Navbar = () => {
                             </button>
                           </Link>
                         </div>
-                        {/* <div>
-                          <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                            Shop by Color
-                          </p>
-                          <ul class="mt-3 text-[15px]">
-                            <li className="pb-2">
-                              <Link>Beige/ Tan </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>Black </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>Brown </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>Gold </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>Gray </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link>Natural </Link>
-                            </li>
-                            <li>
-                              <Link>Orange </Link>
-                            </li>
-                          </ul>
-                        </div> */}
-                        <Link>
+                        
+                        <Link to="/laminateCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/laminateCategory">
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  LM-TILE EXCLUSIVE - LAMINATE
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
+                <Link to="/products/hardwood"><button class="group-hover:border-b-4 border-black cursor-default">
                   Hardwood
-                </button>
+                </button></Link>
                 <div class="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[800px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-4 gap-6">
+                      <div class="grid grid-cols-3 gap-6">
                         <div className="ml-10">
                           <Link to="/products/hardwood">
                             <button className="btn btn-dark mt-40">
@@ -821,32 +759,21 @@ const Navbar = () => {
                             </li>
                           </ul>
                         </div>
-                        <Link>
+                        <Link to="/hardwoodCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/hardwoodCategory">
                                 <h6 className="">
-                                  
+                                  LM-TILE EXCLUSIVE - HARDWOOD
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
@@ -854,19 +781,19 @@ const Navbar = () => {
               </li>
               <li class="relative group px-3 py-8">
                 <Link to="/products/spc">
-                  <button class="group-hover:border-b-4 border-black cursor-default">
+                  <button class="group-hover:border-b-4 border-black cursor-default hover:cursor-pointer">
                     SPC
                   </button>
                 </Link>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
+                <Link to="/products/tile"><button class="group-hover:border-b-4 border-black cursor-default">
                   Tile
-                </button>
+                </button></Link>
                 <div class="absolute top-8 -right-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-3 gap-6">
+                      <div class="grid grid-cols-2 gap-6">
                         <div>
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Collection
@@ -885,45 +812,34 @@ const Navbar = () => {
                             </button>
                           </Link>
                         </div>
-                        <Link>
+                        <Link to="/tileCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/tileCategory">
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                 LM-TILE EXCLUSIVE - TILE
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
+                <Link to="/products/cabinet"><button class="group-hover:border-b-4 border-black cursor-default">
                   Cabinet
-                </button>
+                </button></Link>
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px]  ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-3 gap-6">
+                      <div class="grid grid-cols-2 gap-6">
                         <div>
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Collection
@@ -951,32 +867,21 @@ const Navbar = () => {
                             </button>
                           </Link>
                         </div>
-                        <Link>
+                        <Link to="/cabinetCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/cabinetCategory">
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  LM-TILE EXCLUSIVE - CABINET
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
@@ -988,13 +893,13 @@ const Navbar = () => {
                 </button>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
+                <Link to="/products/sink"><button class="group-hover:border-b-4 border-black cursor-default">
                   Sink
-                </button>
+                </button></Link>
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-3 gap-6">
+                      <div class="grid grid-cols-2 gap-6">
                         <div>
                           <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                             Shop by Type
@@ -1022,46 +927,35 @@ const Navbar = () => {
                             </button>
                           </Link>
                         </div>
-                        <Link>
+                        <Link to="/sinkCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link>
+                              <Link to="/sinkCategory">
                                 <h6 className="">
-                                  EMPIRE EXCLUSIVE - HOME FRESH
+                                  LM-TILE EXCLUSIVE - SINK
                                 </h6>
                               </Link>
                             </div>
                           </div>
                         </Link>
-                        <Link>
-                          <div className="card w-40 glass rounded-none mt-5">
-                            <figure>
-                              <img src={megaMenu2} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link>
-                                <h2 className="">LEARN MORE: CARPET TYPES</h2>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
               <li class="relative group px-3 py-8">
-                <button class="group-hover:border-b-4 border-black cursor-default">
-                  Countertops{" "}
-                </button>
-                <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
+                <Link to="/products/countertops"><button class="group-hover:border-b-4 border-black cursor-default">
+                  Countertops
+                </button></Link>
+                {/* <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40"></div>
                   </div>
-                </div>
+                </div> */}
               </li>
               <li class="relative group px-3 py-8">
                 <Link to={"/forBusiness"}>
@@ -1072,7 +966,7 @@ const Navbar = () => {
                 <div class="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div class="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div class="relative z-40">
-                      <div class="grid grid-cols-3 gap-6">
+                      <div class="grid grid-cols-2 gap-6">
                         <div>
                                                         <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">LM-Tile for Your Business</p>
                                                         <ul class="mt-3 text-[15px]">
@@ -1081,23 +975,7 @@ const Navbar = () => {
                                                             <li className='pb-2'><Link>Commercial Vinyl Plank</Link></li>
                                                             <li><Link>Property Management Online Services</Link></li>
                                                         </ul>
-                                                    </div>
-                                                    <Link>
-                                                        <div className="card w-40 glass mt-5 rounded-none">
-                                                            <figure><img src={megaMenu1} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h6 className="">EMPIRE EXCLUSIVE - HOME FRESH</h6></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                    <Link>
-                                                        <div className="card w-40 glass rounded-none mt-5">
-                                                            <figure><img src={megaMenu2} alt="car!" /></figure>
-                                                            <div className="card-body">
-                                                                <Link><h2 className="">LEARN MORE: CARPET TYPES</h2></Link>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
+                                                    </div>                                                   
                       </div>
                     </div>
                   </div>

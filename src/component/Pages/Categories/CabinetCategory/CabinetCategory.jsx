@@ -41,7 +41,7 @@ const CabinetCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Traditional Cabinet</h1>
                             <p className="py-6 text-lg">Cabinets that are traditional often make use of rich, deep wood tones like mahogany or cherry, and tend to incorporate slopes, curves, and easy edges as opposed to a modern design's sharper edges.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP TRADITIONAL CABINET</button></Link>
+                            <Link to="/products/cabinet?type=Traditional"><button className='btn btn-outline rounded-none'>SHOP TRADITIONAL CABINET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ const CabinetCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">European Cabinet</h1>
                             <p className="py-6 text-lg">The main advantage of a European cabinet is their sleek, stylish, and high-end appearance. In addition, these cabinets use thicker materials in construction which allows for more storage space. Finally, the designs of Europe-style cabinets tend to be modular which allows for seamless design customization options.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP EUROPEAN CABINET</button></Link>
+                            <Link to="/products/cabinet?type=European"><button className='btn btn-outline rounded-none'>SHOP EUROPEAN CABINET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const CabinetCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Custom Cabinet</h1>
                             <p className="py-6 text-lg">Custom cabinets are cabinets that are specially designed with your tastes and preferences in mind and then meticulously handcrafted in a shop to be later delivered and installed inside your home. Custom cabinets are quality-built with real wood and can be as modern or traditional as desired.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP CUSTOM CABINET</button></Link>
+                            <Link to="/products/cabinet?type=Custom"><button className='btn btn-outline rounded-none'>SHOP CUSTOM CABINET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ const CabinetCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Closet Cabinet</h1>
                             <p className="py-6 text-lg">A closet (especially in North American English usage) is an enclosed space, with a door, used for storage, particularly that of clothes. Fitted closets are built into the walls of the house so that they take up no apparent space in the room.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP CLOSET CABINET</button></Link>
+                            <Link to="/products/cabinet?type=Closets"><button className='btn btn-outline rounded-none'>SHOP CLOSET CABINET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ const CabinetCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">C Series (NEW) Cabinet</h1>
                             <p className="py-6 text-lg">The C series optical distribution cabinet(ODC) is a traditional type ODC. It combines the functions of splicing, distribution, storage, environment-proof and management of optical cables. Both high quality Stainless Steel and stainless steel are available.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP C-SERIES CABINET</button></Link>
+                            <Link to="/products/cabinet?type=C%20Series%20%28NEW%29"><button className='btn btn-outline rounded-none'>SHOP C-SERIES CABINET</button></Link>
                         </div>
                     </div>
                 </div>
