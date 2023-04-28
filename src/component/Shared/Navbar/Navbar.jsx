@@ -200,7 +200,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                       <Link to="/products/laminate">
-                        <button className="btn btn-dark mt-40">
+                        <button className="btn btn-dark mt-5">
                           SEE ALL LAMINATE
                         </button>
                       </Link>
@@ -308,7 +308,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                       <Link to="/products/tile">
-                        <button className="btn btn-dark mt-40">
+                        <button className="btn btn-dark mt-5">
                           SEE ALL TILE
                         </button>
                       </Link>
@@ -351,7 +351,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                       <Link to="/products/cabinet">
-                        <button className="btn btn-dark mt-40">
+                        <button className="btn btn-dark mt-5">
                           SEE ALL CABINET
                         </button>
                       </Link>
@@ -411,7 +411,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                       <Link to="/products/sink">
-                        <button className="btn btn-dark mt-40">
+                        <button className="btn btn-dark mt-5">
                           SEE ALL SINK
                         </button>
                       </Link>
