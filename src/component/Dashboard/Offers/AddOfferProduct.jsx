@@ -95,9 +95,9 @@ export default class AddOfferProduct extends Component {
     this.setState({ formData });
   };
 
-  deleteImage = (pos) => {
+  deleteImage = () => {
     let { formData } = this.state;
-    formData.banner.splice(pos, 0);
+    formData.banner = "";
     this.setState({ formData });
   };
 
@@ -260,7 +260,7 @@ export default class AddOfferProduct extends Component {
                       />
                       <button
                         className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                        onClick={() => this.deleteImage(formData.banner.index)}
+                        onClick={this.deleteImage}
                       >
                         <svg
                           className="h-3 w-3"
@@ -276,7 +276,7 @@ export default class AddOfferProduct extends Component {
                       </button>
                     </div>
                   )}
-                  {formData.banner.length < 1 && (
+                  {!formData.banner && (
                     <div className="flex items-center justify-center px-3">
                       <label
                         htmlFor="image-upload"
