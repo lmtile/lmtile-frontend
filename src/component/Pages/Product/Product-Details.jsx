@@ -7,6 +7,7 @@ import { BUCKET_DOMAIN, getColorDetails } from "../../../helper/Helper";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { FaCamera } from "react-icons/fa";
+import ReactImageMagnify from 'react-image-magnify';
 
 export default function ProductDetails() {
   const [loading, setLoading] = useState(false);
@@ -74,15 +75,25 @@ export default function ProductDetails() {
               />
             ))}
           </div>
-          <div className="mt-5">
-            <img
-              src={`${BUCKET_DOMAIN}${preview}`}
-              alt="Main Product Image"
-              className="shadow-2xl w-80 md:w-[300px] lg:w-[400px] justify-center"
-            />
+          <div className="mt-5 w-[500]">
+            <ReactImageMagnify {...{
+              smallImage: {
+                alt: '',
+                isFluidWidth: true,
+                src: `${BUCKET_DOMAIN}${preview}`,
+                width: 400,
+              },
+              largeImage: {
+                src: `${BUCKET_DOMAIN}${preview}`,
+                width:750,
+                height:1200,
+                isFluidWidth:true
+              },
+              isHintEnabled: true
+            }} />
           </div>
         </div>
-        <div className="lg:w-[350px] md:w-[250px]  lg:ml-20 mt-10 p-5">
+        <div className="lg:w-[450px] md:w-[250px]  lg:ml-20 mt-10 p-5">
           <h2 className="text-3xl font-bold mb-3">{productDetails.name}</h2>
 
           <h3 className="text-2xl mb-3">
@@ -105,6 +116,9 @@ export default function ProductDetails() {
               View in my Room
             </button>
           </Link>
+          <div className="grid gap-x-3 grid-cols-5">
+            <img src="" alt="" className="w-20 hover:shadow-2xl"/>
+          </div>
         </div>
       </div>
 

@@ -36,7 +36,7 @@ const Laminate = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Wood Laminate</h1>
                             <p className="py-6 text-lg">Wood laminate flooring is a budget-friendly way to get the look of natural hardwood. It is amazing how close wood laminate looks to the real thing! Choose from a variety of wood species, stain colors (from natural to dark, even gray), textured finishes, and plank widths.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP WOOD LAMINATE</button></Link>
+                            <Link to="/products/laminate"><button className='btn btn-outline rounded-none'>SHOP WOOD LAMINATE</button></Link>
                         </div>
                     </div>
                 </div>

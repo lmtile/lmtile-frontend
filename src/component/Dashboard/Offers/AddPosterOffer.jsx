@@ -3,6 +3,7 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import config from "../../../config/config";
+import { FaClosedCaptioning, FaCrop, FaCross, FaPlus, FaWindowClose } from "react-icons/fa";
 
 const AddPosterOffer = () => {
   const [inputData, setInputData] = useState({
@@ -66,7 +67,7 @@ const AddPosterOffer = () => {
 
   return (
     <LoadingOverlay active={loading} spinner text="Loading ...">
-      <div className=" w-[800px] p-7 mx-auto">
+      <div className=" w-[1000px] p-7 mx-auto">
         <h2 className="text-4xl">Add Poster </h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-3 mt-10">
           <p className="font-bold ml-2">Poster Title</p>
@@ -105,7 +106,7 @@ const AddPosterOffer = () => {
                     name="offer"
                     type="text"
                     placeholder="Offer Percentag (%)"
-                    className="input w-80 input-bordered"
+                    className="input w-64 input-bordered"
                     value={offerLabel.offer}
                     onChange={(e) => {
                       setOfferLabel({
@@ -122,7 +123,7 @@ const AddPosterOffer = () => {
                     name="title"
                     type="text"
                     placeholder="Offer Title"
-                    className="input w-80 input-bordered"
+                    className="input w-64 input-bordered"
                     value={offerLabel.title}
                     onChange={(e) => {
                       setOfferLabel({
@@ -133,28 +134,30 @@ const AddPosterOffer = () => {
                     required
                   />
                 </div>
+                <button
+                  className="btn btn-outline mt-5"
+                  type="button"
+                  onClick={() => {
+                    if (offerLabel.offer && offerLabel.title) {
+                      let { offers } = inputData;
+                      offers.push(offerLabel);
+                      setInputData({
+                        ...inputData,
+                        offers,
+                      });
+                      setOfferLabel({
+                        title: "",
+                        offer: "",
+                      });
+                      setIsAnotherOffer(true);
+                    }
+                  }}
+                ><FaPlus />
+                  Add Another offer
+                </button>
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  if (offerLabel.offer && offerLabel.title) {
-                    let { offers } = inputData;
-                    offers.push(offerLabel);
-                    setInputData({
-                      ...inputData,
-                      offers,
-                    });
-                    setOfferLabel({
-                      title: "",
-                      offer: "",
-                    });
-                    setIsAnotherOffer(true);
-                  }
-                }}
-              >
-                Add Another offer
-              </button>
+              
             </>
           )}
 
@@ -167,7 +170,7 @@ const AddPosterOffer = () => {
                     name="offer"
                     type="text"
                     placeholder="Offer Percentag (%)"
-                    className="input w-80 input-bordered"
+                    className="input w-64 input-bordered"
                     value={offerLabel.offer}
                     onChange={(e) => {
                       setOfferLabel({
@@ -184,7 +187,7 @@ const AddPosterOffer = () => {
                     name="title"
                     type="text"
                     placeholder="Offer Title"
-                    className="input w-80 input-bordered"
+                    className="input w-64 input-bordered"
                     value={offerLabel.title}
                     onChange={(e) => {
                       setOfferLabel({
@@ -195,41 +198,48 @@ const AddPosterOffer = () => {
                     required
                   />
                 </div>
+                <div>
+                  <button
+                    className="btn btn-outline"
+                    type="button"
+                    onClick={() => {
+                      if (offerLabel.offer && offerLabel.title) {
+                        let { offers } = inputData;
+                        offers.push(offerLabel);
+                        setInputData({
+                          ...inputData,
+                          offers,
+                        });
+                        setOfferLabel({
+                          title: "",
+                          offer: "",
+                        });
+                        setIsAnotherOffer(true);
+                      }
+                    }}
+                  ><FaPlus/>
+                    Add Another offer
+                  </button>
+                  
+                </div>
+                <div>
+                  <button
+                    className="btn btn-outline"
+                    type="button"
+                    onClick={() => {
+                      setOfferLabel({
+                        title: "",
+                        offer: "",
+                      });
+                      setIsAnotherOffer(false);
+                    }}
+                  ><FaWindowClose />
+                    Cancel
+                  </button>
+                </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  if (offerLabel.offer && offerLabel.title) {
-                    let { offers } = inputData;
-                    offers.push(offerLabel);
-                    setInputData({
-                      ...inputData,
-                      offers,
-                    });
-                    setOfferLabel({
-                      title: "",
-                      offer: "",
-                    });
-                    setIsAnotherOffer(true);
-                  }
-                }}
-              >
-                Add Another offer
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setOfferLabel({
-                    title: "",
-                    offer: "",
-                  });
-                  setIsAnotherOffer(false);
-                }}
-              >
-                Cancel
-              </button>
+              
             </>
           )}
 

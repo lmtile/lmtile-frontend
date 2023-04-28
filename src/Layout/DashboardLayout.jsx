@@ -13,8 +13,7 @@ const DashboardLayout = () => {
   }
   return (
     <div>
-      <Navbar/>
-      <div className="drawer drawer-mobile lg:mt-32 mt-32">
+      <div className="drawer drawer-mobile">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
           <label htmlFor="my-drawer" className="btn btn-primary drawer-button lg:hidden ">Open drawer</label>
@@ -24,6 +23,7 @@ const DashboardLayout = () => {
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content font-bold">
 
+            <li><Link to="/">HOME</Link></li>
             <li><Link to="/dashboard">DASHBOARD</Link></li>
             <li><Link to="/dashboard/appointments">APPOINTMENTS</Link></li>
             <div className="collapse collapse-plus ">
@@ -62,7 +62,6 @@ const DashboardLayout = () => {
 
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

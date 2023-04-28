@@ -236,6 +236,7 @@ export default function UserAllProducts() {
                     <img
                       src={`${BUCKET_DOMAIN}${product.images[0]} `}
                       alt={product.name}
+                      className="h-72"
                     />
                     <p className="text-xl font-bold">{product.name}</p>
                     <p>

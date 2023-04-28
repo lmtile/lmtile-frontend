@@ -50,7 +50,7 @@ const TileCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Travertine Tile Flooring</h1>
                             <p className="py-6 text-lg">Travertine is an especially attractive form of limestone. Its fibrous, marble-like texture and attractive earth-tone colors make it one of the most popular stones used for building materials. Historically, much of the travertine used in architecture and artwork came from the mountains of Italy, but today, most of the travertine sold is from Turkey, Iran, Mexico, and Peru.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP TRAVERTINE TILE FLOORING</button></Link>
+                            <Link to="/products/tile"><button className='btn btn-outline rounded-none'>SHOP TRAVERTINE TILE FLOORING</button></Link>
                         </div>
                     </div>
                 </div>

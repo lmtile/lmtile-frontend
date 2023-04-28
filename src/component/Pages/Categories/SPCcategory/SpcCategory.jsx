@@ -37,7 +37,7 @@ const SpcCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">SPC Flooring</h1>
                             <p className="py-6 text-lg">Solux Core and Solux core deluxe with antique wood texture is a rustic wood-looking luxury SPC flooring. From light grays to dark browns, this flooring can be mistaken for authentic wood. The revolutionary SPC – stone plastic composite – is created with limestone so your floor will be comfortable to walk on, but as strong as stone, giving it the ability to last a lifetime.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP SPC FLOORING</button></Link>
+                            <Link to="/products/spc"><button className='btn btn-outline rounded-none'>SHOP SPC FLOORING</button></Link>
                         </div>
                     </div>
                 </div>

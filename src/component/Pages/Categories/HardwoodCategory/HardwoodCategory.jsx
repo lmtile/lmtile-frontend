@@ -37,7 +37,7 @@ const HardwoodCategory = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Hardwood Flooring</h1>
                             <p className="py-6 text-lg">Milled from a single piece of wood, solid hardwood is the most sought-after wood flooring option, known for its attractiveness, prestige, style, and durability.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP WOOD LAMINATE</button></Link>
+                            <Link to="/products/hardwood"><button className='btn btn-outline rounded-none'>SHOP HARDWOOD FLOORING</button></Link>
                         </div>
                     </div>
                 </div>

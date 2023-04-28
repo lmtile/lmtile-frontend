@@ -63,7 +63,7 @@ const CarpetCategories = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Nylon Carpet</h1>
                             <p className="py-6 text-lg">Nylon is very soft, durable, and resistant to stains and abrasion. It is the most popular of carpet fibers by a large measure—by some estimates, about two-thirds of all synthetic carpets are made of nylon. 1 It has good resistance to wear, mold, mildew, and rot, and it is easy to dye and holds its color well.</p>
-                            <Link><button className='btn btn-outline rounded-none'>SHOP NYLON CARPET</button></Link>
+                            <Link to="/products/carpet?type=Nylon"><button className='btn btn-outline rounded-none'>SHOP NYLON CARPET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ const CarpetCategories = () => {
                         <div>
                             <h1 className="text-4xl font-bold">Polyester Carpet</h1>
                             <p className="py-6 text-lg ">The design of its fibres allows a polyester carpet to stay vibrant-looking for longer—more so than a nylon equivalent, which will dull over time. And because they hold their colour so well, there’s less room within polyester fibres for liquids and other spillages to get into, which is why the carpets have a reputation for being excellent at resisting stains</p>
-                            <Link><button className='btn btn-outline rounded-none text-end'>SHOP Polyester CARPET</button></Link>
+                            <Link to="/products/carpet?type=Polyester"><button className='btn btn-outline rounded-none text-end'>SHOP Polyester CARPET</button></Link>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const CarpetCategories = () => {
                         <div>
                             <h1 className="text-4xl font-bold">ANSO High-Performance Carpet</h1>
                             <p className="py-6 text-lg ">The Anso® High-Performance fiber promise ensures these carpets will stand up to all life worries regardless of construction type.From solution- dyed nylons to newly redesigned polyesters, Shaw Floors & Anderson Tuftex create the most durable carpets ever featuring the newest technology.</p>
-                            <Link><button className='btn btn-outline rounded-none text-end'>SHOP Anso® CARPET</button></Link>
+                            <Link to="/products/carpet?type=ANSO%20High%20-%20Performance"><button className='btn btn-outline rounded-none text-end'>SHOP Anso® CARPET</button></Link>
                         </div>
                     </div>
                 </div>
