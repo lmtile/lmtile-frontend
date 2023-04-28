@@ -1,11 +1,12 @@
-import React from "react";
-import { FaStar, FaStarHalf, FaHeart, FaClock } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaStar, FaStarHalf, FaHeart, FaClock, FaBars } from "react-icons/fa";
 import logo from "../../../assets/img/home page/web-logo.png";
 import { Link } from "react-router-dom";
 import megaMenu1 from "../../../assets/img/home page/HOMEFresh-megamenu.png";
 
 
 const Navbar = () => {
+  let [open, setOpen] = useState(false);
   return (
     <div
       class="fixed inset-x-0 top-0 z-50
@@ -60,29 +61,14 @@ const Navbar = () => {
       >
         <div className="navbar bg-base-100 font-bold text-lg  ">
           <div className="navbar-start ">
-            <div
-              className="dropdown focus:opacity-0 "
-              data-dropdown-toggle="dropdown"
-            >
-              <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </label>
+            <div onClick={() => setOpen(!open)} className='text-3xl absolute left-2 top-6 bottom-4 cursor-pointer md:hidden lg:hidden'>
+              <FaBars name={open ? 'close' : 'menu'}></FaBars>
+            </div>
+            <div className={`lg:hidden  md:hidden  pb-12 absolute z-[-1] left-0 w-full  transition-all duration-500 ease-in ${open ? 'top-full' : 'top-[-700px]'}`}>
+             
               <ul
                 tabIndex={2}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-compact dropdown-content shadow bg-base-100 w-52"
               >
                 <li tabIndex={2}>
                   <a className="justify-between">
@@ -98,65 +84,96 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <li className="font-bold">Shop by Brand</li>
-                      <li>
-                        <Link>Mohawkflooring</Link>
-                      </li>
-                      <li>
-                        <Link>Shawfloors</Link>
-                      </li>
-                      <li>
-                        <Link>Engineeredfloors</Link>
-                      </li>
-                      <Link to="/products/carpet">
-                        <button className="btn btn-dark mt-5">
-                          SEE ALL CARPET
-                        </button>
-                      </Link>
-                    </ul>
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <p className="font-bold">Shop by Type</p>
-                      <li>
-                        <Link to="products/carpet?type=Nylon">Nylon</Link>
-                      </li>
-                      <li>
-                        <Link>Polyester</Link>
-                      </li>
-                      <li>
-                        <Link>ANSO High - Performance</Link>
-                      </li>
-                    </ul>
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <p className="font-bold">Shop by color</p>
-                      <li>
-                        <Link>Gray Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Beige Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Brown Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Gold Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Red Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Orange Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Green Carpet</Link>
-                      </li>
-                      <li>
-                        <Link>Violet Carpet</Link>
-                      </li>
-                    </ul>
+                    <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Brand
+                          </p>
+                          <ul className="mt-3 text-[15px] ">
+                            <li className="pb-2">
+                              <Link>Mohawkflooring</Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link>Shawfloors</Link>
+                            </li>
+                            <li>
+                              <Link>Engineeredfloors</Link>
+                            </li>
+                          </ul>
+                          <Link to="/products/carpet">
+                            <button className="btn btn-dark mt-5">
+                              SEE ALL CARPET
+                            </button>
+                          </Link>
+                        </div>
+                        <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Type
+                          </p>
+                          <ul class="mt-3 text-[15px]">
+                            <li className="pb-2">
+
+                              <Link to="/products/carpet?type=Nylon">Nylon</Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?type=Polyester">Polyester</Link>
+                            </li>
+                            <li>
+                              <Link to="/products/carpet?type=ANSO%20High%20-%20Performance">ANSO High Performance</Link>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Color
+                          </p>
+                          <ul className="mt-3 text-[15px]">
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=beige">
+                                Beiges Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=blue">
+                                Blue Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=brown">
+                                Brown Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=gold">
+                                Gold Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=gray">
+                                Grays Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=orange">
+                                Orange Carpet
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/carpet?color=green">
+                                Green Carpet
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/products/carpet?color=violet">
+                                Violet Carpet
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/products/carpet?color=red">
+                                Red Carpet
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -173,38 +190,21 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <li className="font-bold">Shop by type</li>
-                      <li>
-                        <Link>Wood Laminate</Link>
-                      </li>
-                    </ul>
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <p className="font-bold">Shop by color</p>
-                      <li>
-                        <Link>Beige/ Tan Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Black Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Brown Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Gold Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Gray Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Natural Laminate</Link>
-                      </li>
-                      <li>
-                        <Link>Orange Laminate</Link>
-                      </li>
-                    </ul>
+                    <div>
+                      <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                        Shop by Type
+                      </p>
+                      <ul class="mt-3 text-[15px]">
+                        <li>
+                          <Link>Wood Laminate</Link>
+                        </li>
+                      </ul>
+                      <Link to="/products/laminate">
+                        <button className="btn btn-dark mt-40">
+                          SEE ALL LAMINATE
+                        </button>
+                      </Link>
+                    </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -221,47 +221,54 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul className="text-start">
-                      <li className="px-28"></li>
-                      <p className="font-bold">Shop by color</p>
-                      <li>
-                        <Link>Beige Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Black Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Blue Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Brown Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Gold Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Green Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Grey Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Natural Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Natural / Beige Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>Red Hardwood</Link>
-                      </li>
-                      <li>
-                        <Link>White Hardwood</Link>
-                      </li>
-                    </ul>
+                    <div className="">
+                      <Link to="/products/hardwood">
+                        <button className="btn btn-dark mt-5">
+                          SEE ALL HARDWOOD
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="ml-2">
+                      <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                        Shop by Color
+                      </p>
+                      <ul class="mt-3 text-[15px]">
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=beige">Beige Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=black">Black Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=blue">Blue Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=brown">Brown Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=gold">Gold Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=green">Green Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=grey">Grey Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=natural">Natural Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=red">Red Hardwood</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/hardwood?color=white">White Hardwood</Link>
+                        </li>
+                      </ul>
+                    </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
-                  <a className="justify-between">
+                  <Link to="/products/spc" className="justify-between">
                     SPC
                     <svg
                       className="fill-current"
@@ -272,40 +279,7 @@ const Navbar = () => {
                     >
                       <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                     </svg>
-                  </a>
-                  {/* <ul className='bg-base-300 p-2'>
-                                        <ul className='text-start'>
-                                            <li className='px-20'></li>
-                                            <li className='font-bold'>Shop by type</li>
-                                            <li><Link>Vinyl Plank</Link></li>
-                                            <li><Link>Sheet Vinyl</Link></li>
-                                            <li><Link>Luxury Vinyl Tile</Link></li>
-                                            <li><Link>Commercial Vinyl Plank</Link></li>
-                                        </ul>
-                                        <ul className='text-start'>
-                                            <li className='px-20'></li>
-                                            <p className='font-bold'>Shop by color</p>
-                                            <li><Link>Gray Vinyl</Link></li>
-                                            <li><Link>White Vinyl</Link></li>
-                                            <li><Link>Brown Vinyl</Link></li>
-                                            <li><Link>Beige Vinyl</Link></li>
-                                            <p className='font-bold mt-3'>Shop by Look</p>
-                                            <li><Link>Wood Look Vinyl</Link></li>
-                                            <li><Link>Stone Look Vinyl</Link></li>
-                                        </ul>
-                                        <ul className='text-start'>
-                                            <li className='px-28'></li>
-                                            <p className='font-bold'>Shop by feature</p>
-                                            <li><Link>Waterproof Vinyl</Link></li>
-                                            <li><Link>Wide Plank Vinyl</Link></li>
-                                            <li><Link>Pet-Friendly Vinyl</Link></li>
-                                            <li><Link>Water Resistant Vinyl</Link></li>
-                                            <li><Link>Non Slip Vinyl</Link></li>
-                                            <li><Link>Fade Resistant Vinyl</Link></li>
-                                            <li><Link>Stain Resistant Vinyl</Link></li>
-
-                                        </ul>
-                                    </ul> */}
+                  </Link>
                 </li>
                 <li tabIndex={0}>
                   <a className="justify-between">
@@ -321,17 +295,24 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul class="mt-3 text-[15px]">
+                    <div>
                       <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                         Shop by Collection
                       </p>
-                      <li className="pb-2">
-                        <Link>Marble</Link>
-                      </li>
-                      <li>
-                        <Link>Travertine</Link>
-                      </li>
-                    </ul>
+                      <ul class="mt-3 text-[15px]">
+                        <li className="pb-2">
+                          <Link to="/products/tile?type=Marble">Marble</Link>
+                        </li>
+                        <li>
+                          <Link to="/products/tile?type=Travertine">Travertine</Link>
+                        </li>
+                      </ul>
+                      <Link to="/products/tile">
+                        <button className="btn btn-dark mt-40">
+                          SEE ALL TILE
+                        </button>
+                      </Link>
+                    </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -348,26 +329,33 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul class="mt-3 text-[15px]">
+                    <div>
                       <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                         Shop by Collection
                       </p>
-                      <li className="pb-2">
-                        <Link>Traditional</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>European</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Custom</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Closets</Link>
-                      </li>
-                      <li>
-                        <Link>C Series (NEW)</Link>
-                      </li>
-                    </ul>
+                      <ul class="mt-3 text-[15px]">
+                        <li className="pb-2">
+                          <Link to="/products/cabinet?type=Traditional">Traditional</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/cabinet?type=European">European</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/cabinet?type=Custom">Custom</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/cabinet?type=Closets">Closets</Link>
+                        </li>
+                        <li>
+                          <Link to="/products/cabinet?type=C%20Series%20%28NEW%29">C Series (NEW)</Link>
+                        </li>
+                      </ul>
+                      <Link to="/products/cabinet">
+                        <button className="btn btn-dark mt-40">
+                          SEE ALL CABINET
+                        </button>
+                      </Link>
+                    </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -384,39 +372,7 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul class="mt-3 text-[15px]">
-                      <p className="font-bold">Shop by Brand</p>
-                      <li className="pb-2">
-                        <a href="https://www.mohawkflooring.com/">
-                          Mohawkflooring
-                        </a>
-                      </li>
-                      <li className="pb-2">
-                        <a href=" https://shawfloors.com/">Shawfloors</a>
-                      </li>
-                      <li className="pb-2">
-                        <a href="https://www.engineeredfloors.com/">
-                          Engineeredfloors
-                        </a>
-                      </li>
-                    </ul>
-                    <ul class="mt-3 text-[15px]">
-                      <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                        Shop by Collection
-                      </p>
-                      <li className="pb-2">
-                        <Link>Multi-Surface Visualizer</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Kitchen Visualizer</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Countertop Edge Visualizer</Link>
-                      </li>
-                      <li>
-                        <Link>Stacked Stone Visualize</Link>
-                      </li>
-                    </ul>
+                    
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -433,40 +389,33 @@ const Navbar = () => {
                     </svg>
                   </a>
                   <ul className="bg-base-300 p-2">
-                    <ul class="mt-3 text-[15px]">
-                      <p className="font-bold">Shop by Brand</p>
-                      <li className="pb-2">
-                        <a href="https://www.mohawkflooring.com/">
-                          Mohawkflooring
-                        </a>
-                      </li>
-                      <li className="pb-2">
-                        <a href=" https://shawfloors.com/">Shawfloors</a>
-                      </li>
-                      <li className="pb-2">
-                        <a href="https://www.engineeredfloors.com/">
-                          Engineeredfloors
-                        </a>
-                      </li>
-                    </ul>
-
-                    <ul class="mt-3 text-[15px]">
+                    <div>
                       <p class="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
                         Shop by Type
                       </p>
-                      <li className="pb-2">
-                        <Link>Double Bowl Kitchen Sinks</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Single Bowl Kitchen Sinks</Link>
-                      </li>
-                      <li className="pb-2">
-                        <Link>Quartz Composite Sinks</Link>
-                      </li>
-                      <li>
-                        <Link>Farmhouse Apron Kitchen Sinks</Link>
-                      </li>
-                    </ul>
+                      <ul class="mt-3 text-[15px]">
+                        <li className="pb-2">
+                          <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Double Bowl Kitchen Sinks</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">Single Bowl Kitchen Sinks</Link>
+                        </li>
+                        <li className="pb-2">
+                          <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">Quartz Composite Sinks</Link>
+                        </li>
+                        <li>
+                          <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks">Farmhouse Apron Kitchen Sinks</Link>
+                        </li>
+                        <li>
+                          <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">Vanity Sinks - Undermount, Overmount</Link>
+                        </li>
+                      </ul>
+                      <Link to="/products/sink">
+                        <button className="btn btn-dark mt-40">
+                          SEE ALL SINK
+                        </button>
+                      </Link>
+                    </div>
                   </ul>
                 </li>
                 <li tabIndex={0}>
@@ -505,41 +454,40 @@ const Navbar = () => {
                 </li>
                 <li>
                   <div className="bg-base-300">
-                    <ul className="gap-5">
-                      <Link>
-                        <li>YOUR ZIP CODE</li>
-                      </Link>
-                      <Link>
-                        <li>4.4 REVIEWS</li>
-                      </Link>
-                      <Link>
+                    <ul className="text-sm justify-between gap-3">
+                      <a href="https://www.google.com/maps/place/LM+Tile/@29.878491,-95.6747,13z/data=!4m18!1m9!3m8!1s0x8640d7125719bb09:0xc6b6e57cc0a6021f!2sLM+Tile!8m2!3d29.8784909!4d-95.6747003!9m1!1b1!16s%2Fg%2F1thlzv25!3m7!1s0x8640d7125719bb09:0xc6b6e57cc0a6021f!8m2!3d29.8784909!4d-95.6747003!9m1!1b1!16s%2Fg%2F1thlzv25?hl=en">
+                        <li className="">
+                          4.4 REVIEWS</li>
+                      </a>
+                      <Link to={"/offers"}>
                         <li>OFFERS</li>
                       </Link>
-                      <Link>
+                      <Link to={"/financing"}>
                         <li>FINANCING </li>
                       </Link>
-                      <Link>
+                      <Link to={"/photoGAllery"}>
                         <li>GET INSPIRED </li>
                       </Link>
-                      <Link>
+                      <Link to={"/lmtileWorks"}>
                         <li>HOW LM-TILE WORKS </li>
                       </Link>
-                      <Link>
-                        <li>LOCATIONS </li>
+                      <Link to={"/faqs"}>
+                        <li>FAQs</li>
                       </Link>
-                      <Link>
-                        <li>HELP </li>
+                      <Link to={"/customerService"}>
+                        <li>Customer Service</li>
                       </Link>
-                      <Link>
-                        <li>FAVORITES (0)</li>
+                      <Link to={"/productCare"}>
+                        <li>Product Care</li>
                       </Link>
                     </ul>
                   </div>
                 </li>
               </ul>
             </div>
+            
             <Link to={"/"}>
-              <img className="w-[200px]" src={logo} alt="" />
+              <img className="w-[120px] md:w-[200px] lg:w-[200px] ml-10" src={logo} alt="" />
             </Link>
           </div>
           <nav className="hidden lg:block">
@@ -986,9 +934,15 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to={"/schedule"}
-              className="btn font-bold rounded-none btn-warning "
+              className="btn font-bold rounded-none btn-warning hidden md:block lg:block"
             >
               <FaClock className="lg:text2xl lg:mr-5 mr-1" /> SCHEDULE NOW
+            </Link>
+            <Link
+              to={"/schedule"}
+              className="btn font-bold rounded-none btn-warning md:hidden lg:hidden"
+            >
+              <FaClock className="lg:text2xl lg:mr-5 mr-1" /> SCHEDULE
             </Link>
           </div>
         </div>
