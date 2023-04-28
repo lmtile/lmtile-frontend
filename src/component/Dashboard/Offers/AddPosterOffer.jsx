@@ -135,7 +135,7 @@ const AddPosterOffer = () => {
                   />
                 </div>
                 <button
-                  className="btn btn-outline mt-5"
+                  className="btn btn-outline mt-6 ml-5"
                   type="button"
                   onClick={() => {
                     if (offerLabel.offer && offerLabel.title) {
@@ -198,9 +198,9 @@ const AddPosterOffer = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="mt-6">
                   <button
-                    className="btn btn-outline"
+                    className="btn btn-outline mx-5"
                     type="button"
                     onClick={() => {
                       if (offerLabel.offer && offerLabel.title) {
@@ -224,7 +224,7 @@ const AddPosterOffer = () => {
                 </div>
                 <div>
                   <button
-                    className="btn btn-outline"
+                    className="btn btn-outline mt-6"
                     type="button"
                     onClick={() => {
                       setOfferLabel({
