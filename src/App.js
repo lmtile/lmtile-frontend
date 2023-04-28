@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="mx-auto">
       <RouterProvider router={router}></RouterProvider>
-      <WhatsApp></WhatsApp>
+      
     </div>
   );
 }

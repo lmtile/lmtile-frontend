@@ -55,6 +55,9 @@ import ProductDetails from "../../component/Pages/Product/Product-Details";
 import ViewAppointment from "../../component/Dashboard/Appointment/ViewAppointment";
 import EditProduct from "../../component/Dashboard/products/EditProduct";
 import AllOfferProducts from "../../component/Dashboard/Offers/AllOfferProducts";
+import OfferPoster from "../../component/Dashboard/Offers/OfferPoster";
+import AllPackage from "../../component/Dashboard/Package/AllPackage";
+import ViewProduct from "../../component/Dashboard/products/ViewProduct";
 
 const router = createBrowserRouter([
   {
@@ -260,6 +263,10 @@ const router = createBrowserRouter([
         element: <AllProducts />,
       },
       {
+        path: "/dashboard/view-products",
+        element: <ViewProduct />,
+      },
+      {
         path: "/dashboard/edit-product/:id",
         element: <EditProduct />,
       },
@@ -272,6 +279,10 @@ const router = createBrowserRouter([
         element: <AddPosterOffer />,
       },
       {
+        path: "/dashboard/offer-poster",
+        element: <OfferPoster />,
+      },
+      {
         path: "/dashboard/add-offer-product",
         element: <AddOfferProduct />,
       },
@@ -282,6 +293,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add-package",
         element: <AddPackage />,
+      },
+      {
+        path: "/dashboard/all-package",
+        element: <AllPackage />,
       },
     ],
   },

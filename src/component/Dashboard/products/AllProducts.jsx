@@ -9,7 +9,7 @@ import {
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaPen, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
@@ -297,6 +297,9 @@ export default class AllProducts extends Component {
         name: "Action",
         selector: (row) => (
           <div className="">
+            <Link to={`/view-product/${row._id}`}>
+              <button><FaEye/></button>
+            </Link>
             <button
               className="mr-5"
               onClick={() => {
@@ -322,7 +325,7 @@ export default class AllProducts extends Component {
         <div className=" bg-base-100">
           <div className="flex flex-row justify-between my-10 mx-10">
             <input
-              className="mr-4 input input-bordered max-w-xs"
+              className="mr-4 input input-bordered rounded-none max-w-xs"
               placeholder="Search..."
               value={filterData.search}
               onChange={this.handleOnChange}
@@ -330,7 +333,7 @@ export default class AllProducts extends Component {
             />
 
             <select
-              className="mr-4 input input-bordered max-w-xs"
+              className="mr-4 input input-bordered rounded-none max-w-xs"
               name="catergory"
               value={filterData.catergory}
               onChange={this.handleOnChange}
@@ -347,7 +350,7 @@ export default class AllProducts extends Component {
 
             {allSubCatergory.length > 0 && (
               <select
-                className="mr-4 input input-bordered max-w-xs"
+                className="mr-4 input input-bordered rounded-none max-w-xs"
                 name="type"
                 value={filterData.type}
                 onChange={this.handleOnChange}
@@ -373,7 +376,7 @@ export default class AllProducts extends Component {
               value={filterData.selected_color}
             />
 
-            <button onClick={this.applyFilter}>
+            <button onClick={this.applyFilter} className="btn btn-outline rounded-none">
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
           </div>

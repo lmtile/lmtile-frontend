@@ -65,7 +65,7 @@ export default class DashboardHome extends Component {
               <h3 className="text-2xl">Appointments</h3>
             </div>
           </Link>
-          <Link>
+          <Link to="/dashboard/all-offer-product">
             <div className="font-bold bg-blue-800 text-white py-20 px-10 text-center rounded-2xl shadow-2xl shadow-black hover:shadow-xl">
               <h1 className="text-[60px] mb-5">
                 {dashboard_data.total_offer_product || 0}
@@ -73,13 +73,14 @@ export default class DashboardHome extends Component {
               <h3 className="text-2xl">Offer Products</h3>
             </div>
           </Link>
-          <Link>
+          <Link to="/dashboard/offer-poster">
             <div className="font-bold bg-pink-700 text-white py-20 px-10 text-center rounded-2xl shadow-2xl shadow-black hover:shadow-xl">
-              <h1 className="text-[60px] mb-5">1</h1>
+              <h1 className="text-[60px] mb-5">{" "}
+                {dashboard_data.total_offer_poster || 0}</h1>
               <h3 className="text-2xl">Offer Poster</h3>
             </div>
           </Link>
-          <Link>
+          <Link to="/dashboard/all-package">
             <div className="font-bold bg-violet-500 text-white py-20 px-10 text-center rounded-2xl shadow-2xl shadow-black hover:shadow-xl">
               <h1 className="text-[60px] mb-5">2</h1>
               <h3 className="text-2xl">Packages</h3>
