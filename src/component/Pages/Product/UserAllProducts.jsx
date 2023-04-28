@@ -21,7 +21,7 @@ export default function UserAllProducts() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
-  const [per_page, set_per_page] = useState(12);
+  const [per_page] = useState(12);
   const [select_category, set_select_category] = useState("");
   const [select_sub_category, set_select_sub_category] = useState("");
   const [color, setColor] = useState("");
@@ -55,7 +55,7 @@ export default function UserAllProducts() {
   useEffect(() => {
     if (isCalling === 1) {
       getAllcategory();
-      setIscalling(1 + isCalling);
+      setIscalling(2);
     }
     getAllProduct();
   }, [select_category, color, page, select_sub_category]);
@@ -152,7 +152,6 @@ export default function UserAllProducts() {
                         setPage(1);
                         setColor("");
                         set_select_sub_category("");
-
                       }}
                       className="font-bold text-sm"
                     >
