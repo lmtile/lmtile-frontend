@@ -87,7 +87,7 @@ export default function ProductDetails() {
                 src: `${BUCKET_DOMAIN}${preview}`,
                 width:750,
                 height:1200,
-                isFluidWidth:true
+
               },
               isHintEnabled: true
             }} />
