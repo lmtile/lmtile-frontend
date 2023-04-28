@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, Navigate, Outlet } from 'react-router-dom';
 import Logout from '../component/Login/Logout';
+import logo from "../assets/img/home page/web-logo.png";
 
-import Footer from '../component/Shared/Footer/Footer';
-import Navbar from '../component/Shared/Navbar/Navbar';
+
+
 
 
 
@@ -21,8 +22,10 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-200 text-base-content font-bold">
-
+          <ul className="menu p-4 gap-5 w-80 bg-base-200 text-base-content font-bold">
+            <Link to={"/"}>
+              <img className="w-[120px] md:w-[200px] lg:w-[200px]" src={logo} alt="" />
+            </Link>
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/dashboard">DASHBOARD</Link></li>
             <li><Link to="/dashboard/appointments">APPOINTMENTS</Link></li>
@@ -32,8 +35,8 @@ const DashboardLayout = () => {
                 PRODUCT SECTION
               </div>
               <div className="collapse-content">
-                <li><Link to="/dashboard/all-products">All PRODUCT</Link></li>
-                <li><Link to="/dashboard/add-product">ADD PRODUCT</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/all-products">All PRODUCT</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/add-product">ADD PRODUCT</Link></li>
               </div>
             </div>
             <div className="collapse collapse-plus">
@@ -42,9 +45,10 @@ const DashboardLayout = () => {
                 OFFER SECTION
               </div>
               <div className="collapse-content">
-                <li><Link to="/dashboard/all-offer-product">ALL OFFER PRODUCT</Link></li>
-                <li><Link to="/dashboard/add-offer-poster">ADD POSTER</Link></li>
-                <li><Link to="/dashboard/add-offer-product">ADD OFFER PRODUCT</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/all-offer-product">ALL OFFER PRODUCT</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/add-offer-poster">ADD POSTER</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/offer-poster">VIEW POSTER</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/add-offer-product">ADD OFFER PRODUCT</Link></li>
               </div>
             </div>
             <div className="collapse collapse-plus ">
@@ -53,8 +57,8 @@ const DashboardLayout = () => {
                 PACKAGE SECTION
               </div>
               <div className="collapse-content">
-                <li><Link to="/dashboard/add-package">ADD PACKAGE</Link></li>
-                <li><Link to="/dashboard">ALL PACKAGE</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/add-package">ADD PACKAGE</Link></li>
+                <li className='text-red-800'><Link to="/dashboard/all-package">ALL PACKAGE</Link></li>
               </div>
             </div>
             <Logout/>

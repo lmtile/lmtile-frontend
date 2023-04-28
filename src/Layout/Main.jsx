@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import Navbar from "../component/Shared/Navbar/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/Shared/Footer/Footer";
-import Header from "../component/Shared/Header";
+import WhatsApp from "../WhatsApp/WhatsApp";
+
 
 const Main = () => {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ const Main = () => {
   }, [pathname]);
   return (
     <div>
+      <WhatsApp></WhatsApp>
       <Navbar />
       <div className="lg:mt-32 mt-28">
         <Outlet />
