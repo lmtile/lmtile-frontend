@@ -58,6 +58,7 @@ import AllOfferProducts from "../../component/Dashboard/Offers/AllOfferProducts"
 import OfferPoster from "../../component/Dashboard/Offers/OfferPoster";
 import AllPackage from "../../component/Dashboard/Package/AllPackage";
 import ViewProduct from "../../component/Dashboard/products/ViewProduct";
+import EditPackage from "../../component/Dashboard/Package/EditPackage";
 
 const router = createBrowserRouter([
   {
@@ -297,6 +298,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/all-package",
         element: <AllPackage />,
+      },
+      {
+        path: "/dashboard/edit-package/:id",
+        element: <EditPackage />,
       },
     ],
   },
