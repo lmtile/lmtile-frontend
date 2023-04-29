@@ -86,23 +86,25 @@ export default function ProductDetails() {
             ))}
           </div>
           <div className="mt-5 w-[500]">
-            <ReactImageMagnify
-              {...{
-                smallImage: {
-                  alt: "",
-                  isFluidWidth: true,
-                  src: `${BUCKET_DOMAIN}${preview}`,
-                  width: 400,
-                },
-                largeImage: {
-                  src: `${BUCKET_DOMAIN}${preview}`,
-                  width: 750,
-                  height: 1200,
-                  isFluidWidth: true,
-                },
-                isHintEnabled: true,
-              }}
-            />
+            {preview && (
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: "",
+                    isFluidWidth: true,
+                    src: `${BUCKET_DOMAIN}${preview}`,
+                    width: 400,
+                  },
+                  largeImage: {
+                    src: `${BUCKET_DOMAIN}${preview}`,
+                    width: 750,
+                    height: 1200,
+                    isFluidWidth: true,
+                  },
+                  isHintEnabled: true,
+                }}
+              />
+            )}
           </div>
         </div>
         <div className="lg:w-[450px] md:w-[250px]  lg:ml-20 mt-10 p-5">
