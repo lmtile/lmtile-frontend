@@ -27,6 +27,7 @@ const AllPackage = () => {
           setPackages(res.data.packages);
         } else {
           setPackages([]);
+          message.error(res.data.message);
         }
       })
       .catch((err) => {
@@ -88,7 +89,9 @@ const AllPackage = () => {
                       Edit
                     </Link>
                     <button
-                      onClick={deletePackage}
+                      onClick={() => {
+                        deletePackage(pack._id);
+                      }}
                       className="btn btn-outline rounded-none"
                     >
                       Delete
