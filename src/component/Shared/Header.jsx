@@ -39,7 +39,7 @@ export default class Header extends Component {
   render() {
     return (
       <div
-        class="fixed inset-x-0 top-0 z-50
+        className="fixed inset-x-0 top-0 z-50
             bg-blue-500"
       >
         <div className="bg-base-300 hidden lg:block top-0 scroll-hidden ">
@@ -85,7 +85,7 @@ export default class Header extends Component {
         </div>
 
         <div
-          class="flex justify-around bg-white/80
+          className="flex justify-around bg-white/80
             backdrop-blur-md shadow-md w-full
             fixed left-0 right-0 z-10"
         >
@@ -119,7 +119,6 @@ export default class Header extends Component {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     );
