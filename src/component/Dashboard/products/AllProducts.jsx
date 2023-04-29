@@ -5,11 +5,12 @@ import {
   BUCKET_DOMAIN,
   ProductColor,
   getColorDetails,
+  getSubCategoryDetails,
 } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaEye, FaEyeSlash, FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaEye, FaPen, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
@@ -69,7 +70,7 @@ export default class AllProducts extends Component {
 
           let products = res.data?.products.map((product) => {
             product.color_details = getColorDetails(product.color);
-            product.sub_cat_details = this.getSubCategoryDetails(
+            product.sub_cat_details = getSubCategoryDetails(
               product.category.sub_cat,
               product.type
             );
@@ -113,12 +114,6 @@ export default class AllProducts extends Component {
         console.error(err);
         message.error("Something went wrong!!!");
       });
-  };
-
-  getSubCategoryDetails = (subcat, id) => {
-    return _.find(subcat, ({ value }) => {
-      return value === id;
-    });
   };
 
   deleteProduct = (id) => {
@@ -237,8 +232,6 @@ export default class AllProducts extends Component {
       allSubCatergory,
     } = this.state;
 
-    console.log("filterData", filterData);
-
     const COLUMNS = [
       {
         name: "Product image",
@@ -298,7 +291,9 @@ export default class AllProducts extends Component {
         selector: (row) => (
           <div className="">
             <Link to={`/dashboard/view-products/${row._id}`}>
-              <button><FaEye className="text-xl mr-5"/></button>
+              <button>
+                <FaEye className="text-xl mr-5" />
+              </button>
             </Link>
             <button
               className="mr-5"
@@ -376,7 +371,10 @@ export default class AllProducts extends Component {
               value={filterData.selected_color}
             />
 
-            <button onClick={this.applyFilter} className="btn btn-outline rounded-none">
+            <button
+              onClick={this.applyFilter}
+              className="btn btn-outline rounded-none"
+            >
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
           </div>

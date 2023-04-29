@@ -3,7 +3,11 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import OffersModal from "../Offers/OffersModal";
-import { BUCKET_DOMAIN, getColorDetails } from "../../../helper/Helper";
+import {
+  BUCKET_DOMAIN,
+  getColorDetails,
+  getSubCategoryDetails,
+} from "../../../helper/Helper";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { FaCamera } from "react-icons/fa";
@@ -37,6 +41,10 @@ export default function ProductDetails() {
         if (res.data.success) {
           let { relatedProduct, productDetails, sameColorProduct } = res.data;
           productDetails.color_details = getColorDetails(productDetails.color);
+          productDetails.sub_cat_details = getSubCategoryDetails(
+            productDetails.category.sub_cat,
+            productDetails.type
+          );
           setProductDetails(productDetails);
           setPreview(productDetails.images[0]);
 
@@ -58,7 +66,7 @@ export default function ProductDetails() {
         message.error("Something went wrong!!!");
       });
   };
-console.log(productDetails);
+
   return (
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
@@ -95,11 +103,14 @@ console.log(productDetails);
                 isHintEnabled: true,
               }}
             />
-
           </div>
         </div>
         <div className="lg:w-[450px] md:w-[250px]  lg:ml-20 mt-10 p-5">
-          <h4 className="text-2xl text-red-800">{productDetails.type}</h4>
+          <h4 className="text-2xl text-red-800">
+            {productDetails.type &&
+              productDetails.sub_cat_details &&
+              productDetails.sub_cat_details.label}
+          </h4>
           <h2 className="text-3xl font-bold mb-3">{productDetails.name}</h2>
 
           <h3 className="text-2xl mb-3">
@@ -125,11 +136,7 @@ console.log(productDetails);
           <div className="grid gap-3 gap-x-3 grid-cols-5">
             {sameColorProduct.map((same_color, key) => {
               return (
-                <Link
-                  to={`/product-details/${same_color._id}`}
-                  key={key}
-
-                >
+                <Link to={`/product-details/${same_color._id}`} key={key}>
                   <img
                     src={`${BUCKET_DOMAIN}${same_color.images[0]}`}
                     alt=""
@@ -139,7 +146,6 @@ console.log(productDetails);
               );
             })}
           </div>
-          
         </div>
       </div>
 
