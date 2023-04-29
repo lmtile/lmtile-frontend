@@ -47,12 +47,6 @@ export default class AllOfferProducts extends Component {
       });
   };
 
-  getSubCategoryDetails = (subcat, id) => {
-    return _.find(subcat, ({ value }) => {
-      return value === id;
-    });
-  };
-
   deleteProduct = (id) => {
     if (window.confirm("Are you sure, you want to delete this product")) {
       this.setState({ isLoading: true });

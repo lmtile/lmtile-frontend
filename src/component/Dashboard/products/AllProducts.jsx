@@ -5,6 +5,7 @@ import {
   BUCKET_DOMAIN,
   ProductColor,
   getColorDetails,
+  getSubCategoryDetails,
 } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
@@ -69,7 +70,7 @@ export default class AllProducts extends Component {
 
           let products = res.data?.products.map((product) => {
             product.color_details = getColorDetails(product.color);
-            product.sub_cat_details = this.getSubCategoryDetails(
+            product.sub_cat_details = getSubCategoryDetails(
               product.category.sub_cat,
               product.type
             );
@@ -113,12 +114,6 @@ export default class AllProducts extends Component {
         console.error(err);
         message.error("Something went wrong!!!");
       });
-  };
-
-  getSubCategoryDetails = (subcat, id) => {
-    return _.find(subcat, ({ value }) => {
-      return value === id;
-    });
   };
 
   deleteProduct = (id) => {

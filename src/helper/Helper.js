@@ -65,3 +65,9 @@ export const getColorDetails = (color) => {
     return value === color;
   });
 };
+
+export const getSubCategoryDetails = (subcat, id) => {
+  return _.find(subcat, ({ value }) => {
+    return value === id;
+  });
+};

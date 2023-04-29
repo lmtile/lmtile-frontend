@@ -19,8 +19,6 @@ const OfferAndAppointment = () => {
           let { posters } = res.data;
 
           setPosters(posters);
-        } else {
-          message.error(res.data.message);
         }
       })
       .catch((err) => {
