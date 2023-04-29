@@ -9,7 +9,7 @@ import {
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaEye, FaEyeSlash, FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaEye, FaPen, FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
@@ -237,8 +237,6 @@ export default class AllProducts extends Component {
       allSubCatergory,
     } = this.state;
 
-    console.log("filterData", filterData);
-
     const COLUMNS = [
       {
         name: "Product image",
@@ -298,7 +296,9 @@ export default class AllProducts extends Component {
         selector: (row) => (
           <div className="">
             <Link to={`/dashboard/view-products/${row._id}`}>
-              <button><FaEye className="text-xl mr-5"/></button>
+              <button>
+                <FaEye className="text-xl mr-5" />
+              </button>
             </Link>
             <button
               className="mr-5"
@@ -376,7 +376,10 @@ export default class AllProducts extends Component {
               value={filterData.selected_color}
             />
 
-            <button onClick={this.applyFilter} className="btn btn-outline rounded-none">
+            <button
+              onClick={this.applyFilter}
+              className="btn btn-outline rounded-none"
+            >
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
           </div>
