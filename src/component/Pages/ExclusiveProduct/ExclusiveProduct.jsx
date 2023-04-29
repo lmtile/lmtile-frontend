@@ -26,7 +26,7 @@ const ExclusiveProduct = () => {
                     <div>
                         <h2 className='text-2xl font-bold text-warning'> New!</h2>
                         <h1 className="text-3xl font-bold">The World’s Only Hypo-Allergenic & Odor-Neutralizing Carpet</h1>
-                        <Link to="/products/carpe"><button className="btn bg-red-800 rounded-none mt-10">BROWSE PRODUCTS</button></Link>
+                        <Link to="/products/carpet"><button className="btn bg-red-800 rounded-none mt-10">BROWSE PRODUCTS</button></Link>
                     </div>
                 </div>
             </div>
