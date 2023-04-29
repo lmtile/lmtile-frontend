@@ -35,10 +35,7 @@ export default class Offers extends Component {
 
         if (res.data.success) {
           let { offer_product } = res.data;
-
           this.setState({ offer_product });
-        } else {
-          message.error(res.data.message);
         }
       })
       .catch((err) => {
@@ -58,8 +55,6 @@ export default class Offers extends Component {
           let { posters } = res.data;
 
           this.setState({ posters });
-        } else {
-          message.error(res.data.message);
         }
       })
       .catch((err) => {
