@@ -297,8 +297,8 @@ export default class AllProducts extends Component {
         name: "Action",
         selector: (row) => (
           <div className="">
-            <Link to={`/view-product/${row._id}`}>
-              <button><FaEye/></button>
+            <Link to={`/dashboard/view-products/${row._id}`}>
+              <button><FaEye className="text-xl mr-5"/></button>
             </Link>
             <button
               className="mr-5"

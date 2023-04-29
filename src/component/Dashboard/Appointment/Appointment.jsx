@@ -288,7 +288,7 @@ export default class Appointment extends Component {
         <div className="w-full">
           <div className="flex flex-row justify-between my-10 mx-10">
             <input
-              className="mr-4 input input-bordered w-full max-w-xs mt-5"
+              className="mr-4 input input-bordered rounded-none w-full max-w-xs mt-5"
               placeholder="Search..."
               value={filteringData.search}
               onChange={(e) => {
@@ -303,7 +303,7 @@ export default class Appointment extends Component {
 
               <ReactDatePicker
                 placeholderText="Select Start date"
-                className="input w-28 input-bordered"
+                className="input w-28 input-bordered rounded-none"
                 selected={
                   filteringData.start_date !== "" &&
                   new Date(filteringData.start_date)
@@ -329,7 +329,7 @@ export default class Appointment extends Component {
 
               <ReactDatePicker
                 placeholderText="Select End date"
-                className="input w-28 input-bordered"
+                className="input w-28 input-bordered rounded-none"
                 selected={
                   filteringData.end_date !== "" &&
                   new Date(filteringData.end_date)
@@ -350,13 +350,13 @@ export default class Appointment extends Component {
               />
             </div>
 
-            <button className="btn btn-outline mt-5 ml-5" onClick={this.applyFilter}>
+            <button className="btn btn-outline rounded-none mt-5 ml-5" onClick={this.applyFilter}>
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
 
             <button
               type="button"
-              className={`btn btn-outline mt-5 mx-5  ${
+              className={`btn btn-outline rounded-none mt-5 mx-5  ${
                 selected_rows.length === 0
               } rounded`}
               disabled={selected_rows.length === 0}
@@ -364,7 +364,7 @@ export default class Appointment extends Component {
             >
               DELETE
             </button>
-            <button onClick={this.generateExcelFile} className="btn btn-outline mt-5">Export Excel</button>
+            <button onClick={this.generateExcelFile} className="btn btn-outline rounded-none mt-5">Export Excel</button>
           </div>
 
           

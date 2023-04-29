@@ -40,15 +40,23 @@ const ViewProduct = () => {
                 message.error("Something went wrong!!!");
             });
     };
+    console.log(productDetails);
     return (
         <div>
-            <div className="grid grid-cols-3 mt-5 mr-5">
+            <div className='m-10 '>
+                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.name}</h4>
+                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.category}</h4>
+                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.type}</h4>
+                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.color}</h4>
+                
+            </div>
+            <div className="grid grid-cols-5 gap-3 gap-x-3 mx-10">
                 {productDetails.images?.map((image, key) => (
                     <img
                         key={key}
                         src={`${BUCKET_DOMAIN}${image}`}
                         alt="Product Image"
-                        className="shadow-2xl w-96 mb-3 cursor-pointer"
+                        className="shadow-2xl w-80 mb-3 cursor-pointer"
                     />
                 ))}
             </div>
