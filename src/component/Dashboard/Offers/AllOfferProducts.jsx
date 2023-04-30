@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
-import {
-  BUCKET_DOMAIN,
-  DATE_TIME_HELPER,
-  getColorDetails,
-} from "../../../helper/Helper";
+import { BUCKET_DOMAIN, DATE_TIME_HELPER } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
@@ -41,6 +37,7 @@ export default class AllOfferProducts extends Component {
           this.setState({ products: offer_product });
         } else {
           message.error(res.data.message);
+          this.setState({ products: [] });
         }
       })
       .catch((err) => {
@@ -48,12 +45,6 @@ export default class AllOfferProducts extends Component {
         this.setState({ isLoading: false });
         message.error("Something went wrong!!!");
       });
-  };
-
-  getSubCategoryDetails = (subcat, id) => {
-    return _.find(subcat, ({ value }) => {
-      return value === id;
-    });
   };
 
   deleteProduct = (id) => {

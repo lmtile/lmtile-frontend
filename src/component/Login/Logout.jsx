@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 
 const Logout = () => {
   const handleLogOut = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     window.location.reload();
-    Navigate("/");
+    // Navigate("/");
   };
   return (
     <div>

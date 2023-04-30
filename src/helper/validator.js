@@ -1,11 +1,11 @@
-const validEmailRegex = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+const validEmailRegex = RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/);
 // const validPasswordRegex = RegExp(
 //   /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/
 // );
 
 const lowerCaseRegex = RegExp(/[a-z]/);
 const upperCaseRegex = RegExp(/[A-Z]/);
-const specialCharsRegex = RegExp(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/);
+const specialCharsRegex = RegExp(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/);
 const numericRegex = RegExp(/[0-9]/);
 const nameRegex = RegExp(/^[a-zA-Z ]{2,30}$\b/);
 
