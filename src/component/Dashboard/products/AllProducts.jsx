@@ -89,7 +89,7 @@ export default class AllProducts extends Component {
         message.error("Something went wrong!!!");
       });
   };
-
+ 
   getAllcategory = () => {
     this.setState({ isLoading: true });
 

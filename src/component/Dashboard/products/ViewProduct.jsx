@@ -46,8 +46,10 @@ const ViewProduct = () => {
             <div className='m-10 '>
                 <h1 className='text-4xl font-bold text-center my-10'>Product Details</h1>
                 <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.name}</h4>
-                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.category}</h4>
-                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.type}</h4>
+                {/* <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.category}</h4> */}
+                <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.type &&
+                    productDetails.sub_cat_details &&
+                    productDetails.sub_cat_details.label}</h4>
                 <h4 className='text-2xl font-bold text-red-800 mb-3'>{productDetails.color}</h4>
                 
             </div>

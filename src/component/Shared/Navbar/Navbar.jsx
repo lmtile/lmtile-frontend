@@ -542,7 +542,7 @@ const Navbar = () => {
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center font-semibold">
               <li className="relative group px-3 py-8">
-                <Link to="http://localhost:3000/products/carpet">
+                <Link to="/products/carpet">
                   <button className="group-hover:border-b-4  border-black cursor-default">
                     Carpet
                   </button>
