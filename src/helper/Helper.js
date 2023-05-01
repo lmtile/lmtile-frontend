@@ -91,6 +91,21 @@ export const ProductColor = [
     color: "#FFFDD0",
     value: "cream",
   },
+  {
+    label: "Beige/ Tan",
+    color: "#F5F5DC",
+    value: "beige_tan",
+  },
+  {
+    label: "Naturals",
+    color: "#ae4a60",
+    value: "natural",
+  },
+  {
+    label: "Natural / Beige",
+    color: "#F5F5DC",
+    value: "natural_beige",
+  },
 ];
 
 export const getFileExtension = (file) => {
