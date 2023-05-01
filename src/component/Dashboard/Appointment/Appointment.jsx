@@ -10,11 +10,14 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
+import { Link } from "react-router-dom";
 
 const COLUMNS = [
   {
     name: "Customer",
-    selector: (row) => row.name,
+    selector: (row) => (
+      <Link to={`/dashboard/view-appointment/${row._id}`}>{row.name}</Link>
+    ),
     sortable: true,
     width: "150px",
   },
@@ -350,7 +353,10 @@ export default class Appointment extends Component {
               />
             </div>
 
-            <button className="btn btn-outline rounded-none mt-5 ml-5" onClick={this.applyFilter}>
+            <button
+              className="btn btn-outline rounded-none mt-5 ml-5"
+              onClick={this.applyFilter}
+            >
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
 
@@ -364,10 +370,13 @@ export default class Appointment extends Component {
             >
               DELETE
             </button>
-            <button onClick={this.generateExcelFile} className="btn btn-outline rounded-none mt-5">Export Excel</button>
+            <button
+              onClick={this.generateExcelFile}
+              className="btn btn-outline rounded-none mt-5"
+            >
+              Export Excel
+            </button>
           </div>
-
-          
 
           <DataTable
             columns={COLUMNS}

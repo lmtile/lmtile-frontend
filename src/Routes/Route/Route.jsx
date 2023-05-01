@@ -256,7 +256,7 @@ const router = createBrowserRouter([
         element: <Appointment />,
       },
       {
-        path: "/dashboard/view-appointments",
+        path: "/dashboard/view-appointment/:id",
         element: <ViewAppointment />,
       },
       {
