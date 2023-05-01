@@ -3,11 +3,9 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import { BUCKET_DOMAIN, DATE_TIME_HELPER } from "../../../helper/Helper";
 import LoadingOverlay from "react-loading-overlay";
-import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import config from "../../../config/config";
-import _ from "lodash";
 import moment from "moment";
 
 export default class AllOfferProducts extends Component {
@@ -134,11 +132,11 @@ export default class AllOfferProducts extends Component {
               <FaTrashAlt className="text-xl" />
             </button>
 
-            <Link to={`/dashboard/edit-product/${row._id}`}>
+            {/* <Link to={`/dashboard/edit-product/${row._id}`}>
               <button>
                 <FaPen className="text-xl" />
               </button>
-            </Link>
+            </Link> */}
           </div>
         ),
         width: "150px",

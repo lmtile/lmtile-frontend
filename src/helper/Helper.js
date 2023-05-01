@@ -46,6 +46,51 @@ export const ProductColor = [
     color: "#8F00FF",
     value: "violet",
   },
+  {
+    label: "Blacks",
+    color: "#000000",
+    value: "black",
+  },
+  {
+    label: "Gray Darks",
+    color: "#5A5A5A",
+    value: "gray_dark",
+  },
+  {
+    label: "Gray Lights",
+    color: "#D3D3D3",
+    value: "gray_light",
+  },
+  {
+    label: "Olives",
+    color: "#808000",
+    value: "olive",
+  },
+  {
+    label: "Terra Cottas",
+    color: "#E2725B",
+    value: "terra_cotta",
+  },
+  {
+    label: "White Cools",
+    color: "#FFFFFF",
+    value: "white_cool",
+  },
+  {
+    label: "White Warms",
+    color: "#f3e7d3",
+    value: "white_warm",
+  },
+  {
+    label: "Yellows",
+    color: "#FFFF00",
+    value: "yellow",
+  },
+  {
+    label: "Creams",
+    color: "#FFFDD0",
+    value: "cream",
+  },
 ];
 
 export const getFileExtension = (file) => {
