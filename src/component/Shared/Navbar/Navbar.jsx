@@ -542,7 +542,7 @@ const Navbar = () => {
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center font-semibold">
               <li className="relative group px-3 py-8">
-                <Link to="http://localhost:3000/products/carpet">
+                <Link to="/products/carpet">
                   <button className="group-hover:border-b-4  border-black cursor-default">
                     Carpet
                   </button>
@@ -1046,9 +1046,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to={"/schedule"}
-              className="btn font-bold rounded-none btn-warning hidden md:block lg:block"
-            >
-              <FaClock className="lg:text2xl lg:mr-5 mr-1" /> SCHEDULE NOW
+            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block">SCHEDULE NOW</button>
             </Link>
             <Link
               to={"/schedule"}

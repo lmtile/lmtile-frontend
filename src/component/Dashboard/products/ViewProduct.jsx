@@ -47,7 +47,6 @@ const ViewProduct = () => {
       .catch((err) => {
         console.error(err);
         setLoading(false);
-
         message.error("Something went wrong!!!");
       });
   };
@@ -94,6 +93,7 @@ const ViewProduct = () => {
       </div>
     </LoadingOverlay>
   );
+
 };
 
 export default ViewProduct;
