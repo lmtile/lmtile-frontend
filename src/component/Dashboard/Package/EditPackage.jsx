@@ -26,8 +26,8 @@ export default function EditPackage() {
     axios
       .get(`/api/package/package/${package_id}`)
       .then((res) => {
+        setLoading(false);
         if (res.data.success) {
-          setLoading(false);
           let data = res.data.packageDetails;
           setInputData(data);
         } else {
