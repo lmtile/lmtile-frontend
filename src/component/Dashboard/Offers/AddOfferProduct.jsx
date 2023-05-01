@@ -16,8 +16,6 @@ export default class AddOfferProduct extends Component {
     this.state = {
       isLoading: false,
 
-      allCatergory: [],
-
       formData: {
         title: "",
         banner: "",
@@ -30,36 +28,6 @@ export default class AddOfferProduct extends Component {
       error: {},
     };
   }
-
-  componentDidMount = () => {
-    this.getAllcategory();
-  };
-
-  getAllcategory = () => {
-    this.setState({ isLoading: true });
-
-    axios
-      .get("/api/category/get-all-category")
-      .then((res) => {
-        this.setState({ isLoading: false });
-        if (res.data.success) {
-          let { category } = res.data;
-          let allCatergory = category.map((cat) => {
-            return {
-              label: cat.category,
-              value: cat._id,
-              sub_cat: cat.sub_cat,
-            };
-          });
-          this.setState({ allCatergory });
-        }
-      })
-      .catch((err) => {
-        this.setState({ isLoading: false });
-        console.error(err);
-        message.error("Something went wrong!!!");
-      });
-  };
 
   handleChange = (e) => {
     let { name, value } = e.target;
@@ -146,7 +114,7 @@ export default class AddOfferProduct extends Component {
   };
 
   render() {
-    let { formData, error, allCatergory } = this.state;
+    let { formData, error } = this.state;
     return (
       <LoadingOverlay active={this.state.isLoading} spinner text="Loading ...">
         <div className=" w-[800px] p-7 mx-auto">
@@ -171,24 +139,16 @@ export default class AddOfferProduct extends Component {
             <div className="flex">
               <div>
                 <p className="font-bold ml-2">Product Name *</p>
-                <select
+
+                <input
                   name="product_category"
+                  type="text"
                   required
-                  placeholder="Product name"
-                  className="input w-80 input-bordered"
+                  placeholder="Product Name"
+                  className="input w-80 input-bordered "
                   value={formData.product_category}
                   onChange={this.handleChange}
-                >
-                  <option value="">Select Product</option>
-
-                  {allCatergory.map((category, key) => {
-                    return (
-                      <option key={key} value={category.value}>
-                        {category.label}
-                      </option>
-                    );
-                  })}
-                </select>
+                />
                 <p className="text-red-800">{error.product_category}</p>
               </div>
               <div className="ml-5">
