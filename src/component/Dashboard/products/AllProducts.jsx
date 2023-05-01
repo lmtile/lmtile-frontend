@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { FaEye, FaPen } from "react-icons/fa";
 import config from "../../../config/config";
-import _ from "lodash";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
 
 export default class AllProducts extends Component {
@@ -46,8 +45,6 @@ export default class AllProducts extends Component {
         selected_color: "",
       },
       isApplyFilter: false,
-
-      selected_rows: [],
     };
   }
 
