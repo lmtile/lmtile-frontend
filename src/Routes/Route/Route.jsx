@@ -308,14 +308,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/add-offer-modal",
-        element: <AddOfferModal/>,
+        element: <AddOfferModal />,
       },
       {
         path: "/dashboard/edit-offer-modal/:id",
         element: <EditOfferModal />,
       },
       {
-        path: "/dashboard/view-offer-modal/:id",
+        path: "/dashboard/view-offer-modal",
         element: <ViewModal />,
       },
     ],

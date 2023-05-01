@@ -1,17 +1,43 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "../../../config/axios";
 
 const OffersModal = () => {
+  const [offer_modal, setOffer_modal] = useState([]);
+
+  useEffect(() => {
+    getAllOffermodal();
+  }, []);
+
+  const getAllOffermodal = () => {
+    axios
+      .get("/api/offer/get-offer-modal")
+      .then((res) => {
+        if (res.data.success) {
+          let { offer_modal } = res.data;
+
+          setOffer_modal(offer_modal);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div>
       <div className="bg-blue-800 py-3 lg:px-40 text-white">
-        <p className="text-center">
-          <span className="text-3xl font-bold text-white pr-5 ">
-            50/50/50 SALE
-          </span>
-          50% OFF Carpet & Flooring, 50% OFF Standard Padding & Materials, and
-          50% OFF Professional Installation!
-        </p>
+        {offer_modal.map((modal, key) => {
+          return (
+            <p className="text-center" key={key}>
+              <span className="text-3xl font-bold text-white pr-5 ">
+                {modal.title}
+              </span>
+              {modal.description}
+            </p>
+          );
+        })}
         <p className="text-center">
           Select styles.
           <label htmlFor="my-modal-5" className="btn-ghost">
