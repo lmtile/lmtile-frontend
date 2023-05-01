@@ -71,6 +71,16 @@ const DashboardLayout = () => {
                     ADD OFFER PRODUCT
                   </Link>
                 </li>
+                <li className="text-red-800">
+                  <Link to="/dashboard/add-offer-modal">
+                    ADD OFFER MODAL
+                  </Link>
+                </li>
+                <li className="text-red-800">
+                  <Link to="/dashboard/view-offer-modal">
+                    VIEW OFFER MODAL
+                  </Link>
+                </li>
               </div>
             </div>
             <div className="collapse collapse-plus ">

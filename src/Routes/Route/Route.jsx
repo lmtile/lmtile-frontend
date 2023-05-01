@@ -59,6 +59,9 @@ import OfferPoster from "../../component/Dashboard/Offers/OfferPoster";
 import AllPackage from "../../component/Dashboard/Package/AllPackage";
 import ViewProduct from "../../component/Dashboard/products/ViewProduct";
 import EditPackage from "../../component/Dashboard/Package/EditPackage";
+import EditOfferModal from "../../component/Dashboard/Offers/EditOfferModal";
+import AddOfferModal from "../../component/Dashboard/Offers/AddOfferModal";
+import ViewModal from "../../component/Dashboard/Offers/ViewModal";
 
 const router = createBrowserRouter([
   {
@@ -302,6 +305,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit-package/:id",
         element: <EditPackage />,
+      },
+      {
+        path: "/dashboard/add-offer-modal",
+        element: <AddOfferModal/>,
+      },
+      {
+        path: "/dashboard/edit-offer-modal/:id",
+        element: <EditOfferModal />,
+      },
+      {
+        path: "/dashboard/view-offer-modal/:id",
+        element: <ViewModal />,
       },
     ],
   },

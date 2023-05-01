@@ -134,11 +134,11 @@ export default class AllOfferProducts extends Component {
               <FaTrashAlt className="text-xl" />
             </button>
 
-            <Link to={`/dashboard/edit-product/${row._id}`}>
+            {/* <Link to={`/dashboard/edit-product/${row._id}`}>
               <button>
                 <FaPen className="text-xl" />
               </button>
-            </Link>
+            </Link> */}
           </div>
         ),
         width: "150px",

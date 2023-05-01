@@ -1046,9 +1046,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to={"/schedule"}
-              className="btn font-bold rounded-none btn-warning hidden md:block lg:block"
-            >
-              <FaClock className="lg:text2xl lg:mr-5 mr-1" /> SCHEDULE NOW
+            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block">SCHEDULE NOW</button>
             </Link>
             <Link
               to={"/schedule"}
