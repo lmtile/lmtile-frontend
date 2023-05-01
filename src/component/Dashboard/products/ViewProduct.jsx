@@ -7,6 +7,7 @@ import {
   getColorDetails,
   getSubCategoryDetails,
 } from "../../../helper/Helper";
+import LoadingOverlay from "react-loading-overlay";
 
 const ViewProduct = () => {
   const [loading, setLoading] = useState(false);
@@ -51,44 +52,46 @@ const ViewProduct = () => {
   };
 
   return (
-    <div>
-      <div className="m-10 ">
-        <h4 className="text-2xl font-bold text-red-800 mb-3">
-          {productDetails.name}
-        </h4>
-        <h4 className="text-2xl font-bold text-red-800 mb-3">
-          {productDetails.category?.category}
-        </h4>
-        <h4 className="text-2xl font-bold text-red-800 mb-3">
-          {productDetails.type &&
-            productDetails.sub_cat_details &&
-            productDetails.sub_cat_details.label}
-        </h4>
-        <h4 className="text-2xl font-bold text-red-800 mb-3">
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div
-              style={{
-                width: "35px",
-                height: "35px",
-                marginRight: "10px",
-                backgroundColor: productDetails?.color_details?.color,
-              }}
+    <LoadingOverlay active={loading} spinner text="Loading ...">
+      <div>
+        <div className="m-10 ">
+          <h4 className="text-2xl font-bold text-red-800 mb-3">
+            {productDetails.name}
+          </h4>
+          <h4 className="text-2xl font-bold text-red-800 mb-3">
+            {productDetails.category?.category}
+          </h4>
+          <h4 className="text-2xl font-bold text-red-800 mb-3">
+            {productDetails.type &&
+              productDetails.sub_cat_details &&
+              productDetails.sub_cat_details.label}
+          </h4>
+          <h4 className="text-2xl font-bold text-red-800 mb-3">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div
+                style={{
+                  width: "35px",
+                  height: "35px",
+                  marginRight: "10px",
+                  backgroundColor: productDetails?.color_details?.color,
+                }}
+              />
+              {productDetails?.color_details?.label}
+            </div>
+          </h4>
+        </div>
+        <div className="grid grid-cols-5 gap-3 gap-x-3 mx-10">
+          {productDetails.images?.map((image, key) => (
+            <img
+              key={key}
+              src={`${BUCKET_DOMAIN}${image}`}
+              alt="Product Image"
+              className="shadow-2xl w-80 mb-3 cursor-pointer"
             />
-            {productDetails?.color_details?.label}
-          </div>
-        </h4>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-5 gap-3 gap-x-3 mx-10">
-        {productDetails.images?.map((image, key) => (
-          <img
-            key={key}
-            src={`${BUCKET_DOMAIN}${image}`}
-            alt="Product Image"
-            className="shadow-2xl w-80 mb-3 cursor-pointer"
-          />
-        ))}
-      </div>
-    </div>
+    </LoadingOverlay>
   );
 
 };
