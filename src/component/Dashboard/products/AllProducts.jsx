@@ -10,7 +10,7 @@ import {
 import LoadingOverlay from "react-loading-overlay";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-import { FaEye, FaPen, FaTrashAlt } from "react-icons/fa";
+import { FaEye, FaPen } from "react-icons/fa";
 import config from "../../../config/config";
 import _ from "lodash";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
@@ -46,6 +46,8 @@ export default class AllProducts extends Component {
         selected_color: "",
       },
       isApplyFilter: false,
+
+      selected_rows: [],
     };
   }
 
@@ -116,13 +118,18 @@ export default class AllProducts extends Component {
       });
   };
 
-  deleteProduct = (id) => {
-    if (window.confirm("Are you sure, you want to delete this product")) {
+  deleteProduct = () => {
+    if (window.confirm("Are you sure, you want to delete this products")) {
       this.setState({ isLoading: true });
       axios
-        .delete(`/api/product/product/${id}`, config)
+        .post(
+          "/api/product/delete-products",
+          { ids: this.state.selected_rows },
+          config
+        )
         .then((res) => {
           if (res.data.success) {
+            this.setState({ selected_rows: [] });
             message.success(res.data.message);
             this.getAllProduct();
           } else {
@@ -230,6 +237,7 @@ export default class AllProducts extends Component {
       isApplyFilter,
       allCatergory,
       allSubCatergory,
+      selected_rows,
     } = this.state;
 
     const COLUMNS = [
@@ -295,14 +303,9 @@ export default class AllProducts extends Component {
                 <FaEye className="text-xl mr-5" />
               </button>
             </Link>
-            <button
-              className="mr-5"
-              onClick={() => {
-                this.deleteProduct(row._id);
-              }}
-            >
+            {/* <button className="mr-5" onClick={this.deleteProduct}>
               <FaTrashAlt className="text-xl" />
-            </button>
+            </button> */}
 
             <Link to={`/dashboard/edit-product/${row._id}`}>
               <button>
@@ -377,6 +380,17 @@ export default class AllProducts extends Component {
             >
               {isApplyFilter ? "Clear" : "Apply"}
             </button>
+
+            <button
+              type="button"
+              className={`btn btn-outline rounded-none mt-5 mx-5  ${
+                selected_rows.length === 0
+              } rounded`}
+              disabled={selected_rows.length === 0}
+              onClick={this.deleteProduct}
+            >
+              DELETE
+            </button>
           </div>
           <DataTable
             columns={COLUMNS}
@@ -387,6 +401,13 @@ export default class AllProducts extends Component {
             subHeaderAlign="right"
             subHeaderWrap
             theme="solarized"
+            selectableRows
+            onSelectedRowsChange={({ selectedRows }) => {
+              selected_rows = selectedRows.map((row) => {
+                return row._id;
+              });
+              this.setState({ selected_rows });
+            }}
             paginationDefaultPage={page}
             paginationServer
             paginationPerPage={per_page}
