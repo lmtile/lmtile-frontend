@@ -115,7 +115,8 @@ export default class AllOfferProducts extends Component {
       {
         name: "Expire date",
         selector: (row) =>
-          moment(row.expire_date).format(DATE_TIME_HELPER.DATE_FORMAT),
+          // moment(row.expire_date).format(DATE_TIME_HELPER.DATE_FORMAT),
+          row.expire_date,
         width: "100px",
       },
 
