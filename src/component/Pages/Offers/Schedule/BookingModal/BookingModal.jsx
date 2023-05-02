@@ -109,7 +109,20 @@ export default class BookingModal extends Component {
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
-            
+            this.setState({
+              formData: {
+                type: "",
+                date: this.props.selectedDate,
+                office_name: "",
+                name: "",
+                time: "",
+                product_name: "",
+                email: "",
+                phone: "",
+                city: "",
+                address: "",
+              },
+            });
           } else {
             message.error(res.data.message);
           }

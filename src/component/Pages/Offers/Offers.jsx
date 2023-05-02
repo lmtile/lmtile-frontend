@@ -145,24 +145,26 @@ export default class Offers extends Component {
                     <h2 className="card-title text-2xl font-bold">
                       {product.product_category}
                     </h2>
-                    <h2 className="card-title text-2xl font-bold">
-                      {product.offer_amount}
+                    <h2 className="card-title text-2xl font-bold text-red-800">
+                      {product.offer_amount} off
                     </h2>
                     <h2 className="card-title text-xl uppercase">
                       Coupon Code: {product.cupon_code}
                     </h2>
-                    <h2 className="card-title">
+                    <h2 className="card-title text-2xl">
                       Expires:
                       {/* {moment(product.expire_date).format(
                         DATE_TIME_HELPER.DATE_FORMAT
                       )} */}
                       {product.expire_date}
                     </h2>
-                    <Link to="/offer-schedule">
-                      <button className="btn btn-outline rounded-none text-lg">
-                        APPLY
-                      </button>
-                    </Link>
+                    <div className="text-center">
+                      <Link to="/offer-schedule">
+                        <button className="btn btn-outline rounded-none text-lg">
+                          APPLY
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               );
