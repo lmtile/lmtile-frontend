@@ -146,7 +146,7 @@ export default class Offers extends Component {
                       {product.product_category}
                     </h2>
                     <h2 className="card-title text-2xl font-bold">
-                      {product.offer_amount}
+                      ${product.offer_amount}
                     </h2>
                     <h2 className="card-title text-xl uppercase">
                       Coupon Code: {product.cupon_code}
@@ -158,7 +158,7 @@ export default class Offers extends Component {
                       )} */}
                       {product.expire_date}
                     </h2>
-                    <Link to="/offer-schedule">
+                    <Link to={`/offer-schedule/${product.cupon_code}`}>
                       <button className="btn btn-outline rounded-none text-lg">
                         APPLY
                       </button>

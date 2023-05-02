@@ -3,7 +3,6 @@ import axios from "../../../../../config/axios";
 import message from "../../../../../config/message";
 import validation from "../../../../../helper/validator";
 import moment from "moment";
-import { useForm } from "react-hook-form";
 
 export default class BookingModal extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ export default class BookingModal extends Component {
         name: "",
         time: "",
         product_name: "",
-        cupon_code: "",
+        cupon_code: this.props.coupon_code || "",
         email: "",
         phone: "",
         city: "",
@@ -28,37 +27,33 @@ export default class BookingModal extends Component {
       },
 
       error: {},
+      coupon_details: {},
     };
   }
 
   componentDidMount = () => {
-    this.getAllcategory();
-    // this.props.setLoading(true);
+    if (this.props.coupon_code) {
+      this.getCouponDetails(this.props.coupon_code);
+    }
   };
 
-  getAllcategory = () => {
-    this.setState({ isLoading: true });
-
+  getCouponDetails = (code) => {
     axios
-      .get("/api/category/get-all-category")
+      .get(`/api/offer/coupon-details/${code}`)
       .then((res) => {
-        this.setState({ isLoading: false });
+        let { formData } = this.state;
         if (res.data.success) {
-          let { category } = res.data;
-          let allCatergory = category.map((cat) => {
-            return {
-              label: cat.category,
-              value: cat._id,
-              sub_cat: cat.sub_cat,
-            };
-          });
-          this.setState({ allCatergory });
+          let { coupon_product } = res.data;
+
+          formData.product_name = coupon_product.product_category;
+          this.setState({ coupon_details: coupon_product, formData });
         } else {
           message.error(res.data.message);
+          formData.product_name = "";
+          this.setState({ coupon_details: {}, formData });
         }
       })
       .catch((err) => {
-        this.setState({ isLoading: false });
         console.error(err);
         message.error("Something went wrong!!!");
       });
@@ -95,12 +90,13 @@ export default class BookingModal extends Component {
     return isValid;
   };
 
-  
   handleSubmit = (e) => {
     e.preventDefault();
     let { formData, error } = this.state;
 
     if (this.isValidForm(error)) {
+      formData.date = this.props.selectedDate;
+
       this.props.setLoading(true);
 
       axios
@@ -109,7 +105,21 @@ export default class BookingModal extends Component {
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
-            
+            this.setState({
+              formData: {
+                type: "",
+                date: this.props.selectedDate,
+                office_name: "",
+                name: "",
+                time: "",
+                product_name: "",
+                cupon_code: this.props.coupon_code || "",
+                email: "",
+                phone: "",
+                city: "",
+                address: "",
+              },
+            });
           } else {
             message.error(res.data.message);
           }
@@ -119,12 +129,11 @@ export default class BookingModal extends Component {
           console.error(err);
           message.error("Something went wrong!!");
         });
-
     }
   };
 
   render() {
-    let { formData, error, allCatergory } = this.state;
+    let { formData, error } = this.state;
     return (
       <>
         <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -174,7 +183,7 @@ export default class BookingModal extends Component {
 
               <p className="font-bold ml-2">Date</p>
               <p name="date" className="input pt-2" disabled>
-                {formData.date}
+                {this.props.selectedDate}
               </p>
 
               <p className="font-bold ml-2">Time</p>
@@ -198,24 +207,7 @@ export default class BookingModal extends Component {
               </select>
               <p className="text-red-800">{error.time}</p>
 
-              <p className="font-bold ml-2">Product</p>
-              <select
-                name="product_name"
-                className="select select-bordered w-full "
-                value={formData.product_name}
-                required
-                validaterule={["required"]}
-                onChange={this.handleChange}
-              >
-                <option value="">Select an option</option>
-                {allCatergory.map((product, i) => (
-                  <option value={product.label} key={i}>
-                    {product.label}
-                  </option>
-                ))}
-              </select>
-              <p className="text-red-800">{error.cupon_code}</p>
-              <p className="font-bold ml-2">Coupon code</p>
+              <p className="font-bold ml-2">Coupon Code</p>
               <input
                 name="cupon_code"
                 type="text"
@@ -225,9 +217,24 @@ export default class BookingModal extends Component {
                 required
                 onChange={this.handleChange}
                 validaterule={["required", "isCupon_code"]}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    this.getCouponDetails(formData.cupon_code);
+                  }
+                }}
               />
-              <p className="text-red-800">{error.name}</p>
-              <p className="text-red-800">{error.product_name}</p>
+              <p className="text-red-800">{error.cupon_code}</p>
+
+              <p className="font-bold ml-2">Product</p>
+              <input
+                name="product_name"
+                className="input w-full input-bordered"
+                value={formData.product_name}
+                required
+                // validaterule={["required"]}
+                // onChange={this.handleChange}
+              />
+
               <p className="font-bold ml-2">Name</p>
               <input
                 name="name"
