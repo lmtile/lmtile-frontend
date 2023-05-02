@@ -102,6 +102,8 @@ export default class BookingModal extends Component {
       axios
         .post("/api/appointment/book-appointment", formData)
         .then((res) => {
+          formData.date = this.props.selectedDate;
+
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
@@ -129,7 +131,6 @@ export default class BookingModal extends Component {
           message.error("Something went wrong!!");
         });
     }
-    
   };
 
   render() {
@@ -183,7 +184,7 @@ export default class BookingModal extends Component {
 
               <p className="font-bold ml-2">Date</p>
               <p name="date" className="input pt-2" disabled>
-                {formData.date}
+                {this.props.selectedDate}
               </p>
 
               <p className="font-bold ml-2">Time</p>

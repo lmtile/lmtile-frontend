@@ -82,7 +82,7 @@ const router = createBrowserRouter([
         element: <Schedule />,
       },
       {
-        path: "/offer-schedule",
+        path: "/offer-schedule/:coupon_code?",
         element: <OfferSchedule />,
       },
       {
@@ -243,7 +243,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/appointment-confirmation",
-        element: <AppointmentConfirmation/>,
+        element: <AppointmentConfirmation />,
       },
       {
         path: "/login",
