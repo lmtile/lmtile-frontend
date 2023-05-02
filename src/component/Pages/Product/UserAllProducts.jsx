@@ -26,6 +26,12 @@ export default function UserAllProducts() {
   const [select_sub_category, set_select_sub_category] = useState("");
   const [color, setColor] = useState("");
 
+  const [search, set_search] = useState("");
+  const [filterData, setFilterData] = useState({
+    search: "",
+  });
+  const [isapplyFilter, setIsApplyFilter] = useState(false);
+
   const [isCalling, setIscalling] = useState(1);
 
   const location = useLocation();
@@ -58,14 +64,14 @@ export default function UserAllProducts() {
       setIscalling(2);
     }
     getAllProduct();
-  }, [select_category, color, page, select_sub_category]);
+  }, [select_category, color, page, select_sub_category, search]);
 
   const getAllProduct = () => {
     setLoading(true);
 
     axios
       .get(
-        `/api/product/get-all-products?per_page=${per_page}&page=${page}&category=${select_category}&color=${color}&type=${select_sub_category}`
+        `/api/product/get-all-products?per_page=${per_page}&page=${page}&category=${select_category}&color=${color}&type=${select_sub_category}&search=${search}`
       )
       .then((res) => {
         setLoading(false);
@@ -121,7 +127,23 @@ export default function UserAllProducts() {
         message.error("Something went wrong!!!");
       });
   };
-console.log(products);
+
+  const applyFilter = () => {
+    setPage(1);
+    if (isapplyFilter) {
+      // CLEAR FILTER
+      setIsApplyFilter(false);
+
+      setFilterData({
+        search: "",
+      });
+      set_search("");
+    } else {
+      setIsApplyFilter(true);
+      set_search(filterData.search);
+    }
+  };
+
   return (
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
@@ -131,6 +153,15 @@ console.log(products);
             type="text"
             placeholder="Search"
             className="input input-bordered border-black shadow-2xl my-5"
+            name="search"
+            value={filterData.search}
+            onChange={(e) => {
+              setFilterData({
+                ...filterData,
+                search: e.target.value,
+              });
+              setIsApplyFilter(false);
+            }}
           />
 
           <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
@@ -144,7 +175,6 @@ console.log(products);
                     <Link
                       to={{
                         pathname: `/products/${cat.label.toLowerCase()}`,
-                        // search: qs.stringify({}),
                       }}
                       onClick={() => {
                         set_sub_cat(cat.sub_cat);
@@ -224,7 +254,13 @@ console.log(products);
               })}
             </div>
           </div>
-          <button className="btn btn-outline mt-10 rounded-none w-full">clear</button>
+
+          <button
+            onClick={applyFilter}
+            className="btn btn-outline mt-10 rounded-none w-full"
+          >
+            {isapplyFilter ? "Clear" : "Apply"}
+          </button>
         </div>
 
         <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">
