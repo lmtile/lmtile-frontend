@@ -159,11 +159,13 @@ export default class Offers extends Component {
                       )} */}
                       {product.expire_date}
                     </h2>
-                    <Link to={`/offer-schedule/${product.cupon_code}`}>
-                      <button className="btn btn-outline rounded-none text-lg">
-                        APPLY
-                      </button>
-                    </Link>
+                    <div className="text-center">
+                      <Link to={`/offer-schedule/${product.cupon_code}`}>
+                        <button className="btn btn-outline hover:bg-red-800 rounded-none text-lg">
+                          APPLY
+                        </button>
+                      </Link>
+                   </div>
                   </div>
                 </div>
               );
