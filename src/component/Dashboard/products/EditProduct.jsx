@@ -78,7 +78,7 @@ export default function EditProduct() {
           });
 
           let selected_category = _.findIndex(allCatergory, ({ value }) => {
-            return value === data.category;
+            return value === data.category._id;
           });
 
           setAllCatergory(allCatergory);
