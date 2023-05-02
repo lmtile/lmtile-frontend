@@ -23,7 +23,7 @@ const Questions = () => {
             <div className='lg:mx-auto lg:w-[1024px] mx-16'>
                 <div className='mt-10'>
                     <h1 className='text-5xl font-bold text-red-800 mb-10'>5 Questions to Ask Yourself Before Choosing New Floors for Your Business</h1>
-                    <p className='text-lg text-gray-500 mb-10'>Commercial spaces have unique and often complex flooring needs. An uninformed choice could lead to costly repairs or worse – a complete flooring replacement. Here at Empire Today for Business, we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process of choosing new floors for your business, here’s a list of questions you should ask yourself first. Five to be exact. Let’s take a look:</p>
+                    <p className='text-lg text-gray-500 mb-10'>Commercial spaces have unique and often complex flooring needs. An uninformed choice could lead to costly repairs or worse – a complete flooring replacement. Here at LM-Tile for Business, we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process of choosing new floors for your business, here’s a list of questions you should ask yourself first. Five to be exact. Let’s take a look:</p>
                     <div>
                         <h1 className='text-3xl font-bold text-red-800 mb-10'>1. How Much Foot Traffic Does My Business Have?</h1>
                         <img src={img1} alt="" />
@@ -58,8 +58,8 @@ const Questions = () => {
                         <p className='text-lg text-gray-500 mb-10'>It’s crucial to know what sort of maintenance is required to keep your new floors looking great and avoid costly cleanings and replacements down the line.</p>
                     </div>
                     <div>
-                        <h1 className='text-3xl font-bold text-red-800 mb-10'>Bonus Question: Why Haven’t I Called Empire Today for Business?</h1>
-                        <p className='text-lg text-gray-500 mb-10'>When deciding how to choose the right flooring for your business, it’s important to know the answers to these questions. And that’s where Empire Today for Business comes in.</p>
+                        <h1 className='text-3xl font-bold text-red-800 mb-10'>Bonus Question: Why Haven’t I Called LM-Tile for Business?</h1>
+                        <p className='text-lg text-gray-500 mb-10'>When deciding how to choose the right flooring for your business, it’s important to know the answers to these questions. And that’s where LM-Tile for Business comes in.</p>
                         <p className='text-lg text-gray-500 mb-10'>Schedule a FREE one-on-one consultation at your business with an experienced Flooring Professional. They will help answer your questions, take accurate measurements of each area, and walk through your business with you to find the right flooring solutions for your spaces. We’re not just selling flooring – we’re selling the best solution possible for your space. That way, every possible angle is covered and you can feel confident you’re picking out flooring that will last a long time.</p>                     
                     </div>
                 </div>

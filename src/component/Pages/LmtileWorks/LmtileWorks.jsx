@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img1 from '../../../assets/img/discover/01_woman-using-laptop.jpg'
-import img2 from '../../../assets/img/discover/Fotolia_123875036_Subscription_Monthly_M.jpg'
-import img3 from '../../../assets/img/discover/featured-image-best-flooring-install.jpeg-1.jpg'
+import img2 from '../../../assets/img/discover/Untitled design (78).png'
+import img3 from '../../../assets/img/discover/Untitled design (79).png'
 import img4 from '../../../assets/img/discover/featured-image-best-flooring-install.jpeg-1.jpg'
 import img5 from '../../../assets/img/discover/Screen-Shot-2021-04-30-at-1.webp'
 import img6 from '../../../assets/img/discover/6062121d110146f1149af773.webp'
