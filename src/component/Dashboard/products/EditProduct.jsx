@@ -25,6 +25,12 @@ export default function EditProduct() {
   const [allCatergory, setAllCatergory] = useState([]);
   const [allSubCatergory, setAllSubCatergory] = useState([]);
 
+  // DELETE IMAGES
+  const [del_image, setDelImage] = useState([]);
+
+  // NEW IMAGES
+  const [new_image, setNewImage] = useState([]);
+
   // SELECTED VALUE
   const [color, setColor] = useState("");
   const [selected_category, setSelectedCategory] = useState("");
@@ -44,6 +50,8 @@ export default function EditProduct() {
       .then((res) => {
         if (res.data.success) {
           let data = res.data.productDetails;
+          data.category = data.category._id;
+
           getAllcategory(data);
 
           setProductDetails(data);
@@ -128,9 +136,64 @@ export default function EditProduct() {
     });
   };
 
+  const deleteOldImage = (pos, image) => {
+    let temp = [...del_image];
+    temp.push(image);
+
+    setDelImage(temp);
+
+    let { images } = productDetails;
+    images.splice(pos, 1);
+
+    setProductDetails({
+      ...productDetails,
+      images,
+    });
+  };
+
+  const deleteImage = (pos) => {
+    // let { formData } = this.state;
+    // formData.images.splice(pos, 1);
+    // this.setState({ formData });
+  };
+
+  const handleImages = (e) => {
+    let temp = [...new_image];
+
+    let len = Math.min(
+      IMAGE_LENGTH - (productDetails?.images?.length + new_image.length),
+      e.target.files.length
+    );
+
+    for (let i = 0; i < len; i++) {
+      let file = e.target.files[i];
+      let validExtension = ["png", "jpg", "jpeg"];
+      if (file !== undefined) {
+        let extension = getFileExtension(file);
+        if (
+          extension !== undefined &&
+          _.findIndex(validExtension, (exe) => {
+            return exe === extension;
+          }) !== -1
+        ) {
+          temp.push(file);
+        } else {
+          message.error("The file format is not supported");
+        }
+      }
+    }
+
+    setNewImage(temp);
+  };
+
   const editProduct = (e) => {
     e.preventDefault();
-    let { name, color, category, type } = productDetails;
+    let { name, color, category, type, images } = productDetails;
+
+    if (images.length === 0 && new_image.length === 0) {
+      message.error("Please upload image");
+      return;
+    }
 
     let formdata = new FormData();
 
@@ -138,6 +201,14 @@ export default function EditProduct() {
     formdata.append("color", color);
     formdata.append("category", category);
     formdata.append("type", type);
+
+    formdata.append("del_image", del_image);
+
+    formdata.append("old_image", images);
+
+    new_image.forEach((file) => {
+      formdata.append("new_image", file);
+    });
 
     setLoading(true);
 
@@ -250,8 +321,11 @@ export default function EditProduct() {
                 >
                   <img src={`${BUCKET_DOMAIN}${image}`} alt="Lmtile" />
                   <button
+                    type="button"
                     className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                    // onClick={() => this.deleteImage(index)}
+                    onClick={() => {
+                      deleteOldImage(key, image);
+                    }}
                   >
                     <svg
                       className="h-3 w-3"
@@ -269,34 +343,36 @@ export default function EditProduct() {
               );
             })}
 
-            {/* {formData.images &&
-              formData.images.map((preview, index) => {
-                return (
-                  <div
-                    className="w-40 bg-gray-100 rounded overflow-hidden mr-2 relative mb-5"
-                    key={index}
+            {/* NEW IMAGES */}
+
+            {new_image.map((preview, index) => {
+              return (
+                <div
+                  className="w-40 bg-gray-100 rounded overflow-hidden mr-2 relative mb-5"
+                  key={index}
+                >
+                  <img src={URL.createObjectURL(preview)} alt="HMC" />
+                  <button
+                    className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                    onClick={() => deleteImage(index)}
                   >
-                    <img src={URL.createObjectURL(preview)} alt="HMC" />
-                    <button
-                      className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
-                      onClick={() => this.deleteImage(index)}
+                    <svg
+                      className="h-3 w-3"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      <svg
-                        className="h-3 w-3"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                );
-              })} */}
-            {/* {formData.images.length < IMAGE_LENGTH && (
+                      <path d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })}
+            {productDetails?.images?.length + new_image.length <
+              IMAGE_LENGTH && (
               <div className="flex items-center justify-center px-3">
                 <label
                   htmlFor="image-upload"
@@ -313,11 +389,11 @@ export default function EditProduct() {
                     accept="image/png, image/jpg, image/jpeg"
                     multiple
                     className="sr-only"
-                    onChange={this.handleImages}
+                    onChange={handleImages}
                   />
                 </label>
               </div>
-            )} */}
+            )}
           </div>
           <button
             className="btn btn-primary w-full"

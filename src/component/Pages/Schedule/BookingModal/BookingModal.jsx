@@ -129,6 +129,7 @@ export default class BookingModal extends Component {
           message.error("Something went wrong!!");
         });
     }
+    
   };
 
   render() {
@@ -261,6 +262,15 @@ export default class BookingModal extends Component {
                 validaterule={["required"]}
               />
               <p className="text-red-800">{error.phone}</p>
+
+              <p className="font-bold ml-2"> Text Messaging</p>
+              <p>Can we text/call you about appointment updates or offers?</p>
+              <div>
+                <p>Yes</p>
+                <input type="radio" name="radio-1" className="radio" checked />
+                <p>no</p>
+                <input type="radio" name="radio-1" className="radio" />
+              </div>
 
               <p className="font-bold ml-2">City</p>
               <input

@@ -183,7 +183,17 @@ export default class AddOfferProduct extends Component {
               <div className="ml-5">
                 <p className="font-bold ml-2">Expires *</p>
 
-                <ReactDatePicker
+                <input
+                  name="expire_date"
+                  type="text"
+                  required
+                  placeholder="Expire Date"
+                  className="input w-80 input-bordered"
+                  value={formData.expire_date}
+                  onChange={this.handleChange}
+                />
+
+                {/* <ReactDatePicker
                   placeholderText="Select Expire date"
                   className="input w-80 input-bordered"
                   selected={
@@ -200,7 +210,7 @@ export default class AddOfferProduct extends Component {
                       formData,
                     });
                   }}
-                />
+                /> */}
 
                 <p className="text-red-800">{error.expire_date}</p>
               </div>

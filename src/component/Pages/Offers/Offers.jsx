@@ -152,10 +152,11 @@ export default class Offers extends Component {
                       Coupon Code: {product.cupon_code}
                     </h2>
                     <h2 className="card-title">
-                      Expires:{" "}
-                      {moment(product.expire_date).format(
+                      Expires:
+                      {/* {moment(product.expire_date).format(
                         DATE_TIME_HELPER.DATE_FORMAT
-                      )}
+                      )} */}
+                      {product.expire_date}
                     </h2>
                     <Link to="/offer-schedule">
                       <button className="btn btn-outline rounded-none text-lg">
