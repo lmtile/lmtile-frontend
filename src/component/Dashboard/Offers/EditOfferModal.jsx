@@ -28,9 +28,9 @@ const EditOfferModal = () => {
         setLoading(false);
         if (res.data.success) {
           let data = res.data.offer_modal;
-          setInterval(() => {
-            setInputData(data);
-          }, 100);
+          // setInterval(() => {
+          setInputData(data);
+          // }, 100);
         } else {
           message.error(res.data.message);
         }
