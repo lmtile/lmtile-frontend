@@ -40,17 +40,13 @@ const Navbar = () => {
             {" "}
             <li>FAQs</li>
           </Link>
-          <Link to={"/customerService"}>
-            <li>Customer Service</li>
-          </Link>
           <Link to={"/productCare"}>
             <li>Product Care</li>
           </Link>
           <li>|</li>
-          <li className="flex">
-            <FaHeart />
-            FAVORITES (0)
-          </li>
+          <Link to={"/customerService"}>
+            <li>Customer Service</li>
+          </Link>
         </ul>
       </div>
       <div

@@ -7,9 +7,6 @@ const ScheduleOption = ({ slots, setAppointment }) => {
         <h2 className="text-xl text-red-800 font-bold text-center">
           APPOINTMENT FOR YOUR PROPERTY
         </h2>
-        <p>
-          {slots.length} {slots.length > 1 ? "spaces" : "space"} available
-        </p>
         <div className="card-actions justify-center ">
           <label
             disabled={slots.length === 0}

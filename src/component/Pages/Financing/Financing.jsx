@@ -73,6 +73,7 @@ const Financing = () => {
                     }}
                     id="todo"
                   ></div>
+                  <Link to="/schedule"><button>SCHEDULE A FREE ESTIMATE</button></Link>
                 </div>
               </div>
             );

@@ -143,10 +143,10 @@ export default class Offers extends Component {
                       {product.title}
                     </h2>
                     <h2 className="card-title text-2xl font-bold">
-                      {product.product_category.category}
+                      {product.product_category}
                     </h2>
                     <h2 className="card-title text-2xl font-bold">
-                      ${product.offer_amount} OFF
+                      {product.offer_amount}
                     </h2>
                     <h2 className="card-title text-xl uppercase">
                       Coupon Code: {product.cupon_code}
