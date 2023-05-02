@@ -277,6 +277,7 @@ export default class AddProduct extends Component {
                     >
                       <img src={URL.createObjectURL(preview)} alt="HMC" />
                       <button
+                        type="button"
                         className="absolute top-0 right-0 ml-5  text-white bg-red-500 rounded-full p-2 hover:bg-red-600 focus:outline-none focus:bg-red-600"
                         onClick={() => this.deleteImage(index)}
                       >
