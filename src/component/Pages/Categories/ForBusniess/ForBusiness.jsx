@@ -55,7 +55,7 @@ const ForBusiness = () => {
                 <div>
                     <h1 className='text-4xl font-bold mb-10 mt-12 text-center text-red-800'>Commercial Flooring Resource Center</h1>
                     <h1 className='text-3xl font-bold mb-10 text-red-800'>5 Questions to Ask Yourself Before Choosing New Floors for Your Business</h1>
-                    <p className='text-gray-500 text-lg'>Here at Empire Today, we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process, there are important questions you should ask yourself before choosing new flooring for your business. Five to be exact. <Link to={'/questions'}><u className='text-red-800 font-bold'>Read More</u></Link></p>
+                    <p className='text-gray-500 text-lg'>Here at LM-Tile , we don’t expect you to be flooring experts on top of your daily business responsibilities. That’s our job. To help you along in the process, there are important questions you should ask yourself before choosing new flooring for your business. Five to be exact. <Link to={'/questions'}><u className='text-red-800 font-bold'>Read More</u></Link></p>
                 </div>
                 <div>
                     <img src={img1} alt="" />
@@ -70,7 +70,7 @@ const ForBusiness = () => {
                         <div>
                             <h1 className=" text-2xl font-bold text-red-800">Shop-at-Home Convenience</h1>
                             <h1 className=" text-3xl font-bold">SEE FLOORING SAMPLES In Your Home</h1>
-                            <p className="py-6 text-gray-600">Empire brings the store to you, so don’t have to spend time driving all over town shopping. A knowledgeable flooring professional will bring hundreds of samples right to your home and help you pick the best floor for your needs and budget.</p>
+                            <p className="py-6 text-gray-600">LM-Tile brings the store to you, so don’t have to spend time driving all over town shopping. A knowledgeable flooring professional will bring hundreds of samples right to your home and help you pick the best floor for your needs and budget.</p>
                             <Link to={'/convenience'}><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ const ForBusiness = () => {
                         <div>
                             <h1 className=" text-2xl font-bold text-red-800">All-Inclusive Price Estimate</h1>
                             <h1 className=" text-3xl font-bold">UPFRONT PRICING, No Hidden Fees</h1>
-                            <p className="py-6 text-gray-600">Empire takes the guesswork out of knowing how much new floors will cost. During your in-home consultation, you will get an all-inclusive price estimate, so you know what your project will cost.</p>
+                            <p className="py-6 text-gray-600">LM-Tile takes the guesswork out of knowing how much new floors will cost. During your in-home consultation, you will get an all-inclusive price estimate, so you know what your project will cost.</p>
                             <Link to={'/forBusiness'}><p className='font-bold text-lg text-red-800'><u>LEARN MORE</u></p></Link>
                         </div>
                     </div>

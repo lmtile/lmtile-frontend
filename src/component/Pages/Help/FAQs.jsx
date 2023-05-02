@@ -83,7 +83,7 @@ const FAQs = () => {
                         How can I schedule an appointment?
                     </div>
                     <div className="collapse-content">
-                        You can schedule a FREE at-home estimate online or by calling <u className='text-red-800 font-bold'>281-861-6970</u>. Appointments are generally available between 9 a.m. and 9 p.m. on weekdays and between 9 a.m. and 3 p.m. on Saturdays.
+                        You can schedule a FREE at-home estimate online or by calling <u className='text-red-800 font-bold'>281-861-6970</u>. Appointments are generally available between 9 a.m. and 6 p.m. on monday to friday.
                     </div>
                 </div>
                 <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">

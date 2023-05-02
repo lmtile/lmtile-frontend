@@ -460,7 +460,7 @@ const Navbar = () => {
                     </div>
                   </ul>
                 </li>
-                <li tabIndex={0}>
+                {/* <li tabIndex={0}>
                   <a className="justify-between">
                     FOR BUSINESS
                     <svg
@@ -493,7 +493,7 @@ const Navbar = () => {
                       </li>
                     </ul>
                   </ul>
-                </li>
+                </li> */}
                 <li>
                   <div className="bg-base-300">
                     <ul className="text-sm justify-between gap-3">
@@ -1057,7 +1057,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-              <li className="relative group px-3 py-8">
+              {/* <li className="relative group px-3 py-8">
                 <Link to={"/forBusiness"}>
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Business
@@ -1092,7 +1092,7 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <div className="navbar-end">

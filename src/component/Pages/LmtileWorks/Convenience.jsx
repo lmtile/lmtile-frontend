@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import img1 from '../../../assets/img/discover/shop-in-home-allInclusive.jpg'
 import img2 from '../../../assets/img/discover/shop-in-home-wideSelection.jpg'
 import img3 from '../../../assets/img/discover/shop-in-home_schedule.jpg'
-import img4 from '../../../assets/img/discover/shop-in-home-whatsDifferent.jpg'
+import img4 from '../../../assets/img/discover/WHAT`S DIFFERENT About Shop-at-Home.png'
 import img5 from '../../../assets/img/discover/649-03775266en_Masterfile.jpg'
 import img6 from '../../../assets/img/discover/03bbb743-8424-480c-a686-dafbaa439b2f.png'
+import Banner from '../../../assets/img/discover/finaltest.png'
 import OffersModal from '../Offers/OffersModal';
 
 
@@ -13,7 +14,7 @@ const Convenience = () => {
     return (
         <div>
             <OffersModal></OffersModal>
-            <div className="hero" style={{ backgroundImage: `url("https://i.ibb.co/xHcnvhQ/shop-in-home-heading-2.jpg")` }}>
+            <div className="hero" style={{ backgroundImage:`url(${Banner})`}}>
                 <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-lg lg:py-40 md:py-32">
