@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import Financing from '../Financing/Financing';
 import FlooringForBusiness from '../FlooringForBusiness/FlooringForBusiness';
 import SeeFloor from '../SeeFloor/SeeFloor';
 

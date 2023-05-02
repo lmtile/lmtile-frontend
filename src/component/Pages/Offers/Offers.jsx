@@ -75,8 +75,8 @@ export default class Offers extends Component {
           <div className="text-center p-20 bg-base-300">
             <h1 className="text-4xl font-bold mb-5">OFFERS</h1>
             <p className="text-lg">
-              Coupons, Promo Codes, and the Latest Deals on Carpet, Laminate,
-              Hardwood, Vinyl and Tile. These offers won't last long, so
+              Coupons and the Latest Deals on Carpet, Laminate,
+              Hardwood, SPC, Tile, Cabinet, Sink & Countertops. These offers won't last long, so
               Schedule a FREE In-Home Estimate now!
             </p>
           </div>
@@ -121,7 +121,7 @@ export default class Offers extends Component {
         <div className="bg-base-300 lg:p-20 p-10">
           <h1 className="text-3xl my-10 text-center">
             <span className="font-bold">
-              OTHER COUPONS, PROMO CODES & DEALS
+              OTHER COUPONS & DEALS
             </span>
           </h1>
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
