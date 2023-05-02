@@ -30,7 +30,7 @@ const OffersModal = () => {
       <div className="bg-blue-800 py-3 lg:px-40 text-white">
         {offer_modal.map((modal, key) => {
           return (
-            <p className="text-center" key={key}>
+            <p className="text-center text-xl" key={key}>
               <span className="text-3xl font-bold text-white pr-5 ">
                 {modal.title}
               </span>
@@ -68,7 +68,7 @@ const OffersModal = () => {
                   Schedule a FREE In-Home Estimate
                 </h1>
                 <p>
-                  <Link to="/schedule">
+                      <Link to="/offer-schedule">
                     <u className="text-blue-600">Schedule online</u>
                   </Link>{" "}
                   or call 281861-6970.

@@ -75,8 +75,8 @@ export default class Offers extends Component {
           <div className="text-center p-20 bg-base-300">
             <h1 className="text-4xl font-bold mb-5">OFFERS</h1>
             <p className="text-lg">
-              Coupons, Promo Codes, and the Latest Deals on Carpet, Laminate,
-              Hardwood, Vinyl and Tile. These offers won't last long, so
+              Coupons and the Latest Deals on Carpet, Laminate,
+              Hardwood, SPC, Tile, Cabinet, Sink & Countertops. These offers won't last long, so
               Schedule a FREE In-Home Estimate now!
             </p>
           </div>
@@ -121,7 +121,7 @@ export default class Offers extends Component {
         <div className="bg-base-300 lg:p-20 p-10">
           <h1 className="text-3xl my-10 text-center">
             <span className="font-bold">
-              OTHER COUPONS, PROMO CODES & DEALS
+              OTHER COUPONS & DEALS
             </span>
           </h1>
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -145,24 +145,27 @@ export default class Offers extends Component {
                     <h2 className="card-title text-2xl font-bold">
                       {product.product_category}
                     </h2>
-                    <h2 className="card-title text-2xl font-bold">
-                      ${product.offer_amount}
+
+                    <h2 className="card-title text-2xl font-bold text-red-800">
+                      {product.offer_amount} off
                     </h2>
                     <h2 className="card-title text-xl uppercase">
                       Coupon Code: {product.cupon_code}
                     </h2>
-                    <h2 className="card-title">
+                    <h2 className="card-title text-2xl">
                       Expires:
                       {/* {moment(product.expire_date).format(
                         DATE_TIME_HELPER.DATE_FORMAT
                       )} */}
                       {product.expire_date}
                     </h2>
-                    <Link to={`/offer-schedule/${product.cupon_code}`}>
-                      <button className="btn btn-outline rounded-none text-lg">
-                        APPLY
-                      </button>
-                    </Link>
+                    <div className="text-center">
+                      <Link to={`/offer-schedule/${product.cupon_code}`}>
+                        <button className="btn btn-outline hover:bg-red-800 rounded-none text-lg">
+                          APPLY
+                        </button>
+                      </Link>
+                   </div>
                   </div>
                 </div>
               );
