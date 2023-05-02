@@ -17,6 +17,7 @@ import axios from "../../../../config/axios";
 import message from "../../../../config/message";
 import { useEffect } from "react";
 import OfferAndAppointment from "../../OfferAndAppointment/OfferAndAppointment";
+import { useParams } from "react-router-dom";
 
 const OfferSchedule = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -27,6 +28,8 @@ const OfferSchedule = () => {
   const [slotDate, setSlotDate] = useState(
     moment(new Date()).format(DATE_TIME_HELPER.DATE_FORMAT)
   );
+
+  const coupon_code = useParams()?.coupon_code;
 
   useEffect(() => {
     setLoading(true);
@@ -65,11 +68,12 @@ const OfferSchedule = () => {
             selectedDate={slotDate}
             slots={slots}
             setLoading={setLoading}
+            coupon_code={coupon_code}
           />
         </div>
 
         {/* offer section */}
-        <OfferAndAppointment/>
+        <OfferAndAppointment />
 
         {/* discover section */}
         <Discover />

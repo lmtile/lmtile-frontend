@@ -138,6 +138,11 @@ export default function UserAllProducts() {
         search: "",
       });
       set_search("");
+      setColor("");
+      set_select_sub_category("");
+
+      const pathWithoutQuery = window.location.pathname;
+      window.history.replaceState({}, "", pathWithoutQuery);
     } else {
       setIsApplyFilter(true);
       set_search(filterData.search);
@@ -152,7 +157,7 @@ export default function UserAllProducts() {
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered border-black shadow-2xl my-5"
+            className="input input-bordered rounded-none border-black shadow-2xl my-5"
             name="search"
             value={filterData.search}
             onChange={(e) => {
@@ -213,6 +218,7 @@ export default function UserAllProducts() {
                         onClick={() => {
                           set_select_sub_category(cat.label);
                           setPage(1);
+                          setIsApplyFilter(true);
                         }}
                         className="font-bold text-sm top-0 active:text-red-800"
                       >
@@ -245,6 +251,7 @@ export default function UserAllProducts() {
                       onClick={() => {
                         setColor(cat.value);
                         setPage(1);
+                        setIsApplyFilter(true);
                       }}
                     >
                       {cat.label}
