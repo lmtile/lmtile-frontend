@@ -22,7 +22,7 @@ export default class AddOfferProduct extends Component {
         product_category: "",
         cupon_code: "",
         offer_amount: "",
-        offer_type: "",
+        offer_type: "1",
         expire_date: "",
       },
       error: {},
