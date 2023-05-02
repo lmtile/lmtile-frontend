@@ -29,7 +29,9 @@ export default function EditPackage() {
         setLoading(false);
         if (res.data.success) {
           let data = res.data.packageDetails;
-          setInputData(data);
+          setInterval(() => {
+            setInputData(data);
+          }, 100);
         } else {
           message.error(res.data.message);
         }
