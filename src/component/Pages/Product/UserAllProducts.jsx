@@ -152,7 +152,7 @@ export default function UserAllProducts() {
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered border-black shadow-2xl my-5"
+            className="input input-bordered rounded-none border-black shadow-2xl my-5"
             name="search"
             value={filterData.search}
             onChange={(e) => {

@@ -11,7 +11,7 @@ const ScheduleOption = ({ slots, setAppointment }) => {
           <label
             disabled={slots.length === 0}
             htmlFor="booking-modal"
-            className="btn bg-red-800 rounded-none text-white"
+            className="btn bg-red-800 rounded-none text-white mt-20"
             onClick={() => setAppointment(true)}
           >
             Book Appointment

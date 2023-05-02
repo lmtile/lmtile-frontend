@@ -60,7 +60,7 @@ const Financing = () => {
               <div className="p-5 bg-base-100" key={key}>
                 <div className="">
                   <div className="text-center p-10 bg-base-300">
-                    <h1 className="text-5xl text-blue-800 font-bold pb-5">
+                    <h1 className="text-5xl text-red-800 font-bold pb-5">
                       {pack.title}
                     </h1>
                     <p className="text-lg font-bold pb-5">{pack.sub_title}</p>
@@ -73,7 +73,9 @@ const Financing = () => {
                     }}
                     id="todo"
                   ></div>
-                  <Link to="/schedule"><button>SCHEDULE A FREE ESTIMATE</button></Link>
+                  <div className="text-center my-5">
+                    <Link to="/schedule"><button className="btn btn-outline hover:bg-red-800 rounded-none w-full">SCHEDULE A FREE ESTIMATE</button></Link>
+                  </div>
                 </div>
               </div>
             );
