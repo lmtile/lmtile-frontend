@@ -40,17 +40,13 @@ const Navbar = () => {
             {" "}
             <li>FAQs</li>
           </Link>
-          <Link to={"/customerService"}>
-            <li>Customer Service</li>
-          </Link>
           <Link to={"/productCare"}>
             <li>Product Care</li>
           </Link>
           <li>|</li>
-          <li className="flex">
-            <FaHeart />
-            FAVORITES (0)
-          </li>
+          <Link to={"/customerService"}>
+            <li>Customer Service</li>
+          </Link>
         </ul>
       </div>
       <div
@@ -999,11 +995,67 @@ const Navbar = () => {
                     Countertops
                   </button>
                 </Link>
-                {/* <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
+                <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                    <div className="relative z-40"></div>
+                    <div className="relative z-40">
+                      <div className="grid grid-cols-2 gap-6">
+                        <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Type
+                          </p>
+                          <ul className="mt-3 text-[15px]">
+                            <li className="pb-2">
+                              <Link to="/products/countertops?type=GRANITE">
+                                GRANITE
+                                
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/countertops?type=MARBLE">
+                                MARBLE
+                                
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/countertops?type=QUARTZITE">
+                                QUARTZITE
+                               
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/products/countertops?type=TRAVERTINE">
+                                TRAVERTINE
+                               
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/products/countertops?type=SOAPSTONE">
+                                SOAPSTONE
+                              </Link>
+                            </li>
+                          </ul>
+                          <Link to="/products/countertops">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL COUNTERTOPS
+                            </button>
+                          </Link>
+                        </div>
+                        <Link to="/sinkCategory">
+                          <div className="card w-40 glass mt-5 rounded-none">
+                            <figure>
+                              <img src={megaMenu1} alt="car!" />
+                            </figure>
+                            <div className="card-body">
+                              <Link to="/sinkCategory">
+                                <h6 className="">LM-TILE EXCLUSIVE - COUNTERTOPS</h6>
+                              </Link>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div> */}
+                </div>
               </li>
               <li className="relative group px-3 py-8">
                 <Link to={"/forBusiness"}>

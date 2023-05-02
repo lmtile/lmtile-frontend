@@ -9,7 +9,7 @@ export default class BookingModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false,
+      isLoading: true,
 
       allCatergory: [],
 
@@ -33,6 +33,7 @@ export default class BookingModal extends Component {
 
   componentDidMount = () => {
     this.getAllcategory();
+    // this.props.setLoading(true);
   };
 
   getAllcategory = () => {

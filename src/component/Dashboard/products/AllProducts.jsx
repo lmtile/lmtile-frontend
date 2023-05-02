@@ -380,7 +380,7 @@ export default class AllProducts extends Component {
 
             <button
               type="button"
-              className={`btn btn-outline rounded-none mt-5 mx-5  ${
+              className={`btn btn-outline rounded-none mx-5  ${
                 selected_rows.length === 0
               } rounded`}
               disabled={selected_rows.length === 0}

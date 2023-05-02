@@ -97,15 +97,15 @@ export default class AllOfferProducts extends Component {
         width: "200px",
       },
       {
-        name: "Coupon code",
+        name: "Coupon",
         selector: (row) => row.cupon_code,
-        width: "150px",
+        width: "100px",
       },
 
       {
         name: "Category",
-        selector: (row) => row.product_category.category,
-        width: "100px",
+        selector: (row) => row.product_category,
+        width: "200px",
       },
       {
         name: "Offer amount",

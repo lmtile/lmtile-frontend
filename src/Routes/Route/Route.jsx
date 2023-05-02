@@ -62,6 +62,7 @@ import EditPackage from "../../component/Dashboard/Package/EditPackage";
 import EditOfferModal from "../../component/Dashboard/Offers/EditOfferModal";
 import AddOfferModal from "../../component/Dashboard/Offers/AddOfferModal";
 import ViewModal from "../../component/Dashboard/Offers/ViewModal";
+import AppointmentConfirmation from "../../component/Pages/Schedule/AppointmentConfirmation";
 
 const router = createBrowserRouter([
   {
@@ -239,6 +240,10 @@ const router = createBrowserRouter([
       {
         path: "/officeRoom",
         element: <OfficeRoom></OfficeRoom>,
+      },
+      {
+        path: "/appointment-confirmation",
+        element: <AppointmentConfirmation/>,
       },
       {
         path: "/login",

@@ -153,7 +153,7 @@ console.log(products);
                         setColor("");
                         set_select_sub_category("");
                       }}
-                      className="font-bold text-sm"
+                      className="font-bold text-sm active:text-red-800"
                     >
                       {cat.label}
                     </Link>
@@ -184,7 +184,7 @@ console.log(products);
                           set_select_sub_category(cat.label);
                           setPage(1);
                         }}
-                        className="font-bold text-sm top-0"
+                        className="font-bold text-sm top-0 active:text-red-800"
                       >
                         {cat.label}
                       </Link>
@@ -211,7 +211,7 @@ console.log(products);
                         pathname: `/products/${select_category}`,
                         search: qs.stringify(newQueryParam),
                       }}
-                      className="font-bold text-sm"
+                      className="font-bold text-sm active:text-red-800"
                       onClick={() => {
                         setColor(cat.value);
                         setPage(1);
@@ -224,6 +224,7 @@ console.log(products);
               })}
             </div>
           </div>
+          <button className="btn btn-outline mt-10 rounded-none w-full">clear</button>
         </div>
 
         <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">

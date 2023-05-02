@@ -50,10 +50,11 @@ const OffersModal = () => {
       <div>
         <input type="checkbox" id="my-modal-5" className="modal-toggle" />
         <div className="modal ">
+          {offer_modal.map((modal, key) => {
+            return (
           <div className="modal-box w-11/12 max-w-7xl rounded-none">
             <h3 className="font-bold text-3xl px-10 text-center mt-10">
-              50% OFF* Carpet & Flooring, 50% OFF* Standard Padding & Materials,
-              plus get 50% OFF* Professional Installation!
+              {modal.description}
             </h3>
             <p className="py-4 text-2xl text-center">
               It's Easy! Here's How it Works:
@@ -70,7 +71,7 @@ const OffersModal = () => {
                   <Link to="/schedule">
                     <u className="text-blue-600">Schedule online</u>
                   </Link>{" "}
-                  or call 866-495-4223.
+                  or call 281861-6970.
                 </p>
               </div>
               <div className="text-center p-5">
@@ -86,10 +87,10 @@ const OffersModal = () => {
                 <span className="bg-blue-800 font-bold text-center text-white px-3 py-2 rounded-full">
                   3
                 </span>
-                <h1 className="text-2xl mt-5 mb-3 font-bold">50/50/50 Sale</h1>
+                    <h1 className="text-2xl mt-5 mb-3 font-bold">{modal.title}</h1>
                 <p>
-                  Get 50% OFF* Carpet & Flooring, and get 50% OFF* Padding &
-                  Materials, plus get 50% OFF* Professional Installation!
+                      {modal.description}
+
                 </p>
               </div>
               <div className="text-center p-5">
@@ -122,7 +123,9 @@ const OffersModal = () => {
                 ✕
               </label>
             </div>
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
