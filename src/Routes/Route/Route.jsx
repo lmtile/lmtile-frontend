@@ -63,6 +63,7 @@ import EditOfferModal from "../../component/Dashboard/Offers/EditOfferModal";
 import AddOfferModal from "../../component/Dashboard/Offers/AddOfferModal";
 import ViewModal from "../../component/Dashboard/Offers/ViewModal";
 import AppointmentConfirmation from "../../component/Pages/Schedule/AppointmentConfirmation";
+import CountertopsCategory from "../../component/Pages/Categories/CountertopsCategory/CountertopsCategory";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "/sinkCategory",
         element: <SinkCategory></SinkCategory>,
+      },
+      {
+        path: "/countertopsCategory",
+        element: <CountertopsCategory/>,
       },
       {
         path: "/cabinetCategory",

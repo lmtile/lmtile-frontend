@@ -4,14 +4,6 @@ import PolyesterBg from '../../../../assets/img/carpet-caterogy/hero_pg1-1920w.w
 import AnsoBg from '../../../../assets/img/carpet-caterogy/VineyardGrove-E9608-Fog-00500.jpg'
 import BannerBg from '../../../../assets/img/carpet-caterogy/Nylon-Carpet-Pros-And-Cons-FI-scaled.jpg'
 import { Link } from 'react-router-dom';
-import Beige from '../../../../assets/img/berber carpet/Beige.jpg'
-import Black from '../../../../assets/img/berber carpet/Black.jpg'
-import Blue from '../../../../assets/img/berber carpet/Blue.jpg'
-import Brown from '../../../../assets/img/berber carpet/Brown.jpg'
-import Gray from '../../../../assets/img/berber carpet/Gray.jpg'
-import Green from '../../../../assets/img/berber carpet/Green.jpg'
-import Multi from '../../../../assets/img/berber carpet/Multi.jpg'
-import RedOrange from '../../../../assets/img/berber carpet/Red-Orange.jpg'
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import OffersModal from '../../Offers/OffersModal';
