@@ -7,6 +7,7 @@ import SPC from '../../../assets/img/top-items/SP802-191-01.jpg'
 import Tile from '../../../assets/img/top-items/rain-forest-marble.jpg'
 import Cabinet from '../../../assets/img/top-items/Satin-Dusk-1.jpg'
 import Sink from '../../../assets/img/top-items/black-quartz-double-bowl-b.jpg'
+import countertops from '../../../assets/img/countertops-category/Granite-Countertops-1.jpg'
 
 
 const products = [
@@ -51,6 +52,12 @@ const products = [
         img: Sink,
         title: 'Sink',
         category: '/sinkCategory'
+    },
+    {
+        id: '8',
+        img: countertops,
+        title: 'Countertops',
+        category: '/countertopsCategory'
     }
 ]
 
