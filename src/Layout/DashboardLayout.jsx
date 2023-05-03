@@ -53,24 +53,25 @@ const DashboardLayout = () => {
             </div>
             <div className="collapse collapse-plus">
               <input type="checkbox" />
-              <div className="collapse-title ">OFFER SECTION</div>
+              <div className="collapse-title ">OFFER PRODUCT SECTION</div>
               <div className="collapse-content">
-                <li className="text-red-800">
-                  <Link to="/dashboard/all-offer-product">
-                    ALL OFFER PRODUCT
-                  </Link>
-                </li>
-                <li className="text-red-800">
-                  <Link to="/dashboard/add-offer-poster">ADD POSTER</Link>
-                </li>
-                <li className="text-red-800">
-                  <Link to="/dashboard/offer-poster">VIEW POSTER</Link>
-                </li>
                 <li className="text-red-800">
                   <Link to="/dashboard/add-offer-product">
                     ADD OFFER PRODUCT
                   </Link>
                 </li>
+                <li className="text-red-800">
+                  <Link to="/dashboard/all-offer-product">
+                    ALL OFFER PRODUCT
+                  </Link>
+                </li>
+                
+              </div>
+            </div>
+            <div className="collapse collapse-plus ">
+              <input type="checkbox" />
+              <div className="collapse-title ">OFFER MODAL SECTION</div>
+              <div className="collapse-content">
                 <li className="text-red-800">
                   <Link to="/dashboard/add-offer-modal">
                     ADD OFFER MODAL
@@ -80,6 +81,18 @@ const DashboardLayout = () => {
                   <Link to="/dashboard/view-offer-modal">
                     VIEW OFFER MODAL
                   </Link>
+                </li>
+              </div>
+            </div>
+            <div className="collapse collapse-plus ">
+              <input type="checkbox" />
+              <div className="collapse-title ">OFFER POSTER SECTION</div>
+              <div className="collapse-content">
+                <li className="text-red-800">
+                  <Link to="/dashboard/add-offer-poster">ADD POSTER</Link>
+                </li>
+                <li className="text-red-800">
+                  <Link to="/dashboard/offer-poster">VIEW POSTER</Link>
                 </li>
               </div>
             </div>
