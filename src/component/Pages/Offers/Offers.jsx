@@ -96,7 +96,7 @@ export default class Offers extends Component {
                             key={key}
                             className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl"
                           >
-                            <h1 className="text-4xl">{data.offer}% OFF</h1>
+                            <h1 className="text-2xl md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
                             <p>{data.title}</p>
                           </div>
                         );
@@ -104,7 +104,7 @@ export default class Offers extends Component {
                     </div>
                     <div className="text-center">
                       <Link to="/offer-schedule">
-                        <button className="btn btn-outline rounded-bl-2xl rounded-tr-2xl rounded-none w-2/4 text-lg mt-5">
+                        <button className="btn btn-outline rounded-bl-2xl rounded-tr-2xl rounded-none w-2/4 lg:text-lg mt-5">
                           BOOK APPOINTMENT
                         </button>
                       </Link>
