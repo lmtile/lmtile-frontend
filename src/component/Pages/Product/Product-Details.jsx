@@ -85,7 +85,7 @@ export default function ProductDetails() {
               />
             ))}
           </div>
-          <div className="mt-5 w-[500]">
+          <div className="mt-5 w-[500px]">
             {preview && (
               <ReactImageMagnify
                 {...{
@@ -97,11 +97,13 @@ export default function ProductDetails() {
                   },
                   largeImage: {
                     src: `${BUCKET_DOMAIN}${preview}`,
-                    width: 750,
+                    width: 800,
                     height: 1200,
-                    isFluidWidth: true,
                   },
+                  
                   isHintEnabled: true,
+                  // cursorOffset: { x: 50, y: 40 },
+
                 }}
               />
             )}
