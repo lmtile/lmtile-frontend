@@ -3,6 +3,7 @@ import Navbar from "../component/Shared/Navbar/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/Shared/Footer/Footer";
 import WhatsApp from "../WhatsApp/WhatsApp";
+import BottomDrawer from "../BottomDrawer/BottomDrawer";
 
 
 const Main = () => {
@@ -20,6 +21,7 @@ const Main = () => {
         <Outlet />
       </div>
       <Footer />
+      <BottomDrawer />
     </div>
   );
 };
