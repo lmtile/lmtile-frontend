@@ -921,9 +921,9 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <button className="group-hover:border-b-4 border-black cursor-default">
+                <a href="https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0"><button className="group-hover:border-b-4 border-black cursor-default hover:cursor-pointer">
                   Visualizer
-                </button>
+                </button></a>
               </li>
               <li className="relative group px-3 py-8">
                 <Link to="/products/sink">
@@ -1004,6 +1004,12 @@ const Navbar = () => {
                             Shop by Type
                           </p>
                           <ul className="mt-3 text-[15px]">
+                            <li className="pb-2">
+                              <Link to="/products/countertops?type=QUARTZ">
+                                QUARTZ
+                                
+                              </Link>
+                            </li>
                             <li className="pb-2">
                               <Link to="/products/countertops?type=GRANITE">
                                 GRANITE

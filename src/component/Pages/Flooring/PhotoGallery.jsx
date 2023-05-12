@@ -75,7 +75,7 @@ const PhotoGallery = () => {
                         <h1 className="mb-5 text-4xl font-bold">SEE A FLOOR</h1>
                         <h1 className="mb-5 text-4xl ">IN YOUR ROOM</h1>
                         <p className="mb-5">Wondering how new floors will look in your home? <br /> Try on floors in your exact room.</p>
-                        <Link><button className='text-lg font-bold btn btn-primary rounded-none'>FIND A FLOOR</button></Link>
+                        <a href='https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0'><button className='text-lg font-bold btn btn-primary rounded-none'>FIND A FLOOR</button></a>
                     </div>
                 </div>
             </div>
