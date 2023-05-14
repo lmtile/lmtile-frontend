@@ -274,7 +274,7 @@ export default function UserAllProducts() {
           {products.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
-                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-100">
+                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-300 mx-auto">
                   <div>
                     <img
                       src={`${BUCKET_DOMAIN}${product.images[0]} `}
