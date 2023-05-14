@@ -96,6 +96,7 @@ export default class Appointment extends Component {
       per_page: 10,
       page: 1,
       search: "",
+      type: "",
       start_date: "",
       end_date: "",
 
@@ -107,6 +108,7 @@ export default class Appointment extends Component {
         start_date: "",
         end_date: "",
         search: "",
+        type: "",
       },
       isApplyFilter: false,
     };
@@ -118,11 +120,11 @@ export default class Appointment extends Component {
 
   getAllAppointments = () => {
     this.setState({ isLoading: true });
-    let { per_page, page, search } = this.state;
+    let { per_page, page, search, type } = this.state;
 
     axios
       .get(
-        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}`,
+        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}&type=${type}`,
         config
       )
       .then((res) => {
@@ -192,9 +194,11 @@ export default class Appointment extends Component {
             start_date: "",
             end_date: "",
             search: "",
+            type: "",
           },
           isApplyFilter: false,
           search: "",
+          type: "",
           start_date: "",
           end_date: "",
         },
@@ -203,13 +207,14 @@ export default class Appointment extends Component {
         }
       );
     } else {
-      let { start_date, end_date, search } = filteringData;
+      let { start_date, end_date, search, type } = filteringData;
 
       this.setState(
         {
           start_date,
           end_date,
           search,
+          type,
           isApplyFilter: true,
         },
         () => {
@@ -300,6 +305,26 @@ export default class Appointment extends Component {
                 this.setState({ filteringData, isApplyFilter: false });
               }}
             />
+
+            <div>
+              <p>Product Type</p>
+
+              <select
+                name="type"
+                className="select input-bordered"
+                value={filteringData.type}
+                onChange={(e) => {
+                  let { value } = e.target;
+                  filteringData.type = value;
+                  this.setState({ filteringData, isApplyFilter: false });
+                }}
+                required
+              >
+                <option value="">Select an option</option>
+                <option value="home">Home</option>
+                <option value="office">Office</option>
+              </select>
+            </div>
 
             <div>
               <p>Start date</p>
