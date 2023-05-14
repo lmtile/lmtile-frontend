@@ -132,7 +132,7 @@ export default function ProductDetails() {
           </h3>
 
           <Link>
-            <button className="btn btn-outline hover:btn-dark text-lg font-bold rounded-none my-5">
+            <button id="roomvoAssistanta" className="btn btn-outline hover:btn-dark text-lg font-bold rounded-none my-5">
               <FaCamera className="text-xl mr-2" />
               View in my Room
             </button>

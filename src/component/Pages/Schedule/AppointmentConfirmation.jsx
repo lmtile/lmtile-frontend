@@ -11,7 +11,7 @@ const AppointmentConfirmation = () => {
                 <div>
                     <h1 className='text-4xl my-5 text-center'>SUCCESS!</h1>
                     <p className='text-center mb-10'>You have successfully booked your appointment.</p>
-                    <p className='text-center'>An email will be sent to "kakukaki@batpar.com"
+                    <p className='text-center'>An email will be sent to your mail address
                         within the next few minutes.</p>
                 </div>
             </div>

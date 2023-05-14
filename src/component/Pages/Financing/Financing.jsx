@@ -74,7 +74,7 @@ const Financing = () => {
                     id="todo"
                   ></div>
                   <div className="text-center my-5">
-                    <Link to="/schedule"><button className="btn btn-outline hover:bg-red-800 rounded-none w-full">SCHEDULE A FREE ESTIMATE</button></Link>
+                    <Link to="/schedule"><button className="btn btn-outline hover:bg-red-800 rounded-none w-full">APPLY NOW</button></Link>
                   </div>
                 </div>
               </div>
