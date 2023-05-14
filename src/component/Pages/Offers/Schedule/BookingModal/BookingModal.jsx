@@ -121,6 +121,7 @@ export default class BookingModal extends Component {
                 address: "",
               },
             });
+            window.location = "/appointment-confirmation"
           } else {
             message.error(res.data.message);
           }

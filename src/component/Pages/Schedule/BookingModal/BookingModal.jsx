@@ -3,6 +3,7 @@ import axios from "../../../../config/axios";
 import message from "../../../../config/message";
 import validation from "../../../../helper/validator";
 import moment from "moment";
+import AppointmentConfirmation from "../AppointmentConfirmation";
 
 export default class BookingModal extends Component {
   constructor(props) {
@@ -120,7 +121,9 @@ export default class BookingModal extends Component {
                 city: "",
                 address: "",
               },
+            
             });
+            window.location = "/appointment-confirmation"
           } else {
             message.error(res.data.message);
           }
