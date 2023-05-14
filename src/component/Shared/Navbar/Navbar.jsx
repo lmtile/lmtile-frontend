@@ -58,12 +58,12 @@ const Navbar = () => {
           <div className="navbar-start ">
             <div
               onClick={() => setOpen(!open)}
-              className="text-3xl absolute left-2 top-6 bottom-4 cursor-pointer md:hidden lg:hidden"
+              className="text-3xl absolute left-2 top-6 bottom-4 cursor-pointer lg:hidden"
             >
               <FaBars name={open ? "close" : "menu"}></FaBars>
             </div>
             <div
-              className={`lg:hidden  md:hidden  pb-12 absolute z-[-1] left-0 w-full  transition-all duration-500 ease-in ${
+              className={`lg:hidden   pb-12 absolute z-[-1] left-0 w-full  transition-all duration-500 ease-in ${
                 open ? "top-full" : "top-[-700px]"
               }`}
             >
@@ -717,7 +717,7 @@ const Navbar = () => {
                       <div className="grid grid-cols-3 gap-6">
                         <div className="ml-10">
                           <Link to="/products/hardwood">
-                            <button className="btn btn-dark mt-40">
+                            <button className="btn btn-dark mt-10">
                               SEE ALL HARDWOOD
                             </button>
                           </Link>
