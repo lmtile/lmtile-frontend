@@ -5,10 +5,10 @@ import Banner from '../../../../assets/img/home page/B1GR50-081522-091122_1920x5
 import img1 from '../../../../assets/img/home page/3b4478c7-994f-47e5-bb97-c03ee713683f.png'
 import { FaCheckCircle } from 'react-icons/fa';
 import SeeFloor from '../../SeeFloor/SeeFloor';
-import img4 from '../../../../assets/img/discover/how_next_day2.jpg';
-import img5 from '../../../../assets/img/discover/how_pricing2.jpg';
-import img6 from '../../../../assets/img/discover/how_quality2.jpg';
-import img7 from '../../../../assets/img/discover/how_samples2.jpg';
+import img4 from '../../../../assets/img/discover//20.png';
+import img5 from '../../../../assets/img/discover/22.png';
+import img6 from '../../../../assets/img/discover/34.png';
+import img7 from '../../../../assets/img/discover/35.png';
 
 
 

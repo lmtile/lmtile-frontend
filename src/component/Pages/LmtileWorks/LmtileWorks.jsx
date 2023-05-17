@@ -26,7 +26,7 @@ const LmtileWorks = () => {
                 <div className=''>
                     <img src={img2} alt="" />
                     <h3 className='text-2xl font-bold'>In-Home Consultation</h3>
-                    <p className='text-gray-600'>A flooring professional will bring samples to your home, help you pick the right floors, measure your rooms, and give you an <Link><u className='text-blue-600'>all-inclusive price estimate.</u></Link></p>
+                    <p className='text-gray-600'>A flooring professional will bring samples to your home, help you pick the right floors, measure your rooms, and give you an all-inclusive price estimate.</p>
                 </div>
                 <div className=''>
                     <img src={img3} alt="" />

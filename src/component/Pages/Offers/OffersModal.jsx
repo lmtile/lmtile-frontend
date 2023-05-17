@@ -68,7 +68,7 @@ const OffersModal = () => {
                   Schedule a FREE In-Home Estimate
                 </h1>
                 <p>
-                      <Link to="/offer-schedule">
+                      <Link to="/schedule">
                     <u className="text-blue-600">Schedule online</u>
                   </Link>{" "}
                   or call 281861-6970.
