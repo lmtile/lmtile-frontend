@@ -128,8 +128,13 @@ export default function ProductDetails() {
                 }}
               ></div>
               {productDetails?.color_details?.label}
+              
             </div>
           </h3>
+          <div>
+            <Link to={'/schedule'}><div className="text-xl text-red-800 font-semibold">REQUEST A QUOTE</div></Link>
+            Schedule an in home consultation and get a custom, all inclusive price estimateOpens in a pop up for your next project.
+          </div>
 
           <a href="https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0">
             <button className="btn btn-outline hover:btn-dark text-lg font-bold rounded-none my-5 flex">
