@@ -13,6 +13,7 @@ import Spc from '../../../../assets/img/SPC-category/SPC-Flooring-change-your-ho
 import OffersModal from '../../Offers/OffersModal';
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
+import Banner from '../../Slider/Banner';
 
 
 
@@ -21,6 +22,7 @@ const SpcCategory = () => {
     return (
         <div>
             <OffersModal></OffersModal>
+            <Banner/>
             <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import OffersModal from '../../Offers/OffersModal';
-import Banner from '../../../../assets/img/home page/B1GR50-081522-091122_1920x540.jpg'
+import Bannerbg from '../../../../assets/img/home page/B1GR50-081522-091122_1920x540.jpg'
 import img1 from '../../../../assets/img/home page/3b4478c7-994f-47e5-bb97-c03ee713683f.png'
 import { FaCheckCircle } from 'react-icons/fa';
 import SeeFloor from '../../SeeFloor/SeeFloor';
@@ -9,6 +9,7 @@ import img4 from '../../../../assets/img/discover//20.png';
 import img5 from '../../../../assets/img/discover/22.png';
 import img6 from '../../../../assets/img/discover/34.png';
 import img7 from '../../../../assets/img/discover/35.png';
+import Banner from '../../Slider/Banner';
 
 
 
@@ -16,7 +17,8 @@ const ForBusiness = () => {
     return (
         <div>
             <OffersModal></OffersModal>
-            <div className="hero" style={{ backgroundImage: `url(${Banner})`, width: '100%' }}>
+            <Banner/>
+            <div className="hero" style={{ backgroundImage: `url(${Bannerbg})`, width: '100%' }}>
                 <div className="hero-overlay bg-opacity-10"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">

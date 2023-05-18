@@ -6,6 +6,7 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import './Financing.css'
+import Banner from "../Slider/Banner";
 
 const Financing = () => {
   const [loading, setLoading] = useState(false);
@@ -40,6 +41,7 @@ const Financing = () => {
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <div>
         <OffersModal />
+        <Banner/>
         <div
           className="hero mt-10"
           style={{ backgroundImage: `url(${BannerBg})` }}

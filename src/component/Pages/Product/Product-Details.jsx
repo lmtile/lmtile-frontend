@@ -12,6 +12,11 @@ import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import ReactImageMagnify from "react-image-magnify";
+import {
+  SideBySideMagnifier,
+  MOUSE_ACTIVATION,
+  TOUCH_ACTIVATION
+} from "react-image-magnifiers";
 
 export default function ProductDetails() {
   const [loading, setLoading] = useState(false);
@@ -20,6 +25,7 @@ export default function ProductDetails() {
   const [productDetails, setProductDetails] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
   const [sameColorProduct, setSameColorProduct] = useState([]);
+
 
   const id = useParams()?.id;
 
@@ -71,41 +77,43 @@ export default function ProductDetails() {
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
       <div className="lg:flex md:flex ">
-        <div className="w-96 md:w-[400px] lg:w-[600px] lg:ml-60 md:ml-10 mt-10 flex p-5">
+        <div className=" lg:ml-60 md:ml-10 mt-10 flex p-5">
           <div className="gap-y-10 mt-5 mr-5">
             {productDetails.images?.map((image, key) => (
               <img
                 key={key}
                 src={`${BUCKET_DOMAIN}${image}`}
-                alt="Product Image"
                 onClick={() => {
                   setPreview(image);
                 }}
                 className="shadow-2xl w-10 mb-3 cursor-pointer"
+                alt="Product im"
               />
             ))}
           </div>
-          <div className="mt-5 w-[500px]">
+          <div className="mt-5 overflow-hidden">
             {preview && (
-              <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: "",
-                    isFluidWidth: true,
-                    src: `${BUCKET_DOMAIN}${preview}`,
-                    width: 400,
-                  },
-                  largeImage: {
-                    src: `${BUCKET_DOMAIN}${preview}`,
-                    width: 800,
-                    height: 1200,
-                  },
-                  
-                  isHintEnabled: true,
-                  // cursorOffset: { x: 50, y: 40 },
+              <img class="scale-100 hover:scale-150 ease-in duration-500"
+                src={`${BUCKET_DOMAIN}${preview}`}  alt=""/>
+              // <ReactImageMagnify
+              //   {...{
+              //     smallImage: {
+              //       alt: "",
+              //       isFluidWidth: true,
+              //       src: `${BUCKET_DOMAIN}${preview}`,
+              //       width: 400,
+              //     },
+              //     largeImage: {
+              //       src: `${BUCKET_DOMAIN}${preview}`,
+              //       width: 600,
+              //       height: 600,
+              //     },
 
-                }}
-              />
+              //     isHintEnabled: true,
+              //     cursorOffset: { x: 50, y: 40 },
+
+              //   }}
+              // />
             )}
           </div>
         </div>

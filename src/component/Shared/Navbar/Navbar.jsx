@@ -200,7 +200,7 @@ const Navbar = () => {
                       </p>
                       <ul className="mt-3 text-[15px]">
                         <li>
-                          <Link>Wood Laminate</Link>
+                          <Link to="/products/laminate">Wood Laminate</Link>
                         </li>
                       </ul>
                       <Link to="/products/laminate">
@@ -393,7 +393,7 @@ const Navbar = () => {
                   </ul>
                 </li>
                 <li tabIndex={0}>
-                  <a className="justify-between">
+                  <a className="justify-between" href="https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0">
                     Visualizer
                     <svg
                       className="fill-current"
@@ -427,17 +427,17 @@ const Navbar = () => {
                       </p>
                       <ul className="mt-3 text-[15px]">
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                          <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks">
                             Double Bowl Kitchen Sinks
                           </Link>
                         </li>
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                          <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks">
                             Single Bowl Kitchen Sinks
                           </Link>
                         </li>
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">
+                          <Link to="/products/sink?type=Quartz%20Composite%20Sinks">
                             Quartz Composite Sinks
                           </Link>
                         </li>
@@ -447,7 +447,7 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">
+                          <Link to="/products/sink?type=Vanity%20Sinks">
                             Vanity Sinks - Undermount, Overmount
                           </Link>
                         </li>
@@ -676,7 +676,7 @@ const Navbar = () => {
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li>
-                              <Link>Wood Laminate</Link>
+                              <Link to="/products/laminate">Wood Laminate</Link>
                             </li>
                           </ul>
                           <Link to="/products/laminate">
@@ -941,17 +941,17 @@ const Navbar = () => {
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks">
                                 Double Bowl Kitchen Sinks
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks">
                                 Single Bowl Kitchen Sinks
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">
+                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks">
                                 Quartz Composite Sinks
                               </Link>
                             </li>
@@ -961,7 +961,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">
+                              <Link to="/products/sink?type=Vanity%20Sinks">
                                 Vanity Sinks - Undermount, Overmount
                               </Link>
                             </li>
