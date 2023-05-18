@@ -58,12 +58,12 @@ const Navbar = () => {
           <div className="navbar-start ">
             <div
               onClick={() => setOpen(!open)}
-              className="text-3xl absolute left-2 top-6 bottom-4 cursor-pointer md:hidden lg:hidden"
+              className="text-3xl absolute left-2 top-6 bottom-4 cursor-pointer lg:hidden"
             >
               <FaBars name={open ? "close" : "menu"}></FaBars>
             </div>
             <div
-              className={`lg:hidden  md:hidden  pb-12 absolute z-[-1] left-0 w-full  transition-all duration-500 ease-in ${
+              className={`lg:hidden   pb-12 absolute z-[-1] left-0 w-full  transition-all duration-500 ease-in ${
                 open ? "top-full" : "top-[-700px]"
               }`}
             >
@@ -268,8 +268,8 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li className="pb-2">
-                          <Link to="/products/hardwood?color=grey">
-                            Grey Hardwood
+                          <Link to="/products/hardwood?color=gray">
+                            Gray Hardwood
                           </Link>
                         </li>
                         <li className="pb-2">
@@ -538,7 +538,7 @@ const Navbar = () => {
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center font-semibold">
               <li className="relative group px-3 py-8">
-                <Link to="/products/carpet">
+                <Link to="/carpetCategory">
                   <button className="group-hover:border-b-4  border-black cursor-default">
                     Carpet
                   </button>
@@ -661,7 +661,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/laminate">
+                <Link to="/laminateCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Laminate
                   </button>
@@ -706,7 +706,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/hardwood">
+                <Link to="/hardwoodCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Hardwood
                   </button>
@@ -717,7 +717,7 @@ const Navbar = () => {
                       <div className="grid grid-cols-3 gap-6">
                         <div className="ml-10">
                           <Link to="/products/hardwood">
-                            <button className="btn btn-dark mt-40">
+                            <button className="btn btn-dark mt-10">
                               SEE ALL HARDWOOD
                             </button>
                           </Link>
@@ -758,8 +758,8 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/hardwood?color=grey">
-                                Grey Hardwood
+                              <Link to="/products/hardwood?color=gray">
+                                Gray Hardwood
                               </Link>
                             </li>
                             <li className="pb-2">
@@ -799,14 +799,14 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/spc">
+                <Link to="/spcCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default hover:cursor-pointer">
                     SPC
                   </button>
                 </Link>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/tile">
+                <Link to="/tileCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Tile
                   </button>
@@ -855,7 +855,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/cabinet">
+                <Link to="/cabinetCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Cabinet
                   </button>
@@ -926,7 +926,7 @@ const Navbar = () => {
                 </button></a>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/sink">
+                <Link to="/sinkCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Sink
                   </button>
@@ -990,7 +990,7 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/products/countertops">
+                <Link to="/countertopsCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
                     Countertops
                   </button>

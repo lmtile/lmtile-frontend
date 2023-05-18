@@ -199,7 +199,7 @@ export default function UserAllProducts() {
           </div>
 
           {sub_cat.length > 0 && (
-            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
+            <div className="collapse collapse-plus, bg-base-100 shadow-black shadow-2xl mb-5">
               <input type="checkbox" />
               <div className="collapse-title font-bold">Type</div>
               <div className="collapse-content">
@@ -231,7 +231,7 @@ export default function UserAllProducts() {
             </div>
           )}
 
-          <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
+          <div className="collapse collapse-plus  bg-base-100 shadow-black shadow-2xl mb-5">
             <input type="checkbox" />
             <div className="collapse-title font-bold">Color</div>
             <div className="collapse-content">
@@ -274,7 +274,7 @@ export default function UserAllProducts() {
           {products.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
-                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-100">
+                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-300 mx-auto">
                   <div>
                     <img
                       src={`${BUCKET_DOMAIN}${product.images[0]} `}

@@ -15,7 +15,7 @@ import ReactSelectWithColorBox from "../../../helper/ColorSelect";
 import config from "../../../config/config";
 import { getColorDetails } from "../../../helper/Helper";
 
-const IMAGE_LENGTH = 10;
+const IMAGE_LENGTH = 30;
 
 export default function EditProduct() {
   const [loading, setLoading] = useState(false);

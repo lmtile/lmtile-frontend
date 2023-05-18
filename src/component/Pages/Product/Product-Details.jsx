@@ -128,15 +128,20 @@ export default function ProductDetails() {
                 }}
               ></div>
               {productDetails?.color_details?.label}
+              
             </div>
           </h3>
+          <div>
+            <Link to={'/schedule'}><div className="text-xl text-red-800 font-semibold">REQUEST A QUOTE</div></Link>
+            Schedule an in home consultation and get a custom, all inclusive price estimateOpens in a pop up for your next project.
+          </div>
 
-          <Link>
-            <button id="roomvoAssistanta" className="btn btn-outline hover:btn-dark text-lg font-bold rounded-none my-5">
+          <a href="https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0">
+            <button className="btn btn-outline hover:btn-dark text-lg font-bold rounded-none my-5 flex">
               <FaCamera className="text-xl mr-2" />
-              View in my Room
+              <span>View in my Room</span>
             </button>
-          </Link>
+          </a>
           <div className="grid gap-3 gap-x-3 grid-cols-5">
             {sameColorProduct.map((same_color, key) => {
               return (
@@ -163,11 +168,12 @@ export default function ProductDetails() {
           {relatedProduct.map((product, key) => {
             return (
               <Link key={key} to={`/product-details/${product._id}`}>
-                <div className="hover:shadow-2xl p-5 bg-base-300 w-64 mb-10">
+                <div className="hover:shadow-2xl p-5 bg-base-300 w-80  mb-10 mx-auto">
                   <div>
                     <img
                       src={`${BUCKET_DOMAIN}${product.images[0]}`}
                       alt={product.name}
+                      className="h-72 mx-auto"
                     />
                     <p>{product.name}</p>
                     <p>{product?.categoryDetails[0]?.category}</p>

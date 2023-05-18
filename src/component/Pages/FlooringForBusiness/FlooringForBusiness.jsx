@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../../assets/img/home page/home_for-business.jpg'
+import img from '../../../assets/img/discover/53.png'
 import { Link } from 'react-router-dom'
 
 
@@ -9,7 +9,7 @@ const FlooringForBusiness = () => {
         <div className='p-20'>
             <div className="hero bg-base-200 border border-red-800">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={img} className=" shadow-2xl" alt='' />
+                    <img src={img} className=" shadow-2xl h-80" alt='' />
                     <div className='lg:ml-20'>
                         <h1 className="text-4xl font-bold">FLOORING FOR BUSINESS</h1>
                         <h1 className='text-3xl text-red-800'>Full-Service Commercial Flooring Solutions</h1>
