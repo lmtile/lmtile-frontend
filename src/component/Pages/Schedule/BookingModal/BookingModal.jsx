@@ -3,7 +3,6 @@ import axios from "../../../../config/axios";
 import message from "../../../../config/message";
 import validation from "../../../../helper/validator";
 import moment from "moment";
-import AppointmentConfirmation from "../AppointmentConfirmation";
 
 export default class BookingModal extends Component {
   constructor(props) {
@@ -24,6 +23,7 @@ export default class BookingModal extends Component {
         phone: "",
         city: "",
         address: "",
+        send_message: "Yes",
       },
 
       error: {},
@@ -100,30 +100,16 @@ export default class BookingModal extends Component {
     if (this.isValidForm(error)) {
       this.props.setLoading(true);
 
+      formData.date = this.props.selectedDate;
+
       axios
         .post("/api/appointment/book-appointment", formData)
         .then((res) => {
-          formData.date = this.props.selectedDate;
-
           this.props.setLoading(false);
           if (res.data.success) {
             message.success(res.data.message);
-            this.setState({
-              formData: {
-                type: "",
-                date: this.props.selectedDate,
-                office_name: "",
-                name: "",
-                time: "",
-                product_name: "",
-                email: "",
-                phone: "",
-                city: "",
-                address: "",
-              },
-            
-            });
-            window.location = "/appointment-confirmation"
+
+            window.location = "/appointment-confirmation";
           } else {
             message.error(res.data.message);
           }
@@ -271,9 +257,23 @@ export default class BookingModal extends Component {
               <p>Can we text/call you about appointment updates or offers?</p>
               <div>
                 <p>Yes</p>
-                <input type="radio" name="radio-1" className="radio" checked />
+                <input
+                  type="radio"
+                  name="send_message"
+                  className="radio"
+                  onChange={this.handleChange}
+                  value="Yes"
+                  checked={formData.send_message === "Yes"}
+                />
                 <p>no</p>
-                <input type="radio" name="radio-1" className="radio" />
+                <input
+                  type="radio"
+                  name="send_message"
+                  className="radio"
+                  onChange={this.handleChange}
+                  value="No"
+                  checked={formData.send_message === "No"}
+                />
               </div>
 
               <p className="font-bold ml-2">City</p>

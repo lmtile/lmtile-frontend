@@ -120,11 +120,11 @@ export default class Appointment extends Component {
 
   getAllAppointments = () => {
     this.setState({ isLoading: true });
-    let { per_page, page, search, type } = this.state;
+    let { per_page, page, search, type, start_date, end_date } = this.state;
 
     axios
       .get(
-        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}&type=${type}`,
+        `/api/appointment/get-all-appointments?per_page=${per_page}&page=${page}&search=${search}&type=${type}&start_date=${start_date}&end_date=${end_date}`,
         config
       )
       .then((res) => {
