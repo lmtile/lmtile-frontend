@@ -271,9 +271,9 @@ export default class BookingModal extends Component {
               <p>Can we text/call you about appointment updates or offers?</p>
               <div>
                 <p>Yes</p>
-                <input type="radio" name="radio-1" className="radio" checked />
+                <input type="radio" name="radio-1" className="radio radio-primary" checked />
                 <p>no</p>
-                <input type="radio" name="radio-1" className="radio" />
+                <input type="radio" name="radio-1" className="radio radio-primary" />
               </div>
 
               <p className="font-bold ml-2">City</p>
