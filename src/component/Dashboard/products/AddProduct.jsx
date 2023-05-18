@@ -10,7 +10,7 @@ import LoadingOverlay from "react-loading-overlay";
 import ReactSelectWithColorBox from "../../../helper/ColorSelect";
 import config from "../../../config/config";
 
-const IMAGE_LENGTH = 10;
+const IMAGE_LENGTH = 30;
 
 export default class AddProduct extends Component {
   constructor(props) {

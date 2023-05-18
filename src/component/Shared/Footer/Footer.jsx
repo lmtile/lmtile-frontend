@@ -9,7 +9,7 @@ const Footer = () => {
             <footer className="footer p-10 bg-red-800 text-white justify-evenly">
                 <div>
                     <img src={logo} alt="" className="fill-current w-[150px]" />
-                    <p>*LM TILE HOUSTON *<br /> INSTEAD OF HOUSETON <br /> Providing reliable home products since 1992</p>
+                    <p>*LM TILE HOUSTON *<br /> Providing reliable home products since 1989</p>
                     <p><span className='font-bold'>Telephone :</span> 281-861-6970</p>
                     <p><span className='font-bold'>Address :</span> 17515 FM 529 E Houston TX 77095 </p>
                     <p><span className='font-bold'>Email :</span> info@lmtiles.com</p>

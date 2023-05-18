@@ -112,6 +112,12 @@ const ViewAppointment = () => {
 
             {moment(appointment_details.time, "hh:mm").format("hh:mm a")}
           </h3>
+          <h3 className="p-2 shadow-xl my-3">
+            <span className="text-xl text-red-800 font-semibold">
+              Text Messaging:
+            </span>
+            {appointment_details.send_message || "Yes"}
+          </h3>
         </div>
       </div>
     </LoadingOverlay>

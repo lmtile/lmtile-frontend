@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import bg from "../../../assets/img/slider/image0.png";
+import bg from "../../../assets/img/lmtile-images/22.png";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
 
@@ -32,7 +32,7 @@ const OfferAndAppointment = () => {
       style={{
         background: `url(${bg})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%,50%",
+        backgroundSize: "100%,75%",
       }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse md:flex-row-reverse lg:py-20 lg:mt-52">
