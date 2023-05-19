@@ -6,7 +6,7 @@ const BannerItem = ({ products }) => {
         <>
             <div className="first_slide">
                 <div className="slide-img">
-                    <img className='slider_img' src={picture} alt="img" />
+                    <img className='slider_img h-2/4' src={picture} alt="img" />
                 </div>
             </div>
         </>

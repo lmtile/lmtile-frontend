@@ -1,20 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Beige from '../../../../assets/img/berber carpet/Beige.jpg'
-import Black from '../../../../assets/img/berber carpet/Black.jpg'
-import Blue from '../../../../assets/img/berber carpet/Blue.jpg'
-import Brown from '../../../../assets/img/berber carpet/Brown.jpg'
-import Gray from '../../../../assets/img/berber carpet/Gray.jpg'
-import Green from '../../../../assets/img/berber carpet/Green.jpg'
-import Multi from '../../../../assets/img/berber carpet/Multi.jpg'
-import RedOrange from '../../../../assets/img/berber carpet/Red-Orange.jpg'
 import BannerBg from '../../../../assets/img/tile-category/Prestigio_Calacatta_Lucido_75x150.jpg'
 import marble from '../../../../assets/img/tile-category/Marquina-premium-marble-porcelain-tile.jpg'
 import travertine from '../../../../assets/img/tile-category/travertine-floor-large-modern-kitchen-800-min.webp'
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import OffersModal from '../../Offers/OffersModal';
-import Banner from '../../Slider/Banner';
+import Banner from './Banner';
 
 
 
@@ -24,7 +16,7 @@ const TileCategory = () => {
         <div>
             <OffersModal></OffersModal>
             <Banner/>
-            <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
+            <div className="hero" style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">

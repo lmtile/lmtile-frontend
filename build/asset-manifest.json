@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.21b1a33a.css",
-    "main.js": "/static/js/main.572bb153.js",
+    "main.css": "/static/css/main.b957b08e.css",
+    "main.js": "/static/js/main.8bf2c7af.js",
     "static/js/787.936ddcb9.chunk.js": "/static/js/787.936ddcb9.chunk.js",
+    "static/media/home.png": "/static/media/home.87188028341ca2e39229.png",
+    "static/media/4.png": "/static/media/4.9b2146b337ac7e0274ff.png",
     "static/media/Satin-Dusk-1.jpg": "/static/media/Satin-Dusk-1.4d78674704517ada6bbc.jpg",
-    "static/media/image0.png": "/static/media/image0.796facb8730c9a88f0ab.png",
+    "static/media/6.png": "/static/media/6.90d4c54c7a59d92f8d29.png",
+    "static/media/5.png": "/static/media/5.878a3547893eb581636f.png",
+    "static/media/7.png": "/static/media/7.0e95cdd745f47dd85dba.png",
     "static/media/webp": "/static/media/6062121d110146f1149af773.35d5f4fee9ffba834e07.webp",
+    "static/media/2.png": "/static/media/2.c4f8106a10a3f663fc12.png",
+    "static/media/1.png": "/static/media/1.1b5718091f2164d3879e.png",
     "static/media/35.png": "/static/media/35.68a095b8e8a57d218444.png",
     "static/media/wells-sinkware-craftsmen-series-2063-w-double-bowl-stainless-steel-undermount-kitchen-sink.webp": "/static/media/wells-sinkware-craftsmen-series-2063-w-double-bowl-stainless-steel-undermount-kitchen-sink.cf302d69a1fe85cdb4df.webp",
+    "static/media/9.png": "/static/media/9.ef4c491892b7dc128bbd.png",
+    "static/media/3.png": "/static/media/3.286feae6b157ffa79fd7.png",
     "static/media/GT607-Deerwood-Copy.jpg": "/static/media/GT607-Deerwood-Copy.c1d6b497a69fac6bbf52.jpg",
     "static/media/20.png": "/static/media/20.2f78d26c7c4753f10154.png",
     "static/media/Nylon-Carpet-Pros-And-Cons-FI-scaled.jpg": "/static/media/Nylon-Carpet-Pros-And-Cons-FI-scaled.165fbf428c36c6302797.jpg",
@@ -174,6 +182,7 @@
     "static/media/20210203_BEDROOM_CARPET_SQUARE_5E290_00101.jpg": "/static/media/20210203_BEDROOM_CARPET_SQUARE_5E290_00101.e16b3dd76c72bafc96cc.jpg",
     "static/media/pick-the-best.jpg": "/static/media/pick-the-best.1000841d75025ea0a5ae.jpg",
     "static/media/until-you-are.jpg": "/static/media/until-you-are.507ceac150fec87c06ef.jpg",
+    "static/media/logo.jpg": "/static/media/logo.3f969b9fd5476af83824.jpg",
     "static/media/we-handle.jpg": "/static/media/we-handle.0585064ec68e5de444bd.jpg",
     "static/media/Multi.jpg": "/static/media/Multi.2a05a48bcd2d2aecf995.jpg",
     "static/media/MicrosoftTeams-image-(4).png": "/static/media/MicrosoftTeams-image-(4).9e957b39a075763aae56.png",
@@ -187,12 +196,12 @@
     "static/media/Black.jpg": "/static/media/Black.533058ddb63347151f7f.jpg",
     "static/media/calculator.webp": "/static/media/calculator.f951e6fa177fc6bb6b0c.webp",
     "index.html": "/index.html",
-    "main.21b1a33a.css.map": "/static/css/main.21b1a33a.css.map",
-    "main.572bb153.js.map": "/static/js/main.572bb153.js.map",
+    "main.b957b08e.css.map": "/static/css/main.b957b08e.css.map",
+    "main.8bf2c7af.js.map": "/static/js/main.8bf2c7af.js.map",
     "787.936ddcb9.chunk.js.map": "/static/js/787.936ddcb9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21b1a33a.css",
-    "static/js/main.572bb153.js"
+    "static/css/main.b957b08e.css",
+    "static/js/main.8bf2c7af.js"
   ]
 }

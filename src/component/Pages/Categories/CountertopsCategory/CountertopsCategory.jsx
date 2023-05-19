@@ -9,7 +9,7 @@ import MARBLE from '../../../../assets/img/countertops-category/c-marble34-1-120
 import QUARTZITE from '../../../../assets/img/countertops-category/wichita-quartzite-countertops-800x533.jpg'
 import TRAVERTINE from '../../../../assets/img/countertops-category/d4bba0e0b8b6fa62d39d1851bfe67958.jpg'
 import SOAPSTONE from '../../../../assets/img/countertops-category/soapstone-counters.jpg'
-import Banner from '../../Slider/Banner';
+import Banner from './Banner';
 
 const CountertopsCategory = () => {
     
@@ -17,7 +17,7 @@ const CountertopsCategory = () => {
         <div>
             <OffersModal></OffersModal>
             <Banner/>
-            <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
+            <div className="hero" style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-24"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import bg from "../../../assets/img/lmtile-images/22.png";
+import bg from "../../../assets/img/home page/home.png";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
 
@@ -35,7 +35,7 @@ const OfferAndAppointment = () => {
         backgroundSize: "100%,75%",
       }}
     >
-      <div className="hero-content flex-col lg:flex-row-reverse md:flex-row-reverse lg:py-20 lg:mt-52">
+      <div className="hero-content flex-col lg:flex-row-reverse md:flex-row-reverse lg:py-20 lg:mt-40">
         <div className="text-center lg:text-left lg:ml-5 shadow-2xl shadow-red-800">
           {posters?.map((poster, key) => (
             <div key={key} className="bg-base-100 p-10">

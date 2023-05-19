@@ -1,13 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Beige from '../../../../assets/img/berber carpet/Beige.jpg'
-import Black from '../../../../assets/img/berber carpet/Black.jpg'
-import Blue from '../../../../assets/img/berber carpet/Blue.jpg'
-import Brown from '../../../../assets/img/berber carpet/Brown.jpg'
-import Gray from '../../../../assets/img/berber carpet/Gray.jpg'
-import Green from '../../../../assets/img/berber carpet/Green.jpg'
-import Multi from '../../../../assets/img/berber carpet/Multi.jpg'
-import RedOrange from '../../../../assets/img/berber carpet/Red-Orange.jpg'
 import BannerBg from '../../../../assets/img/cabinet-category/euro-slider.jpg'
 import Traditional from '../../../../assets/img/cabinet-category/banner-traditional-0095_16_V02_TREVI_01.jpg'
 import European from '../../../../assets/img/cabinet-category/European-Modern-Kitchen-Cabinets-2-1024x675.jpg'
@@ -17,7 +9,7 @@ import Cclass from '../../../../assets/img/cabinet-category/Alustil-C-Class-Seri
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import OffersModal from '../../Offers/OffersModal';
-import Banner from '../../Slider/Banner';
+import Banner from './Banner';
 
 
 
@@ -27,7 +19,7 @@ const CabinetCategory = () => {
         <div>
             <OffersModal></OffersModal>
             <Banner/>
-            <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
+            <div className="hero" style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">

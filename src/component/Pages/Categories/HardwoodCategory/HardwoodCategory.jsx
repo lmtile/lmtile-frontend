@@ -13,7 +13,7 @@ import hardwood from '../../../../assets/img/hardWood-category/61545f46eb42c4002
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import OffersModal from '../../Offers/OffersModal';
-import Banner from '../../Slider/Banner';
+import Banner from './Banner';
 
 
 
@@ -23,7 +23,7 @@ const HardwoodCategory = () => {
         <div>
             <OffersModal></OffersModal>
             <Banner/>
-            <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
+            <div className="hero " style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">
