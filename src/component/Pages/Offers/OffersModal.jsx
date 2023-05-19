@@ -71,7 +71,7 @@ const OffersModal = () => {
                       <Link to="/schedule">
                     <u className="text-blue-600">Schedule online</u>
                   </Link>{" "}
-                  or call 281861-6970.
+                  or call 281-861-6970.
                 </p>
               </div>
               <div className="text-center p-5">

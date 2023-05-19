@@ -13,6 +13,7 @@ import laminate from '../../../../assets/img/laminate-category/How-to-Clean-Lami
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import OffersModal from '../../Offers/OffersModal';
+import Banner from './Banner';
 
 
 
@@ -20,7 +21,8 @@ const Laminate = () => {
     return (
         <div>
             <OffersModal></OffersModal>
-            <div className="hero mt-10" style={{ backgroundImage: `url(${BannerBg})` }}>
+            <Banner/>
+            <div className="hero" style={{ backgroundImage: `url(${BannerBg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content lg:p-40">
                     <div className="max-w-lg">

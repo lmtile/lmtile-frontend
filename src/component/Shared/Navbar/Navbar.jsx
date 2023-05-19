@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaStar, FaStarHalf, FaHeart, FaClock, FaBars } from "react-icons/fa";
-import logo from "../../../assets/img/home page/web-logo.png";
+import logo from "../../../assets/img/home page/logo.jpg";
 import { Link } from "react-router-dom";
 import megaMenu1 from "../../../assets/img/home page/HOMEFresh-megamenu.png";
 
@@ -200,7 +200,7 @@ const Navbar = () => {
                       </p>
                       <ul className="mt-3 text-[15px]">
                         <li>
-                          <Link>Wood Laminate</Link>
+                          <Link to="/products/laminate">Wood Laminate</Link>
                         </li>
                       </ul>
                       <Link to="/products/laminate">
@@ -332,6 +332,21 @@ const Navbar = () => {
                             Travertine
                           </Link>
                         </li>
+                        <li>
+                          <Link to="/products/tile?type=Ceramic">
+                            Ceramic
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/products/tile?type=Porcelain">
+                            Porcelain
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/products/tile?type=Wood%20look%20tile">
+                            Wood look tile
+                          </Link>
+                        </li>
                       </ul>
                       <Link to="/products/tile">
                         <button className="btn btn-dark mt-5">
@@ -393,7 +408,7 @@ const Navbar = () => {
                   </ul>
                 </li>
                 <li tabIndex={0}>
-                  <a className="justify-between">
+                  <a className="justify-between" href="https://www.roomvo.com/my/mellifluousraindrop34e39fnetlifyapp/rooms?visitor_id=888b218b66774ac0bfacec16bbed1a36&tracking_code=&locale=en-us&prefilter=%7B%22brands%22%3A%5B%5D%7D&is_dealer=1&iframe_id=ffPopup&originator=&use_host_navigation=1&vendor_code=&product_type=1&domain=mellifluous-raindrop-34e39f.netlify.app&is_in_top_window=0&use_history_padding=0">
                     Visualizer
                     <svg
                       className="fill-current"
@@ -427,17 +442,17 @@ const Navbar = () => {
                       </p>
                       <ul className="mt-3 text-[15px]">
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                          <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks">
                             Double Bowl Kitchen Sinks
                           </Link>
                         </li>
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
+                          <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks">
                             Single Bowl Kitchen Sinks
                           </Link>
                         </li>
                         <li className="pb-2">
-                          <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">
+                          <Link to="/products/sink?type=Quartz%20Composite%20Sinks">
                             Quartz Composite Sinks
                           </Link>
                         </li>
@@ -447,7 +462,7 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">
+                          <Link to="/products/sink?type=Vanity%20Sinks">
                             Vanity Sinks - Undermount, Overmount
                           </Link>
                         </li>
@@ -529,7 +544,7 @@ const Navbar = () => {
 
             <Link to={"/"}>
               <img
-                className="w-[120px] md:w-[200px] lg:w-[200px] ml-10"
+                className="w-[120px] md:w-[200px] lg:w-[250px] ml-10"
                 src={logo}
                 alt=""
               />
@@ -538,13 +553,222 @@ const Navbar = () => {
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center font-semibold">
               <li className="relative group px-3 py-8">
+                <Link to="/tileCategory">
+                  <button className="group-hover:border-b-4 border-black cursor-default">
+                    Tile
+                  </button>
+                </Link>
+                <div className="absolute top-8 -left-20 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
+                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
+                    <div className="relative z-40">
+                      <div className="grid grid-cols-2 gap-6">
+                        <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Collection
+                          </p>
+                          <ul className="mt-3 text-[15px]">
+                            <li className="pb-2">
+                              <Link to="/products/tile?type=Marble">
+                                Marble
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/tile?type=Travertine">
+                                Travertine
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/tile?type=Ceramic">
+                                Ceramic
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/tile?type=Porcelain">
+                                Porcelain
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/products/tile?type=Wood%20look%20tile">
+                                Wood look tile
+                              </Link>
+                            </li>
+                          </ul>
+                          <Link to="/products/tile">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL TILE
+                            </button>
+                          </Link>
+                        </div>
+                        <Link to="/tileCategory">
+                          <div className="card w-40 glass mt-5 rounded-none">
+                            <figure>
+                              <img src={megaMenu1} alt="car!" />
+                            </figure>
+                            <div className="card-body">
+                              <Link to="/tileCategory">
+                                <h6 className="">LM-TILE EXCLUSIVE - TILE</h6>
+                              </Link>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="relative group px-3 py-8">
+                <Link to="/hardwoodCategory">
+                  <button className="group-hover:border-b-4 border-black cursor-default">
+                    Hardwood
+                  </button>
+                </Link>
+                <div className="absolute top-8 -left-20 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[800px] transform ">
+                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
+                    <div className="relative z-40">
+                      <div className="grid grid-cols-3 gap-6">
+                        <div className="ml-10">
+                          <Link to="/products/hardwood">
+                            <button className="btn btn-dark mt-10">
+                              SEE ALL HARDWOOD
+                            </button>
+                          </Link>
+                        </div>
+                        <div className="ml-10">
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Color
+                          </p>
+                          <ul className="mt-3 text-[15px]">
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=beige">
+                                Beige Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=black">
+                                Black Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=blue">
+                                Blue Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=brown">
+                                Brown Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=gold">
+                                Gold Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=green">
+                                Green Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=gray">
+                                Gray Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=natural">
+                                Natural Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=red">
+                                Red Hardwood
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/hardwood?color=white">
+                                White Hardwood
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                        <Link to="/hardwoodCategory">
+                          <div className="card w-40 glass mt-5 rounded-none">
+                            <figure>
+                              <img src={megaMenu1} alt="car!" />
+                            </figure>
+                            <div className="card-body">
+                              <Link to="/hardwoodCategory">
+                                <h6 className="">
+                                  LM-TILE EXCLUSIVE - HARDWOOD
+                                </h6>
+                              </Link>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="relative group px-3 py-8">
+                <Link to="/laminateCategory">
+                  <button className="group-hover:border-b-4 border-black cursor-default">
+                    Laminate
+                  </button>
+                </Link>
+                <div className="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform ">
+                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
+                    <div className="relative z-40">
+                      <div className="grid grid-cols-2 gap-6">
+                        <div>
+                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
+                            Shop by Type
+                          </p>
+                          <ul className="mt-3 text-[15px]">
+                            <li>
+                              <Link to="/products/laminate">Wood Laminate</Link>
+                            </li>
+                          </ul>
+                          <Link to="/products/laminate">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL LAMINATE
+                            </button>
+                          </Link>
+                        </div>
+
+                        <Link to="/laminateCategory">
+                          <div className="card w-40 glass mt-5 rounded-none">
+                            <figure>
+                              <img src={megaMenu1} alt="car!" />
+                            </figure>
+                            <div className="card-body">
+                              <Link to="/laminateCategory">
+                                <h6 className="">
+                                  LM-TILE EXCLUSIVE - LAMINATE
+                                </h6>
+                              </Link>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="relative group px-3 py-8">
+                <Link to="/spcCategory">
+                  <button className="group-hover:border-b-4 border-black cursor-default hover:cursor-pointer">
+                    SPC
+                  </button>
+                </Link>
+              </li>
+              <li className="relative group px-3 py-8">
                 <Link to="/carpetCategory">
                   <button className="group-hover:border-b-4  border-black cursor-default">
                     Carpet
                   </button>
                 </Link>
 
-                <div className="absolute top-8 -left-20 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[900px] transform ">
+                <div className="absolute top-8 -left-96 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[900px] transform ">
                   <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div className="relative z-40">
                       <div className="grid grid-cols-4 gap-6">
@@ -661,12 +885,12 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/laminateCategory">
+                <Link to="/countertopsCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
-                    Laminate
+                    Countertops
                   </button>
                 </Link>
-                <div className="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform ">
+                <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div className="relative z-40">
                       <div className="grid grid-cols-2 gap-6">
@@ -675,120 +899,56 @@ const Navbar = () => {
                             Shop by Type
                           </p>
                           <ul className="mt-3 text-[15px]">
-                            <li>
-                              <Link>Wood Laminate</Link>
-                            </li>
-                          </ul>
-                          <Link to="/products/laminate">
-                            <button className="btn btn-dark mt-40">
-                              SEE ALL LAMINATE
-                            </button>
-                          </Link>
-                        </div>
+                            <li className="pb-2">
+                              <Link to="/products/countertops?type=QUARTZ">
+                                QUARTZ
 
-                        <Link to="/laminateCategory">
-                          <div className="card w-40 glass mt-5 rounded-none">
-                            <figure>
-                              <img src={megaMenu1} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link to="/laminateCategory">
-                                <h6 className="">
-                                  LM-TILE EXCLUSIVE - LAMINATE
-                                </h6>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="relative group px-3 py-8">
-                <Link to="/hardwoodCategory">
-                  <button className="group-hover:border-b-4 border-black cursor-default">
-                    Hardwood
-                  </button>
-                </Link>
-                <div className="absolute top-8 -left-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[800px] transform ">
-                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                    <div className="relative z-40">
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="ml-10">
-                          <Link to="/products/hardwood">
-                            <button className="btn btn-dark mt-10">
-                              SEE ALL HARDWOOD
-                            </button>
-                          </Link>
-                        </div>
-                        <div className="ml-10">
-                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                            Shop by Color
-                          </p>
-                          <ul className="mt-3 text-[15px]">
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=beige">
-                                Beige Hardwood
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/hardwood?color=black">
-                                Black Hardwood
+                              <Link to="/products/countertops?type=GRANITE">
+                                GRANITE
+
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/hardwood?color=blue">
-                                Blue Hardwood
+                              <Link to="/products/countertops?type=MARBLE">
+                                MARBLE
+
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/hardwood?color=brown">
-                                Brown Hardwood
+                              <Link to="/products/countertops?type=QUARTZITE">
+                                QUARTZITE
+
                               </Link>
                             </li>
                             <li className="pb-2">
-                              <Link to="/products/hardwood?color=gold">
-                                Gold Hardwood
+                              <Link to="/products/countertops?type=TRAVERTINE">
+                                TRAVERTINE
+
                               </Link>
                             </li>
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=green">
-                                Green Hardwood
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=gray">
-                                Gray Hardwood
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=natural">
-                                Natural Hardwood
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=red">
-                                Red Hardwood
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/hardwood?color=white">
-                                White Hardwood
+                            <li>
+                              <Link to="/products/countertops?type=SOAPSTONE">
+                                SOAPSTONE
                               </Link>
                             </li>
                           </ul>
+                          <Link to="/products/countertops">
+                            <button className="btn btn-dark mt-40">
+                              SEE ALL COUNTERTOPS
+                            </button>
+                          </Link>
                         </div>
-                        <Link to="/hardwoodCategory">
+                        <Link to="/sinkCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link to="/hardwoodCategory">
-                                <h6 className="">
-                                  LM-TILE EXCLUSIVE - HARDWOOD
-                                </h6>
+                              <Link to="/sinkCategory">
+                                <h6 className="">LM-TILE EXCLUSIVE - COUNTERTOPS</h6>
                               </Link>
                             </div>
                           </div>
@@ -799,52 +959,60 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="relative group px-3 py-8">
-                <Link to="/spcCategory">
-                  <button className="group-hover:border-b-4 border-black cursor-default hover:cursor-pointer">
-                    SPC
-                  </button>
-                </Link>
-              </li>
-              <li className="relative group px-3 py-8">
-                <Link to="/tileCategory">
+                <Link to="/sinkCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
-                    Tile
+                    Sink
                   </button>
                 </Link>
-                <div className="absolute top-8 -right-48 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
+                <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
                   <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
                     <div className="relative z-40">
                       <div className="grid grid-cols-2 gap-6">
                         <div>
                           <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                            Shop by Collection
+                            Shop by Type
                           </p>
                           <ul className="mt-3 text-[15px]">
                             <li className="pb-2">
-                              <Link to="/products/tile?type=Marble">
-                                Marble
+                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks">
+                                Double Bowl Kitchen Sinks
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks">
+                                Single Bowl Kitchen Sinks
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks">
+                                Quartz Composite Sinks
+                              </Link>
+                            </li>
+                            <li className="pb-2">
+                              <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks">
+                                Farmhouse Apron Kitchen Sinks
                               </Link>
                             </li>
                             <li>
-                              <Link to="/products/tile?type=Travertine">
-                                Travertine
+                              <Link to="/products/sink?type=Vanity%20Sinks">
+                                Vanity Sinks - Undermount, Overmount
                               </Link>
                             </li>
                           </ul>
-                          <Link to="/products/tile">
+                          <Link to="/products/sink">
                             <button className="btn btn-dark mt-40">
-                              SEE ALL TILE
+                              SEE ALL SINK
                             </button>
                           </Link>
                         </div>
-                        <Link to="/tileCategory">
+                        <Link to="/sinkCategory">
                           <div className="card w-40 glass mt-5 rounded-none">
                             <figure>
                               <img src={megaMenu1} alt="car!" />
                             </figure>
                             <div className="card-body">
-                              <Link to="/tileCategory">
-                                <h6 className="">LM-TILE EXCLUSIVE - TILE</h6>
+                              <Link to="/sinkCategory">
+                                <h6 className="">LM-TILE EXCLUSIVE - SINK</h6>
                               </Link>
                             </div>
                           </div>
@@ -925,144 +1093,8 @@ const Navbar = () => {
                   Visualizer
                 </button></a>
               </li>
-              <li className="relative group px-3 py-8">
-                <Link to="/sinkCategory">
-                  <button className="group-hover:border-b-4 border-black cursor-default">
-                    Sink
-                  </button>
-                </Link>
-                <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
-                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                    <div className="relative z-40">
-                      <div className="grid grid-cols-2 gap-6">
-                        <div>
-                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                            Shop by Type
-                          </p>
-                          <ul className="mt-3 text-[15px]">
-                            <li className="pb-2">
-                              <Link to="/products/sink?type=Double%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
-                                Double Bowl Kitchen Sinks
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/sink?type=Single%20Bowl%20Kitchen%20Sinks%20-%20Undermount%2C%20Handcrafted">
-                                Single Bowl Kitchen Sinks
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/sink?type=Quartz%20Composite%20Sinks%20-%20Undermount">
-                                Quartz Composite Sinks
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/products/sink?type=Farmhouse%20Apron%20Kitchen%20Sinks">
-                                Farmhouse Apron Kitchen Sinks
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/products/sink?type=Vanity%20Sinks%20-%20Undermount%2C%20Overmount">
-                                Vanity Sinks - Undermount, Overmount
-                              </Link>
-                            </li>
-                          </ul>
-                          <Link to="/products/sink">
-                            <button className="btn btn-dark mt-40">
-                              SEE ALL SINK
-                            </button>
-                          </Link>
-                        </div>
-                        <Link to="/sinkCategory">
-                          <div className="card w-40 glass mt-5 rounded-none">
-                            <figure>
-                              <img src={megaMenu1} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link to="/sinkCategory">
-                                <h6 className="">LM-TILE EXCLUSIVE - SINK</h6>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li className="relative group px-3 py-8">
-                <Link to="/countertopsCategory">
-                  <button className="group-hover:border-b-4 border-black cursor-default">
-                    Countertops
-                  </button>
-                </Link>
-                <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
-                  <div className="relative top-10 p-6  shadow-xl w-full bg-base-300">
-                    <div className="relative z-40">
-                      <div className="grid grid-cols-2 gap-6">
-                        <div>
-                          <p className="uppercase tracking-wider text-gray-500 font-bold text-[13px]">
-                            Shop by Type
-                          </p>
-                          <ul className="mt-3 text-[15px]">
-                            <li className="pb-2">
-                              <Link to="/products/countertops?type=QUARTZ">
-                                QUARTZ
-                                
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/countertops?type=GRANITE">
-                                GRANITE
-                                
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/countertops?type=MARBLE">
-                                MARBLE
-                                
-                              </Link>
-                            </li>
-                            <li className="pb-2">
-                              <Link to="/products/countertops?type=QUARTZITE">
-                                QUARTZITE
-                               
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/products/countertops?type=TRAVERTINE">
-                                TRAVERTINE
-                               
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/products/countertops?type=SOAPSTONE">
-                                SOAPSTONE
-                              </Link>
-                            </li>
-                          </ul>
-                          <Link to="/products/countertops">
-                            <button className="btn btn-dark mt-40">
-                              SEE ALL COUNTERTOPS
-                            </button>
-                          </Link>
-                        </div>
-                        <Link to="/sinkCategory">
-                          <div className="card w-40 glass mt-5 rounded-none">
-                            <figure>
-                              <img src={megaMenu1} alt="car!" />
-                            </figure>
-                            <div className="card-body">
-                              <Link to="/sinkCategory">
-                                <h6 className="">LM-TILE EXCLUSIVE - COUNTERTOPS</h6>
-                              </Link>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              
+              
               {/* <li className="relative group px-3 py-8">
                 <Link to={"/forBusiness"}>
                   <button className="group-hover:border-b-4 border-black cursor-default">
@@ -1104,13 +1136,13 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to={"/schedule"}
-            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block">SCHEDULE NOW</button>
+            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block text-lg">Free Estimate</button>
             </Link>
             <Link
               to={"/schedule"}
               className="btn font-bold rounded-none btn-warning md:hidden lg:hidden"
             >
-              <FaClock className="lg:text2xl lg:mr-5 mr-1" /> SCHEDULE
+              <FaClock className="lg:text2xl lg:mr-5 mr-1" /> Estimate
             </Link>
           </div>
         </div>

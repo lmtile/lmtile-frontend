@@ -260,20 +260,23 @@ export default class BookingModal extends Component {
                 <input
                   type="radio"
                   name="send_message"
-                  className="radio"
+                  className="radio radio-primary"
                   onChange={this.handleChange}
                   value="Yes"
                   checked={formData.send_message === "Yes"}
+
                 />
                 <p>no</p>
                 <input
                   type="radio"
                   name="send_message"
-                  className="radio"
+                  className="radio radio-primary"
                   onChange={this.handleChange}
                   value="No"
                   checked={formData.send_message === "No"}
+
                 />
+
               </div>
 
               <p className="font-bold ml-2">City</p>

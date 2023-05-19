@@ -91,9 +91,7 @@ const Schedule = () => {
                   TOP QUALITY,NAME-BRAND FLOORING
                 </h1>
                 <p className="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  At LM Tile we pride ourselves on providing the highest quality products to our valued customers. When it comes to flooring, we exclusively use top-of-the-line, name brand options. We understand that the floor is a crucial element in any space, and we believe in delivering nothing short of excellence. By utilizing these renowned brands, we ensure that our customers receive durable, stylish, and long-lasting flooring solutions that not only enhance the aesthetics of their homes but also stand the test of time. With our commitment to using top quality name brand flooring, we guarantee customer satisfaction and a result that exceeds expectations.
                 </p>
               </div>
             </div>
@@ -110,9 +108,7 @@ const Schedule = () => {
                   LATEST STYLES AND COLORS
                 </h1>
                 <p className="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  LM Tile  stays ahead of the trends to offer our customers the latest styles and colors in our product selection. We understand that aesthetics play a crucial role in transforming a space, and that's why we constantly update our inventory to include the most fashionable and contemporary options available.
                 </p>
               </div>
             </div>
@@ -129,9 +125,7 @@ const Schedule = () => {
                   DURABLE AND LONG LASTING
                 </h1>
                 <p className="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  LM tile  prioritizes durability and longevity in our product offerings. We understand that investing in remodeling projects is a significant decision, and our goal is to provide our customers with products that will stand the test of time. That's why we source materials that are known for their exceptional durability, ensuring that they can withstand daily wear and tear without compromising on quality or aesthetics. Whether it's flooring, countertops, cabinets, or any other remodeling element, our products are built to last. We believe in delivering not only immediate satisfaction but also long-term value, providing our customers with the peace of mind that their investment will continue to serve them for years to come.
                 </p>
               </div>
             </div>
