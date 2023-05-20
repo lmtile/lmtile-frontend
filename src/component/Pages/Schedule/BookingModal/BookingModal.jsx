@@ -43,12 +43,15 @@ export default class BookingModal extends Component {
         this.setState({ isLoading: false });
         if (res.data.success) {
           let { category } = res.data;
-          let allCatergory = category.map((cat) => {
-            return {
-              label: cat.category,
-              value: cat._id,
-              sub_cat: cat.sub_cat,
-            };
+          let allCatergory = [];
+          category.forEach((cat) => {
+            if (cat._id !== "641d20b1a5e4c0ccf098f2fb") {
+              allCatergory.push({
+                label: cat.category,
+                value: cat._id,
+                sub_cat: cat.sub_cat,
+              });
+            }
           });
           this.setState({ allCatergory });
         } else {
@@ -264,7 +267,6 @@ export default class BookingModal extends Component {
                   onChange={this.handleChange}
                   value="Yes"
                   checked={formData.send_message === "Yes"}
-
                 />
                 <p>no</p>
                 <input
@@ -274,9 +276,7 @@ export default class BookingModal extends Component {
                   onChange={this.handleChange}
                   value="No"
                   checked={formData.send_message === "No"}
-
                 />
-
               </div>
 
               <p className="font-bold ml-2">City</p>

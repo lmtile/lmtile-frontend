@@ -104,12 +104,15 @@ export default function UserAllProducts() {
       .then((res) => {
         if (res.data.success) {
           let { category } = res.data;
-          let allCatergory = category.map((cat) => {
-            return {
-              label: cat.category,
-              value: cat._id,
-              sub_cat: cat.sub_cat,
-            };
+          let allCatergory = [];
+          category.forEach((cat) => {
+            if (cat._id !== "641d20b1a5e4c0ccf098f2fb") {
+              allCatergory.push({
+                label: cat.category,
+                value: cat._id,
+                sub_cat: cat.sub_cat,
+              });
+            }
           });
 
           let index = _.findIndex(allCatergory, ({ label }) => {
@@ -270,6 +273,7 @@ export default function UserAllProducts() {
           </button>
         </div>
 
+        <h1>{select_category.toUpperCase()}</h1>
         <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">
           {products.map((product, key) => {
             return (
