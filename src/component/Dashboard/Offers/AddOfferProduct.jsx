@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
-import moment from "moment";
-import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import _ from "lodash";
-import { DATE_TIME_HELPER, getFileExtension } from "../../../helper/Helper";
+import { getFileExtension } from "../../../helper/Helper";
 import { upload_img_icon } from "../../../assets/img";
 import config from "../../../config/config";
 
@@ -138,12 +136,12 @@ export default class AddOfferProduct extends Component {
 
             <div className="flex">
               <div>
-                <p className="font-bold ml-2">Product Name *</p>
+                <p className="font-bold ml-2">Product Name </p>
 
                 <input
                   name="product_category"
                   type="text"
-                  required
+                  // required
                   placeholder="Product Name"
                   className="input w-80 input-bordered "
                   value={formData.product_category}
@@ -181,12 +179,12 @@ export default class AddOfferProduct extends Component {
                 <p className="text-red-800">{error.cupon_code}</p>
               </div>
               <div className="ml-5">
-                <p className="font-bold ml-2">Expires *</p>
+                <p className="font-bold ml-2">Expires</p>
 
                 <input
                   name="expire_date"
                   type="text"
-                  required
+                  // required
                   placeholder="Expire Date"
                   className="input w-80 input-bordered"
                   value={formData.expire_date}
