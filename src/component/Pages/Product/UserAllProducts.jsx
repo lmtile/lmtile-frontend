@@ -156,7 +156,7 @@ export default function UserAllProducts() {
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
       <div className="lg:flex  bg-base-100">
-        <div className="pl-5 gap-x-5 mt-20">
+        <div className="mx-5 gap-x-5 mt-20">
           <input
             type="text"
             placeholder="Search"
@@ -202,7 +202,7 @@ export default function UserAllProducts() {
           </div>
 
           {sub_cat.length > 0 && (
-            <div className="collapse collapse-plus, bg-base-100 shadow-black shadow-2xl mb-5">
+            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
               <input type="checkbox" />
               <div className="collapse-title font-bold">Type</div>
               <div className="collapse-content">

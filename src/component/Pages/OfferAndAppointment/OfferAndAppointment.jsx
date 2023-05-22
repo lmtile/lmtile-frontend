@@ -49,7 +49,7 @@ const OfferAndAppointment = () => {
                       key={key}
                       className="bg-red-800 font-bold text-white p-2 lg:p-5 md:p-5 mt-10 rounded-2xl"
                     >
-                      <h1 className="text-lg md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
+                      <h1 className=" md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
                       <p>{data.title}</p>
                     </div>
                   );
