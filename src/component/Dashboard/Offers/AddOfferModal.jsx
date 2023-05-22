@@ -55,7 +55,7 @@ const AddOfferModal = () => {
           <form onSubmit={submitdata}>
             <h1 className="text-4xl text-center my-10">Add offer modal</h1>
             <div>
-              <p className="text-lg font-bold">Modal title*</p>
+              <p className="text-lg font-bold">Modal title</p>
               <input
                 type="text"
                 className="input input-bordered w-full"
@@ -63,17 +63,17 @@ const AddOfferModal = () => {
                 name="title"
                 value={inputData.title}
                 onChange={onChange}
-                required
+                // required
               />
             </div>
             <div>
-              <p className="text-lg font-bold">Description*</p>
+              <p className="text-lg font-bold">Description</p>
               <textarea
                 className="textarea textarea-bordered w-full"
                 placeholder="Description"
                 onChange={onChange}
                 name="description"
-                required
+                // required
                 value={inputData.description}
               />
             </div>

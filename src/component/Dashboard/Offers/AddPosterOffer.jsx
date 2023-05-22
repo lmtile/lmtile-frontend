@@ -3,7 +3,7 @@ import axios from "../../../config/axios";
 import message from "../../../config/message";
 import LoadingOverlay from "react-loading-overlay";
 import config from "../../../config/config";
-import { FaClosedCaptioning, FaCrop, FaCross, FaPlus, FaWindowClose } from "react-icons/fa";
+import { FaPlus, FaWindowClose } from "react-icons/fa";
 
 const AddPosterOffer = () => {
   const [inputData, setInputData] = useState({
@@ -78,7 +78,7 @@ const AddPosterOffer = () => {
             className="input w-[660px] input-bordered "
             value={inputData.title}
             onChange={handleChange}
-            required
+            // required
           />
 
           <div className="grid grid-cols-3 gap-x-5">
@@ -114,7 +114,7 @@ const AddPosterOffer = () => {
                         offer: e.target.value,
                       });
                     }}
-                    required
+                    // required
                   />
                 </div>
                 <div className="ml-5">
@@ -131,7 +131,7 @@ const AddPosterOffer = () => {
                         title: e.target.value,
                       });
                     }}
-                    required
+                    // required
                   />
                 </div>
                 <button
@@ -152,12 +152,11 @@ const AddPosterOffer = () => {
                       setIsAnotherOffer(true);
                     }
                   }}
-                ><FaPlus />
+                >
+                  <FaPlus />
                   Add Another offer
                 </button>
               </div>
-
-              
             </>
           )}
 
@@ -217,10 +216,10 @@ const AddPosterOffer = () => {
                         setIsAnotherOffer(true);
                       }
                     }}
-                  ><FaPlus/>
+                  >
+                    <FaPlus />
                     Add Another offer
                   </button>
-                  
                 </div>
                 <div>
                   <button
@@ -233,13 +232,12 @@ const AddPosterOffer = () => {
                       });
                       setIsAnotherOffer(false);
                     }}
-                  ><FaWindowClose />
+                  >
+                    <FaWindowClose />
                     Cancel
                   </button>
                 </div>
               </div>
-
-              
             </>
           )}
 
