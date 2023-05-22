@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BannerBg from "../../../assets/img/laminate-category/LaminateFlooringGuides.webp";
+import BannerBg from "../../../assets/img/home page/WhatsApp.jpg";
 import OffersModal from "../Offers/OffersModal";
 import axios from "../../../config/axios";
 import message from "../../../config/message";
@@ -42,7 +42,7 @@ const Financing = () => {
       <div>
         <OffersModal />
         <div
-          className="hero mt-10"
+          className="hero "
           style={{ backgroundImage: `url(${BannerBg})` }}
         >
           <div className="hero-overlay bg-opacity-10"></div>
@@ -55,10 +55,10 @@ const Financing = () => {
             </div>
           </div>
         </div>
-        <div className="grid  grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 bg-base-300 p-10">
+        <div className="flex gap-10 bg-base-300 p-10">
           {packages.map((pack, key) => {
             return (
-              <div className="p-5 bg-base-100" key={key}>
+              <div className="p-5 bg-base-100 mx-auto" key={key}>
                 <div className="">
                   <div className="text-center p-10 bg-base-300">
                     <h1 className="text-5xl text-red-800 font-bold pb-5">
@@ -75,7 +75,7 @@ const Financing = () => {
                     id="todo"
                   ></div>
                   <div className="text-center my-5">
-                    <Link to="/schedule"><button className="btn btn-outline hover:bg-red-800 rounded-none w-full">APPLY NOW</button></Link>
+                    <Link to="https://www.mysynchrony.com/mmc/MI155115400"><button className="btn btn-outline hover:bg-red-800 rounded-none w-full">APPLY NOW</button></Link>
                   </div>
                 </div>
               </div>

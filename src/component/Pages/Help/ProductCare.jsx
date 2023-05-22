@@ -1,6 +1,6 @@
 import React from 'react';
 import OffersModal from '../Offers/OffersModal';
-import Banner from '../../../assets/img/laminate-category/LaminateFlooringGuides.webp'
+import Banner from '../../../assets/img/productCare/WhatsApp.jpg'
 import carpet from '../../../assets/img/productCare/carpet.png'
 import laminate from '../../../assets/img/productCare/hardwood.png'
 import hardwood from '../../../assets/img/productCare/laminate.png'

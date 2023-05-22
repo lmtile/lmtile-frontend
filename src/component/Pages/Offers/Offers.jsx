@@ -124,12 +124,12 @@ export default class Offers extends Component {
           <h1 className="text-3xl my-10 text-center">
             <span className="font-bold">OTHER COUPONS & DEALS</span>
           </h1>
-          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="md:flex lg:flex px-5">
             {offer_product.map((product, key) => {
               return (
                 <div
                   key={key}
-                  className="card bg-base-100 shadow-black hover:shadow-xl shadow-2xl rounded-none"
+                  className="card bg-base-100 shadow-black hover:shadow-xl shadow-2xl rounded-none mx-auto"
                 >
                   <figure>
                     <img

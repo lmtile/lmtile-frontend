@@ -38,18 +38,18 @@ const OfferAndAppointment = () => {
       <div className="hero-content flex-col lg:flex-row-reverse md:flex-row-reverse lg:py-20 lg:mt-40">
         <div className="text-center lg:text-left lg:ml-5 shadow-2xl shadow-red-800">
           {posters?.map((poster, key) => (
-            <div key={key} className="bg-base-100 p-10">
+            <div key={key} className="bg-base-100 p-5 md:p-10 lg:p-10">
               <h1 className="text-white text-3xl font-bold p-5 bg-blue-800  text-center rounded-tl-3xl rounded-br-3xl mx-10">
                 {poster.title}
               </h1>
-              <div className="grid grid-cols-3 gap-x-5">
+              <div className="grid grid-cols-3 gap-x-2 md:gap-x-5 lg:gap-x-5">
                 {poster.offers.map((data, key) => {
                   return (
                     <div
                       key={key}
-                      className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl"
+                      className="bg-red-800 font-bold text-white p-2 lg:p-5 md:p-5 mt-10 rounded-2xl"
                     >
-                      <h1 className="text-2xl md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
+                      <h1 className=" md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
                       <p>{data.title}</p>
                     </div>
                   );

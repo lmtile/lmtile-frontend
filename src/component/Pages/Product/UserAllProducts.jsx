@@ -156,7 +156,7 @@ export default function UserAllProducts() {
     <LoadingOverlay active={loading} spinner text="Loading ...">
       <OffersModal />
       <div className="lg:flex  bg-base-100">
-        <div className="pl-5 gap-x-5 mt-20">
+        <div className="mx-5 gap-x-5 mt-20">
           <input
             type="text"
             placeholder="Search"
@@ -202,7 +202,7 @@ export default function UserAllProducts() {
           </div>
 
           {sub_cat.length > 0 && (
-            <div className="collapse collapse-plus, bg-base-100 shadow-black shadow-2xl mb-5">
+            <div className="collapse collapse-plus bg-base-100 shadow-black shadow-2xl mb-5">
               <input type="checkbox" />
               <div className="collapse-title font-bold">Type</div>
               <div className="collapse-content">
@@ -272,39 +272,41 @@ export default function UserAllProducts() {
             {isapplyFilter ? "Clear" : "Apply"}
           </button>
         </div>
-
-        <h1>{select_category.toUpperCase()}</h1>
-        <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">
-          {products.map((product, key) => {
-            return (
-              <Link key={key} to={`/product-details/${product._id}`}>
-                <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-300 mx-auto">
-                  <div>
-                    <img
-                      src={`${BUCKET_DOMAIN}${product.images[0]} `}
-                      alt={product.name}
-                      className="h-72 mx-auto"
-                    />
-                    <p className="text-xl font-bold">{product.name}</p>
-                    <p>
-                      <div style={{ display: "flex", alignItems: "center" }}>
-                        <div
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "10px",
-                            backgroundColor: product?.color_details?.color,
-                          }}
-                        ></div>
-                        {product?.color_details?.label}
-                      </div>
-                    </p>
+        <div className="px-10 mb-10 mx-auto">
+          <h1 className="text-center text-3xl font-bold mt-10">{select_category.toUpperCase()}</h1>
+          <div className="grid gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mb-10 mt-20 mx-auto">
+            {products.map((product, key) => {
+              return (
+                <Link key={key} to={`/product-details/${product._id}`}>
+                  <div className="hover:shadow-xl shadow-2xl shadow-black w-80  p-5 bg-base-300 mx-auto">
+                    <div>
+                      <img
+                        src={`${BUCKET_DOMAIN}${product.images[0]} `}
+                        alt={product.name}
+                        className="h-72 mx-auto"
+                      />
+                      <p className="text-xl font-bold">{product.name}</p>
+                      <p>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <div
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "10px",
+                              backgroundColor: product?.color_details?.color,
+                            }}
+                          ></div>
+                          {product?.color_details?.label}
+                        </div>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+                </Link>
+              );
+            })}
+          </div>
+</div>
+        
       </div>
       <div id="react-paginate">
         <div className="">
