@@ -72,7 +72,7 @@ const AddPackage = () => {
             required
           />
 
-          <p className="font-bold ml-2">Package Sub Title *</p>
+          <p className="font-bold ml-2">Package Sub Title</p>
           <input
             name="sub_title"
             type="text"
@@ -80,7 +80,7 @@ const AddPackage = () => {
             className="input w-full input-bordered"
             value={inputData.sub_title}
             onChange={handleChange}
-            required
+            // required
           />
 
           <p className="font-bold ml-2">Description</p>
@@ -94,7 +94,7 @@ const AddPackage = () => {
           />
 
           <div>
-            <p className="font-bold ml-2 mb-2">Enter Package Details *</p>
+            <p className="font-bold ml-2 mb-2">Enter Package Details</p>
 
             <CKEditor
               editor={ClassicEditor}

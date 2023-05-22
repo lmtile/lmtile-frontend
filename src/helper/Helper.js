@@ -12,7 +12,7 @@ export const ProductColor = [
   { label: "Gray Darks", color: "#5A5A5A", value: "gray_dark" },
   { label: "Grays", color: "#808080", value: "gray" },
   { label: "Gray Lights", color: "#D3D3D3", value: "gray_light" },
-  { label: "Greens", color: "#00FF00", value: "green" },
+  { label: "Greens", color: "#013220", value: "green" },
   { label: "Natural / Beige", color: "#F5F5DC", value: "natural_beige" },
   { label: "Naturals", color: "#ae4a60", value: "natural" },
   { label: "Navy", color: "#000080", value: "navy" },

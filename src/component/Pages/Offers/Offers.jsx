@@ -75,9 +75,9 @@ export default class Offers extends Component {
           <div className="text-center p-20 bg-base-300">
             <h1 className="text-4xl font-bold mb-5">OFFERS</h1>
             <p className="text-lg">
-              Coupons and the Latest Deals on Carpet, Laminate,
-              Hardwood, SPC, Tile, Cabinet, Sink & Countertops. These offers won't last long, so
-              Schedule a FREE In-Home Estimate now!
+              Coupons and the Latest Deals on Carpet, Laminate, Hardwood, SPC,
+              Tile, Cabinet, Sink & Countertops. These offers won't last long,
+              so Schedule a FREE In-Home Estimate now!
             </p>
           </div>
           <div className="hero" style={{ backgroundImage: `url(${BannerBg})` }}>
@@ -96,7 +96,9 @@ export default class Offers extends Component {
                             key={key}
                             className="bg-red-800 font-bold text-white p-5 mt-10 rounded-2xl"
                           >
-                            <h1 className="text-2xl md:text-4xl lg:text-4xl">{data.offer}% OFF</h1>
+                            <h1 className="text-2xl md:text-4xl lg:text-4xl">
+                              {data.offer}% OFF
+                            </h1>
                             <p>{data.title}</p>
                           </div>
                         );
@@ -120,9 +122,7 @@ export default class Offers extends Component {
 
         <div className="bg-base-300 lg:p-20 p-10">
           <h1 className="text-3xl my-10 text-center">
-            <span className="font-bold">
-              OTHER COUPONS & DEALS
-            </span>
+            <span className="font-bold">OTHER COUPONS & DEALS</span>
           </h1>
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {offer_product.map((product, key) => {
@@ -146,9 +146,9 @@ export default class Offers extends Component {
                       {product.product_category}
                     </h2>
 
-                    <h2 className="card-title text-2xl font-bold text-red-800">
+                    {/* <h2 className="card-title text-2xl font-bold text-red-800">
                       {product.offer_amount} off
-                    </h2>
+                    </h2> */}
                     <h2 className="card-title text-xl uppercase">
                       Coupon Code: {product.cupon_code}
                     </h2>
@@ -165,7 +165,7 @@ export default class Offers extends Component {
                           APPLY
                         </button>
                       </Link>
-                   </div>
+                    </div>
                   </div>
                 </div>
               );
