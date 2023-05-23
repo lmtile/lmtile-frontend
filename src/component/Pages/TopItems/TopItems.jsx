@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import carpet from '../../../assets/img/top-items/20210203_BEDROOM_CARPET_SQUARE_5E290_00101.jpg'
 import Laminate from '../../../assets/img/top-items/2W778_01124_ROOM.jpg'
 import Hardwood from '../../../assets/img/top-items/GT607-Deerwood-Copy.jpg'
-import SPC from '../../../assets/img/top-items/SP802-191-01.jpg'
-import Tile from '../../../assets/img/top-items/rain-forest-marble.jpg'
+import SPC from '../../../assets/img/top-items/Spc.jpg'
+import Tile from '../../../assets/img/top-items/tile.jpg'
 import Cabinet from '../../../assets/img/top-items/Satin-Dusk-1.jpg'
 import Sink from '../../../assets/img/top-items/black-quartz-double-bowl-b.jpg'
-import countertops from '../../../assets/img/countertops-category/Granite-Countertops-1.jpg'
+import countertops from '../../../assets/img/top-items/countertops.jpg'
 
 
 const products = [
