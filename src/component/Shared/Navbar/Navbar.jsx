@@ -1136,7 +1136,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link
               to={"/schedule"}
-            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block text-lg">Free Estimate</button>
+            ><button className="btn font-bold rounded-none btn-warning hidden md:block lg:block text-lg">Book Free Estimate</button>
             </Link>
             <Link
               to={"/schedule"}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 import Logout from "../component/Login/Logout";
-import logo from "../assets/img/home page/web-logo.png";
+import logo from "../assets/img/home page/logo.jpg";
 
 const DashboardLayout = () => {
   if (!localStorage.getItem("token")) {

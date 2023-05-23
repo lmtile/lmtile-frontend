@@ -118,7 +118,7 @@ const Financing = () => {
             </div>
           </div> */}
         </div>
-        <div className="p-10 bg-base-300">
+        {/* <div className="p-10 bg-base-300">
           <p className="my-5">
             The LM-Tile credit card is issued by Wells Fargo Bank, N.A., an
             Equal Housing Lender. Special terms apply to qualifying purchases
@@ -161,7 +161,7 @@ const Financing = () => {
             Credit purchases subject to credit approval. Other transactions may
             affect the monthly payment.
           </p>
-        </div>
+        </div> */}
         <div className="my-20 text-center">
           <h1 className="text-4xl font-bold">READY TO GET STARTED?</h1>
           <p className="text-xl">Schedule a FREE IN-HOME ESTIMATE</p>
