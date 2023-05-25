@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3bdfef6a.css",
-    "main.js": "/static/js/main.07d977f7.js",
+    "main.js": "/static/js/main.8cdf4657.js",
     "static/js/787.936ddcb9.chunk.js": "/static/js/787.936ddcb9.chunk.js",
     "static/media/home.png": "/static/media/home.87188028341ca2e39229.png",
     "static/media/4.png": "/static/media/4.9b2146b337ac7e0274ff.png",
@@ -26,7 +26,6 @@
     "static/media/22.png": "/static/media/22.7f71804ec3e8946338d5.png",
     "static/media/finaltest.png": "/static/media/finaltest.86b3057c476fee8fda5f.png",
     "static/media/_American Reclaimed-7.jpg": "/static/media/61545f46eb42c40020cbb6c2_American Reclaimed-7.59957905213638bfc2b6.jpg",
-    "static/media/SP802-191-01.jpg": "/static/media/SP802-191-01.0b416f8bb492b41f1cbf.jpg",
     "static/media/athena-cielo-bathroom-install.gif": "/static/media/athena-cielo-bathroom-install.87ea0bdf9b2f0434e990.gif",
     "static/media/03bbb743-8424-480c-a686-dafbaa439b2f.png": "/static/media/03bbb743-8424-480c-a686-dafbaa439b2f.6120b6602c2c78fbae48.png",
     "static/media/YHtXGARMQviyPdQXXFTY.jpeg": "/static/media/YHtXGARMQviyPdQXXFTY.6f62e1dcbff51acf872c.jpeg",
@@ -78,7 +77,6 @@
     "static/media/JortDJYRQ3upAiqZ6UGS.jpeg": "/static/media/JortDJYRQ3upAiqZ6UGS.1473664e16edfdfbb79e.jpeg",
     "static/media/_dWG22sN.jpg": "/static/media/1480e8877d924d1d7fb3aeda4_dWG22sN.f1f445878f46aeb8f14a.jpg",
     "static/media/YZVCMTTWSDOUmL3rc7vn.jpeg": "/static/media/YZVCMTTWSDOUmL3rc7vn.26553dd6eef718462418.jpeg",
-    "static/media/rain-forest-marble.jpg": "/static/media/rain-forest-marble.c0fc51a68222426c80ad.jpg",
     "static/media/Untitled design (79).png": "/static/media/Untitled design (79).deae8f6e2aba74996268.png",
     "static/media/6KB9gGRUG02fAxy2Df0w.jpeg": "/static/media/6KB9gGRUG02fAxy2Df0w.416d79b8f6cfcf13ed06.jpeg",
     "static/media/0tiuvW8eRgSUfAmh1mN6.jpeg": "/static/media/0tiuvW8eRgSUfAmh1mN6.e8f48ea020fa8a5b7bb4.jpeg",
@@ -91,10 +89,13 @@
     "static/media/euro-slider.jpg": "/static/media/euro-slider.39a88da36d3e3d2e25d7.jpg",
     "static/media/hero_pg1-1920w.webp": "/static/media/hero_pg1-1920w.fd9f3a6c165c882128d4.webp",
     "static/media/q2pOVbl5Q72nfcSXWJeL.jpeg": "/static/media/q2pOVbl5Q72nfcSXWJeL.a6c6982a4084b2f921ae.jpeg",
+    "static/media/tile.jpg": "/static/media/tile.427c66881b516fc4507d.jpg",
     "static/media/mwtXBSqRRZ2vsuqWjua6 (1).jpeg": "/static/media/mwtXBSqRRZ2vsuqWjua6 (1).818148bedbed92212858.jpeg",
     "static/media/familyroom.png": "/static/media/familyroom.2f4eda8ecff7a5b2a74b.png",
     "static/media/dinning.png": "/static/media/dinning.5b0258e1775431b2a2a6.png",
     "static/media/officeroom.png": "/static/media/officeroom.b6ab611fbb9201943507.png",
+    "static/media/quartzbackground.jpg": "/static/media/quartzbackground.7fc41ff970ab4dd4f758.jpg",
+    "static/media/Spc.jpg": "/static/media/Spc.48054e35d7432b30a34a.jpg",
     "static/media/366a4f13-51a8-4f3c-8ceb-fe8d84ae2529.png": "/static/media/366a4f13-51a8-4f3c-8ceb-fe8d84ae2529.d8e0df4ba1d34cab2fe2.png",
     "static/media/poly2-1.jpg": "/static/media/poly2-1.3e6ab7117ef71afdf407.jpg",
     "static/media/bithroom.png": "/static/media/bithroom.cd3fb68c7306ad5be543.png",
@@ -137,6 +138,7 @@
     "static/media/luxury-vinyl-plank-laundry-room-rite-rug-flooring-img__16-4654-1-6f4279c.jpg": "/static/media/luxury-vinyl-plank-laundry-room-rite-rug-flooring-img_9221928b073e3660_16-4654-1-6f4279c.c833698b7158909b4cb3.jpg",
     "static/media/customer-service-call-center-ss-1920-1.jpg": "/static/media/customer-service-call-center-ss-1920-1.c43e6012230a1fcca4c3.jpg",
     "static/media/Granite-Countertops-1.jpg": "/static/media/Granite-Countertops-1.d6c5605de9b1cfff6ea5.jpg",
+    "static/media/countertops.jpg": "/static/media/countertops.5cd06c2a60e292f50af8.jpg",
     "static/media/laminate.png": "/static/media/laminate.2b31b8bf7a9d85236359.png",
     "static/media/Best-Flooring-Options-for-Families-with-Young-Children-Cover-12-05.jpg": "/static/media/Best-Flooring-Options-for-Families-with-Young-Children-Cover-12-05.ea7d9807a47e51f8a17f.jpg",
     "static/media/jpg": "/static/media/d4bba0e0b8b6fa62d39d1851bfe67958.cca14e2aed0cc9a9e444.jpg",
@@ -201,11 +203,11 @@
     "static/media/calculator.webp": "/static/media/calculator.f951e6fa177fc6bb6b0c.webp",
     "index.html": "/index.html",
     "main.3bdfef6a.css.map": "/static/css/main.3bdfef6a.css.map",
-    "main.07d977f7.js.map": "/static/js/main.07d977f7.js.map",
+    "main.8cdf4657.js.map": "/static/js/main.8cdf4657.js.map",
     "787.936ddcb9.chunk.js.map": "/static/js/787.936ddcb9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3bdfef6a.css",
-    "static/js/main.07d977f7.js"
+    "static/js/main.8cdf4657.js"
   ]
 }
