@@ -4,6 +4,7 @@ import OffersModal from '../../Offers/OffersModal';
 import SeeFloor from '../../SeeFloor/SeeFloor';
 import ShopHundreds from '../../ShopHundreds/ShopHundreds';
 import BannerBg from '../../../../assets/img/countertops-category/countertops-slabs-banner.jpg'
+import QUARTZ from '../../../../assets/img/countertops-category/quartzbackground.jpg'
 import granite from '../../../../assets/img/countertops-category/Granite-Countertops-1.jpg'
 import MARBLE from '../../../../assets/img/countertops-category/c-marble34-1-1200x845.jpg'
 import QUARTZITE from '../../../../assets/img/countertops-category/wichita-quartzite-countertops-800x533.jpg'
@@ -23,6 +24,18 @@ const CountertopsCategory = () => {
                     <div className="max-w-lg">
                         <h1 className="mb-5 text-4xl font-bold">Countertops to Change Your Lifestyle</h1>
                         <p className="mb-5">Countertop space is vital for any functioning kitchen. No matter what size you're working with, a kitchen counter provides stability and a little elbow room for even the simplest meals.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="hero bg-base-100 p-5" >
+                <div className='p-3 bg-base-100 shadow-2xl shadow-black'>
+                    <div className="hero-content flex-col lg:flex-row bg-base-300 ">
+                        <img src={QUARTZ} className=" lg:w-2/4 md:w-3/4 hover:shadow-2xl" alt='' />
+                        <div>
+                            <h1 className="text-4xl font-bold">QUARTZ</h1>
+                            <p className="py-6 text-lg">Quartz countertops are engineered stone surfaces. They combine the best of natural stone with modern manufacturing processes. This results in a surface that's comparable (and often superior) in beauty to granite and marble while offering greater durability.</p>
+                            <Link to="/products/countertops?type=QUARTZ"><button className='btn btn-outline rounded-none'>SHOP QUARTZ COUNTERTOPS</button></Link>
+                        </div>
                     </div>
                 </div>
             </div>

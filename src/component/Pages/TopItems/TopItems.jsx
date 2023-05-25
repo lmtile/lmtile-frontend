@@ -44,13 +44,13 @@ const products = [
     {
         id: '6',
         img: Cabinet,
-        title: 'Cabinet',
+        title: 'Cabinets',
         category: '/cabinetCategory'
     },
     {
         id: '7',
         img: Sink,
-        title: 'Sink',
+        title: 'Sinks',
         category: '/sinkCategory'
     },
     {

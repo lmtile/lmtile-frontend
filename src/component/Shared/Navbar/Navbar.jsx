@@ -961,7 +961,7 @@ const Navbar = () => {
               <li className="relative group px-3 py-8">
                 <Link to="/sinkCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
-                    Sink
+                    Sinks
                   </button>
                 </Link>
                 <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[700px] transform ">
@@ -1025,7 +1025,7 @@ const Navbar = () => {
               <li className="relative group px-3 py-8">
                 <Link to="/cabinetCategory">
                   <button className="group-hover:border-b-4 border-black cursor-default">
-                    Cabinet
+                    Cabinets
                   </button>
                 </Link>
                 <div className="absolute top-8 -right-32 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px]  ">

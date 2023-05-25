@@ -8,7 +8,7 @@ const WhatsApp = () => {
         <div>
 
             <WhatsAppWidget
-                phoneNo="17138223022"
+                phoneNo="17134599524"
                 position="right"
                 widgetWidth="300px"
                 widgetWidthMobile="260px"
